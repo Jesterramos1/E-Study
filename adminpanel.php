@@ -335,15 +335,41 @@
                                         
                                     </tbody>
                                 </table>
-                                
                             </div>
-
                         </div>   
-
-
-                        
-
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('.studyinfo').click(function(){
+                var resid = $(this).data('id');
+                $.ajax({
+                    url: 'ajaxfile.php',
+                    type: 'post',
+                    data: {resid: resid},
+                    success: function(response){ 
+                        $('.modal-body').html(response); 
+                        $('#empModal').modal('show'); 
+                    }
+                });
+            });
+        });
+    </script>
+    <div class="modal fade" id="empModal" role="dialog">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Research Info</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="scheduling.php" role="button">Book Visit</a>
                 </div>
             </div>
         </div>

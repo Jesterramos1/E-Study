@@ -21,13 +21,12 @@
    </head>
    <style>
     .page-container{
-      margin-top: 320px;
+      margin-top: 10%;
+      margin-bottom:;
     }
 
    </style>
 <body>
-
-
   <div class="sidebar">
     <div class="logo-details">
         <div class="logo_name">|E-STUDY</div>
