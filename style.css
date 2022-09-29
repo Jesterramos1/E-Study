@@ -1,0 +1,253 @@
+body{
+ overflow-x: hidden;
+ background-image: url('bg.png');
+}
+ /* NAVIGATION */
+.navbar{
+  background-color:#194f90;
+}
+
+ /* LOGO */
+#logo{
+  width: 9%;
+  height: 10%; 
+  margin-left: 20px;
+}
+
+ /* LOGIN FORM (ADMIN) #FFB833*/
+
+* {box-sizing: border-box;}
+
+.open-button {
+  background-color: #194f90;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  font-weight: bold;
+  
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #04AA6D;
+  padding: 16px 20px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: #a50000;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+#login{
+  color:#194f90;
+  text-align: center;
+  font-weight: bold;
+  line-height: 36px;
+  letter-spacing: -1px;
+}
+
+#main, p{
+  color:white;
+  margin-left: -87%;
+  position: absolute;
+  margin-top: -40px;
+}
+
+
+ /* SEARCH BAR */
+.search {
+  width: 100%;
+  position: absolute;
+  display: flex;
+}
+
+.searchTerm {
+  width: 90%;
+  border: 3px solid #194f90;
+  border-right: none;
+  padding: 5px;
+  height: 52px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  width: 40px;
+  height: 52px;
+  border: 1px solid #194f90;
+  background: #194f90;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.wrap{
+  width: 50%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ /* FLIP CARD #194f90*/
+#mainContainer{
+  position:absolute;
+  background-color: transparent;
+  padding:10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  
+}
+.card{
+  background-color: #5e1990;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 1.8%;
+}
+
+#sub{
+  height: 10%;
+  width: 10%;
+  
+}
+
+.ceat-row{
+  margin-left: 10%;
+}
+h4{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+}
+#dept{
+  margin-top: 180px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 110%)
+}
+
+#mainContainer .btn{
+  background-color: #194f90;
+  border: 2px solid white;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Helvetica";
+  letter-spacing: .5;
+}
+
+#mainContainer .btn{
+  background-color: transparent; 
+  color: white; 
+  border: 2px solid white;
+
+}
+
+#mainContainer .btn:hover{
+  background-color: #FFB833; 
+  color: black; 
+  border: 2px solid #194f90;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px; 
+}
+
+.flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 5px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #194f90;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 30px;
+}
