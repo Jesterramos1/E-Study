@@ -71,6 +71,7 @@ else{
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 
@@ -99,7 +100,7 @@ else{
   <div class="row justify-content-md-center">
     <div class="col col-lg-6">
       <div class="input-group">
-        <input type="search" class="form-control rounded" placeholder="What are you looking for" aria-label="Search" aria-describedby="search-addon" style="border-style: solid;border-width: 3px;border-color: #1c5090" />
+        <input type="text" class="form-control rounded" id="Search_bar" placeholder="What are you looking for" aria-label="Search" aria-describedby="search-addon" style="border-style: solid;border-width: 3px;border-color: #1c5090" />
         <button type="button" class="btn btn-outline-primary" style="border-style: solid;border-width: 3px;border-color: #1c5090">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -125,11 +126,36 @@ function closeForm() {
 function openmail(){
   document.getElementById("message").style.display = "block";
 }
+
+$(document).ready(function(){
+  $('#Search_bar').keyup(function(){
+    var txt = $(this).val();
+    if(txt != ''){
+      $.ajax({
+        url:"fetch.php",
+        method: "post",
+        data:{search:txt},
+        dataType:"text",
+
+        success:function(data){
+          $('#result').html(data);
+        },
+       
+      });
+
+    }else{
+      $('#result').css('display', 'none');
+      location.reload(true);
+    }
+  });
+});
 </script>
+
+<div id="result"></div>
 
 <!--Departments-->
 
-<div id="mainContainer" class="row" style="element: center;">
+<div id="mainContainer" class="row">
 
 <div class="card" style="width: 20rem; background-color: transparent;">
   <div class="flip-card">
