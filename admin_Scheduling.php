@@ -26,9 +26,6 @@
 <body style="overflow-y: hidden;">
 
 <!--Header-->
-<?php
-    require 'header.php';?>
-
 
 <div class="card text-center">
   <div class="card-header">

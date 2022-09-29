@@ -186,7 +186,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-        <!--CEAT category-->
+        <!--CBET category-->
 
                     <div class="card">
                         <div class="card-header">
@@ -234,7 +234,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-        <!--CEAT category-->
+        <!--CAS category-->
 
                     <div class="card">
                         <div class="card-header">
@@ -283,7 +283,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-        <!--CEAT category-->
+        <!--CED category-->
 
                     <div class="card">
                         <div class="card-header">
@@ -331,7 +331,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-        <!--CEAT category-->
+        <!--IPE category-->
 
                     <div class="card">
                         <div class="card-header">
