@@ -3,13 +3,13 @@
 $con = mysqli_connect("localhost", "root", "", "estudy_db");
 
 $output = '';
-$sql = "SELECT * FROM storage WHERE title LIKE '{$_POST['search']}%' OR ";
+$sql = "SELECT * FROM storage WHERE title LIKE '{$_POST['search']}%'";
 $result = mysqli_query($con, $sql);
 
 if(mysqli_num_rows($result) > 0)
 
 {
-   
+   echo '<h4>Search Result</h4>';
     $output .='<div class="table-responsive">
                     <table class="table table bordered">
                 
