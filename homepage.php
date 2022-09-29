@@ -143,6 +143,8 @@ $(document).ready(function(){
        
       });
 
+      $('#mainContainer').css("display", "none");
+
     }else{
       $('#result').css('display', 'none');
       location.reload(true);

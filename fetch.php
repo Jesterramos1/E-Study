@@ -7,10 +7,12 @@ $sql = "SELECT * FROM storage WHERE title LIKE '{$_POST['search']}%'";
 $result = mysqli_query($con, $sql);
 
 if(mysqli_num_rows($result) > 0)
+
 {
-    $output .= '<h4 align="center"> Search Result</h4>';
+   echo '<h4>Search Result</h4>';
     $output .='<div class="table-responsive">
                     <table class="table table bordered">
+                
                         <tr>
                             <th>Title</th>
                             <th>Department</th>
@@ -32,8 +34,10 @@ if(mysqli_num_rows($result) > 0)
                     </tr>';
 
     }
-
+    
     echo $output;
+
+
 
 }else{
     echo "Data not found";
