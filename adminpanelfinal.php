@@ -21,8 +21,14 @@
    </head>
    <style>
     .page-container{
-      margin-top: 10%;
-      margin-bottom:;
+      padding-top: 10%;
+    }
+    .concon{
+      width: 90%; /* Can be in percentage also. */
+      height: auto;
+      margin: 0 auto;
+      padding: 10px;
+      position: relative;
     }
 
    </style>
@@ -36,7 +42,7 @@
       <li class="nav-item" role="presentation">
           <a href="#adminpanelcon">
           <i class='bx bxs-folder-plus'></i>
-          <span class="links_name">Recently Added</span>
+          <span class="links_name">Recentl Added</span>
           </a>
          <span class="tooltip">Recently Added</span>
       </li>
@@ -82,16 +88,25 @@
       </div>
 
       <div class ="page-container" id="adminpanelcon">
-        <?php include 'adminpanel.php'?>
+        <div class = "concon">
+          <?php include 'adminpanel.php'?>
+        </div>
       </div>
       <div class ="page-container" id="research-addcon">
-        <?php include 'research-add.php'?>
+        <div class = "concon">
+          <?php include 'research-add.php'?>
+        </div>
       </div>
       <div class ="page-container" id="schedulingcon">
-        <?php include 'admin_Scheduling.php'?>
+        <div class = "concon">
+          <?php include 'admin_Scheduling.php'?>
+        </div>
+       
       </div>
       <div class ="page-container" id="settingscon">
-        
+        <div class = "concon">
+          
+        </div>
       </div>
   </section>
 
