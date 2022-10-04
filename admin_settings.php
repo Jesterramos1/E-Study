@@ -13,12 +13,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <style type="text/css">
-    #settingcard{
-      width: 100%;
-      margin-right: auto;
-      margin-left: auto;
-      margin-top:0px;
-    }
     #settingcardheader{
       background-color: #1C5090;
       font-weight: bold;

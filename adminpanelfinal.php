@@ -28,22 +28,27 @@
    </head>
    
    <style>
-   
+    body{
+      overflow-y:hidden;
+      overflow-x:hidden;
+    }
     .page-container{
       padding-top: 10%;
+      background:#F2F6FB;
     }
     .concon{
       width: 100%; /* Can be in percentage also. */
       height: 700px;
       padding: 10px;
       position: relative;
-      background:white;
+      background:#F2F6FB;
     }
     iframe {
       display:relative;
       width:100%;
       height:100%;
-      
+      margin-left:auto;
+      margin-right:auto;      
     }
     
 
@@ -106,7 +111,7 @@
 
       <div class ="page-container" id="adminpanelcon">
         <div class = "concon">
-          <?php include 'adminpanel.php'?>
+        <iframe src="adminpanel.php" frameborder="0"></iframe>
         </div>
       </div>
       <div class ="page-container" id="research-addcon">
