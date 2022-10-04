@@ -11,8 +11,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
         canvas{
             padding: 0;
@@ -28,10 +26,8 @@
 <body>
   
     <div class="container">
-
-        <?php include('message.php'); ?>
-
         <div class="row">
+        <?php include('message-insert.php'); ?>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -46,16 +42,16 @@
                         </div>
                             <div class="col">
                                 <div class="was">
-                                <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate required>
                                     <label class="form-label" for="myPdf">Research File</label>
                                     <input type="file" id="myPdf" name="res_file" />
                                     <div class="mb-3">
                                         <label>Research Title</label>
-                                        <input type="text" name="title" class="form-control h-25">
+                                        <input type="text" name="title" class="form-control h-25" required>
                                     </div>
                                     <div class="mb-3">
                                         <label>Department</label>
-                                        <select class="form-select" name="department" id="department">
+                                        <select class="form-select" name="department" id="department" required>
                                           <option selected>Select a department</option>  
                                           <option  value="CEAT">College of Engineering, Architecture, and Technology</option>
                                           <option value="CBET">College of Business and Entrepreneurial Technology</option>
@@ -66,15 +62,15 @@
                                     </div>
                                     <div class="mb-3">
                                         <label>Date Publish</label>
-                                        <input type="date_publish" name="date_publish" class="form-control">
+                                        <input type="date_publish" name="date_publish" class="form-control" required>
                                     </div>
                                     <div class="mb-3">
                                         <label>Researchers:</label>                                
-                                        <textarea id="researchers" name="researchers" class="form-control"></textarea>
+                                        <textarea id="researchers" name="researchers" class="form-control" required></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label>Location:</label>                               
-                                        <select class="form-select" name="location" id="location">
+                                        <select class="form-select" name="location" id="location" required>
                                           <option selected>Choose Location</option>  
                                           <option value="CBET Library">CBET LIBRARY</option>
                                           <option value="CED Library">CED LIBRARY</option>

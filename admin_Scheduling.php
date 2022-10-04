@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>admin</title>
 
-  <!--Bootstrap-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--Icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+      
+  <!--CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-<style type="text/css">
-  #header{
-    text-transform: uppercase  ;
-  }
-  .lib{
-    text-transform: uppercase;
-  }
-
-</style>
+  <style type="text/css">
+    #header{
+      text-transform: uppercase  ;
+    }
+    .lib{
+      text-transform: uppercase;
+    }
+    
+  </style>
 
 </head>
 
@@ -29,30 +31,29 @@
 
 <div class="card text-center">
   <div class="card-header">
-    <center>
   <ul class="nav nav-tabs card-header-tabs" id="pills-tab" role="tablist">
-  <li class="nav-item" role="presentation" style="width: 16.5rem;">
+  <li class="nav-item" role="presentation" style="">
     <button class="nav-link active" id="ceat" data-bs-toggle="pill" data-bs-target="#pills-ceat" type="button" role="tab" aria-controls="pills-home" aria-selected="true" style="width: 12rem;"><b>CEAT</b></button>
   </li>
-  <li class="nav-item" role="presentation" style="width: 16.5rem;">
+  <li class="nav-item" role="presentation" style="">
     <button class="nav-link" id="cbet" data-bs-toggle="pill" data-bs-target="#pills-cbet" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" style="width: 12rem;"><b>CBET</b></button>
   </li>
-  <li class="nav-item" role="presentation" style="width: 16.5rem;">
+  <li class="nav-item" role="presentation" style="">
     <button class="nav-link" id="cas" data-bs-toggle="pill" data-bs-target="#pills-cas" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="width: 12rem;"><b>CAS</b></button>
   </li>
-  <li class="nav-item" role="presentation" style="width: 16.5rem;">
+  <li class="nav-item" role="presentation" style="">
     <button class="nav-link" id="ced" data-bs-toggle="pill" data-bs-target="#pills-ced" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="width: 12rem;"><b>CED</b></button>
   </li>
-  <li class="nav-item" role="presentation" style="width: 16.5rem;">
+  <li class="nav-item" role="presentation" style="">
     <button class="nav-link" id="ipe" data-bs-toggle="pill" data-bs-target="#pills-ipe" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="width: 12rem;"><b>IPE</b></button>
   </li>
+  <li class="nav-item" role="presentation" style="">
+    <button class="nav-link" id="gs" data-bs-toggle="pill" data-bs-target="#pills-gs" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" style="width: 12rem;"><b>GS</b></button>
+  </li>
 </ul>
-</center>
 </div>
 </div><br>
-<center>
-
-<div class="card" style="width: 80rem; overflow-y: scroll; height: 400px;" >
+<div class="card" style="overflow-y: scroll; height: 400px;" >
    <div class="card-body">
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-ceat" role="tabpanel" aria-labelledby="ceat">
@@ -361,6 +362,5 @@
 
 </div>
 </div>
-</center>
 </body>
 </html>

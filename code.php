@@ -14,13 +14,13 @@ if(isset($_POST['delete_study']))
     {
         $_SESSION['message'] = "Student Deleted Successfully";
 
-        header("Location: adminpanel.php");
+        header("Location: adminpanelfinal.php#adminpanelcon");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Study Not Deleted";
-        header("Location: adminpanel.php");
+        header("Location: adminpanelfinal.php");
         exit(0);
     }
 }
@@ -70,22 +70,22 @@ if(isset($_POST['save_research'])){
     $filechecker = mysqli_query($con,"SELECT * FROM storage WHERE res_file = '$filename'");
 
     if(mysqli_num_rows($titlechecker)>0){
-        $_SESSION['message'] = "Title Already Exist!";
+        $_SESSION['message-insert'] = "Title Already Exist!";
         header("adminpanelfinal.php#research-addcon");
         exit(0);
     }
     else if(mysqli_num_rows($filechecker) > 0){
-        $_SESSION['message'] = "File Already Exist!";
+        $_SESSION['message-insert'] = "File Already Exist!";
         header("Location: adminpanelfinal.php#research-addcon");
         exit(0);
         }
     else{
         if (!in_array($extension, ['pdf', 'docx'])) {
-             $_SESSION['message'] = "File Type must be in pdf or docx only";
+             $_SESSION['message-insert'] = "File Type must be in pdf or docx only";
             header("Location: adminpanelfinal.php#research-addcon");
             exit(0);
         }elseif ($_FILES['res_file']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
-            $_SESSION['message'] = "File size is to big";
+            $_SESSION['message-insert'] = "File size is to big";
             header("Location: adminpanelfinal.php#research-addcon");
             exit(0);
         }else {
@@ -95,13 +95,13 @@ if(isset($_POST['save_research'])){
                 $query_run = mysqli_query($con, $query);
                 if($query_run)
                 {
-                    $_SESSION['message'] = "Study Added Successfully";
+                    $_SESSION['message-insert'] = "Study Added Successfully";
                     header("Location: adminpanelfinal.php#research-addcon");
                     exit(0);
                 }
                 else
                 {
-                    $_SESSION['message'] = "Study Not Added";
+                    $_SESSION['message-insert'] = "Study Not Added";
                     header("Location: adminpanelfinal.php#research-addcon");
                     exit(0);
                 }
