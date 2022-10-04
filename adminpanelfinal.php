@@ -47,8 +47,13 @@
       display:relative;
       width:100%;
       height:100%;
+<<<<<<< Updated upstream
       margin-left:auto;
       margin-right:auto;      
+=======
+      margin-left:
+      
+>>>>>>> Stashed changes
     }
     
 
