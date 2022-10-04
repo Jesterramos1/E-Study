@@ -29,26 +29,7 @@ $StudtTime = date('h:i', strtotime($studTime));
 $compareTime = date('h:i');
  
 // Attempt insert query execution 
-  $userCheck = "SELECT fName, lName FROM booked_schedule WHERE fName = '$fName' AND lName = '$lName' ";
-  $studnumCheck = "SELECT studEmail FROM booked_schedule WHERE studEmail = '$studEmail' ";
-  $studemailCheck = "SELECT studNum FROM booked_schedule WHERE studNum = '$studNum' ";
-  $result = mysqli_query($link, $userCheck);
-  $resultstudnum = mysqli_query($link, $studnumCheck);
-  $resultstudemail = mysqli_query($link, $studemailCheck);
-  
-  if (isset($_POST['submit']) && mysqli_num_rows($result) != 0) {
-    echo '<script>alert("Student name already taken.")</script>';
-    header("Refresh: 0.15; url=scheduling.php");
-
-  }elseif (isset($_POST['submit']) && mysqli_num_rows($resultstudnum) != 0) {
-      echo '<script>alert("Student number already taken.")</script>';
-        header("Refresh: 0.15; url=scheduling.php");
-
-  }elseif(isset($_POST['submit']) && mysqli_num_rows($resultstudemail) != 0){
-     echo '<script>alert("Student email already taken.")</script>';
-        header("Refresh: 0.15; url=scheduling.php");
-
-  }else{
+  if (isset($_POST['submit'])) {
     $sql = "INSERT INTO `booked_schedule`(`id`, `date_filed`, `studNum`, `fName`, `lName`, `studCourse`, `studEmail`, `studContact`, `location`, `studSched`, `studTime`) VALUES ('', '$date_filed','$studNum', '$fName', '$lName', '$studCourse', '$studEmail', '$studContact', '$location', '$studSched','$studTime')";
             if(mysqli_query($link, $sql)){
                 echo '<div class="card">';

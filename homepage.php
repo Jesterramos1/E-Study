@@ -109,6 +109,7 @@ else{
       </div>
     </div>
   </div> 
+  <div id="result"></div>
 </div> 
 
 
@@ -139,21 +140,21 @@ $(document).ready(function(){
 
         success:function(data){
           $('#result').html(data);
-        },
+        }
        
       });
 
-      $('#mainContainer').css("display", "none");
+      $('#mainContainer').hide();
 
     }else{
-      $('#result').css('display', 'none');
-      location.reload(true);
+      $('#result').html('');
+      $('#mainContainer').show();
     }
   });
 });
 </script>
 
-<div id="result"></div>
+
 
 <!--Departments-->
 
