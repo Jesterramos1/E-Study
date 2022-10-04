@@ -29,9 +29,6 @@
     <title>RTU Admin View</title>
 </head>
 <body>
-    
-  
-
         <?php include('message.php'); ?>
         <div class="card" id="admincard">
             <div class="card-header" id="admincardheader">
