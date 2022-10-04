@@ -87,7 +87,7 @@ minDate: 0
 <!--FORM-->
 <br><br>
 <div class="card text-center" style="width: 45%; margin-left: auto; margin-right: auto;">
-  <h5 class="card-header" style="font-family: Helvetica, sans-serif; font-weight: bold;">
+  <h5 class="card-header" style="font-family: Helvetica, sans-serif; font-weight: bold; background:#1C5090; color:white;">
     SCHEDULE YOUR VISIT
   </h5>
   <div class="card-body">
@@ -96,9 +96,11 @@ minDate: 0
     <!--INPUT FOR USER INFORMATION-->
     <div class="mb-3">
     <div class="input-group">
-    <span class="input-group-text"><b>Full Name:</b></span>
-    <input type="text" aria-label="First name" name="fname" class="form-control" placeholder="Juan" id="fname"  onfocusout="checkName()" required>
-    <input type="text" aria-label="Last name" name="lname" class="form-control" placeholder="Dela Cruz" id="lname" onfocusout="checkName()" required>
+    
+    <span class="input-group-text" style="background:#1C5090; color:white;"><b>Full Name:</b></span>
+    <input type="text" aria-label="First name" name="fname" class="form-control" placeholder="Juan" required>
+    <input type="text" aria-label="Last name" name="lname" class="form-control" placeholder="Dela Cruz" required>
+
     </div>
     <span id="nameError"></span>
     </div>
@@ -129,11 +131,12 @@ minDate: 0
     <label for="contact" class="form-label" style="float: left;"><b>Location:</b></label>  
     <select class="form-select" name = "library" id="library" required>
     <option selected value="">Select Library</option>
-    <option value="ceat">CEAT Library (Building)</option>
-    <option value="cbet">CBET Library (Building)</option>
-    <option value="cas">CAS Library (Building)</option>
-    <option value="ced">CED Library (Building)</option>
-    <option value="ipe">IPE Library (Building)</option>
+    <option value="ceat">CEAT Library - Multi-purpose Building / Third (3rd) Floor</option>
+    <option value="cbet">CBET Library - SNAGAH Building / Second (2nd) Floor </option>
+    <option value="cas">CAS Library - MAB Building / Second (2nd) Floor </option>
+    <option value="ced">CED Library - SNAGAH Building / Second (2nd) Floor </option>
+    <option value="ipe">IPE Library - MAB Building / Fifth (5th) Floor</option>
+    <option value="gs">GS Library - RND Building / Third (3rd) Floor</option>
     </select>
     </div>
 
@@ -168,7 +171,9 @@ minDate: 0
     </div>
       
     <br>
-    <button name = "submit" type="submit" class="btn btn-primary"  id="submit" style="width:100%;">Book Appointment</button>
+
+    <button name = "submit" type="submit" class="btn btn-primary" style="width:100%; background:#1C5090;">Book Appointment</button>
+
 
   </div>
 
