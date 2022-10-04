@@ -2,14 +2,16 @@
 
 $con = mysqli_connect("localhost", "root", "", "estudy_db");
 
+$input = $_POST['search'];
 $output = '';
-$sql = "SELECT * FROM storage WHERE title LIKE '{$_POST['search']}%'";
+$sql = "SELECT * FROM storage WHERE title LIKE '%{$input}%' OR department LIKE '%{$input}%' OR date_publish LIKE '%{$input}%' OR 
+researchers LIKE '%{$input}%' OR  res_file LIKE '%{$input}%'";
 $result = mysqli_query($con, $sql);
 
 if(mysqli_num_rows($result) > 0)
 
 {
-   echo '<h4>Search Result</h4>';
+   echo '<h3 align="center">Search Result</h3>';
     $output .='<div class="table-responsive">
                     <table class="table table bordered">
                 
@@ -40,6 +42,6 @@ if(mysqli_num_rows($result) > 0)
 
 
 }else{
-    echo "Data not found";
+    echo "<h5 class='text-danger text-center mt-3'>Data not found</h5>";
 }
 ?>

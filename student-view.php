@@ -43,6 +43,12 @@
                 display: none;
             }
         }
+
+        .card-header{
+            background: #194f90;
+            color: white;
+        }
+
     </style>
 
     <title>Research</title>
@@ -80,7 +86,7 @@
                         <div class="card-header">
                             <h4>Recently Added</h4>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" >
                             <?php 
                                 include "dbcon.php";
                                 $query = "SELECT * FROM storage ORDER BY id DESC";

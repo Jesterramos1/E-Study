@@ -23,7 +23,53 @@ $('#Calendar').datepicker({
 beforeShowDay: $.datepicker.noWeekends,
 minDate: 0
 });
-	});
+  
+    $('#fname, #lname, #studNum, #email').keyup(function(){
+    
+    var fname = $('#fname').val();
+    var lname = $('#lname').val();
+    var studNum = $('#studNum').val();
+    var email = $('#email').val();
+    $.ajax({
+      url: "Check.php",
+      method: "POST",
+      data:{fname:fname, lname:lname},
+      success: function(data){
+        $('#nameError').html(data);
+
+        
+        $.ajax({
+          url: "Check.php",
+          method: "POST",
+          data:{studNum:studNum},
+          success: function(data){
+            $('#studNumError').html(data);
+
+            $.ajax({
+              url: "Check.php",
+              method: "POST",
+              data:{email:email},
+              success: function(data){
+                $('#studEmailError').html(data);
+                
+                
+              
+    
+              }
+            });
+          }
+        });
+      }
+    });
+
+  });
+  
+    });
+  
+  
+  
+
+  
 </script>
 
 <title>Schedule</title>
@@ -50,15 +96,19 @@ minDate: 0
     <!--INPUT FOR USER INFORMATION-->
     <div class="mb-3">
     <div class="input-group">
+    
     <span class="input-group-text" style="background:#1C5090; color:white;"><b>Full Name:</b></span>
     <input type="text" aria-label="First name" name="fname" class="form-control" placeholder="Juan" required>
     <input type="text" aria-label="Last name" name="lname" class="form-control" placeholder="Dela Cruz" required>
+
     </div>
+    <span id="nameError"></span>
     </div>
 
     <div class="mb-3">
     <label for="studNum" class="form-label" style="float: left;"><b>Student Number:</b></label>
     <input class="form-control" type="text"  maxlength="11" name ="studNum" id="studNum" placeholder="2019-123456" required>
+    <span id="studNumError"></span>
     </div>
 
     <div class="mb-3">
@@ -69,6 +119,7 @@ minDate: 0
     <div class="mb-3">
     <label for="email" class="form-label" style="float: left;"><b>Email:</b></label>
     <input class="form-control" type="email"  name="email" id="email" placeholder="delacruzjuan123@gmail.com" required>
+    <span id="studEmailError"></span>
     </div>
 
     <div class="mb-3">
@@ -120,7 +171,9 @@ minDate: 0
     </div>
       
     <br>
+
     <button name = "submit" type="submit" class="btn btn-primary" style="width:100%; background:#1C5090;">Book Appointment</button>
+
 
   </div>
 
