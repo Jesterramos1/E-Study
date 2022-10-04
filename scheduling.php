@@ -85,7 +85,7 @@ minDate: 0
     <option value="cas">CAS Library - MAB Building / Second (2nd) Floor </option>
     <option value="ced">CED Library - SNAGAH Building / Second (2nd) Floor </option>
     <option value="ipe">IPE Library - MAB Building / Fifth (5th) Floor</option>
-    <option value="ipe">GS Library - RND Building / Third (3rd) Floor</option>
+    <option value="gs">GS Library - RND Building / Third (3rd) Floor</option>
     </select>
     </div>
 
