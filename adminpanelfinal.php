@@ -16,23 +16,40 @@
     <link rel="stylesheet" href="admin_style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+
+   <!--Icons-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
+   <!--CSS-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
    </head>
+   
    <style>
+   
     .page-container{
       padding-top: 10%;
     }
     .concon{
-      width: 90%; /* Can be in percentage also. */
-      height: auto;
-      margin: 0 auto;
+      width: 100%; /* Can be in percentage also. */
+      height: 700px;
       padding: 10px;
       position: relative;
+      background:white;
     }
+    iframe {
+      display:relative;
+      width:100%;
+      height:100%;
+      
+    }
+    
 
    </style>
 <body>
+
   <div class="sidebar">
     <div class="logo-details">
         <div class="logo_name">|E-STUDY</div>
@@ -99,13 +116,13 @@
       </div>
       <div class ="page-container" id="schedulingcon">
         <div class = "concon">
-          <?php include 'admin_Scheduling.php'?>
+        <iframe src="admin_scheduling.php" frameborder="0"></iframe>
         </div>
        
       </div>
       <div class ="page-container" id="settingscon">
-        <div class = "concon">
-          
+        <div class = "concon" id="sconcon">
+        <iframe src="admin_settings.php" frameborder="0"></iframe>
         </div>
       </div>
   </section>

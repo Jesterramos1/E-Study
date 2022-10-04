@@ -44,7 +44,7 @@
  
 		for($i = $pagenum-14; $i < $pagenum; $i++){
 			if($i > 0){
-		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 			}
 	    }
     }
@@ -52,7 +52,7 @@
 	$paginationCtrls .= ''.$pagenum.' &nbsp; ';
  
 	for($i = $pagenum+1; $i <= $last; $i++){
-		$paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		$paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 		if($i >= $pagenum+14){
 			break;
 		}
@@ -109,7 +109,7 @@
  
 		for($i = $pagenumceat-14; $i < $pagenumceat; $i++){
 			if($i > 0){
-		        $paginationCtrlsceat .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		        $paginationCtrlsceat .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 			}
 	    }
     }
@@ -117,7 +117,7 @@
 	$paginationCtrlsceat .= ''.$pagenumceat.' &nbsp; ';
  
 	for($i = $pagenumceat+1; $i <= $lastceat; $i++){
-		$paginationCtrlsceat .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		$paginationCtrlsceat .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 		if($i >= $pagenumceat+14){
 			break;
 		}
@@ -174,7 +174,7 @@
  
 		for($i = $pagenumcbet-14; $i < $pagenumcbet; $i++){
 			if($i > 0){
-		        $paginationCtrlscbet .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		        $paginationCtrlscbet .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 			}
 	    }
     }
@@ -182,7 +182,7 @@
 	$paginationCtrlscbet .= ''.$pagenumcbet.' &nbsp; ';
  
 	for($i = $pagenumcbet+1; $i <= $lastcbet; $i++){
-		$paginationCtrlscbet .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		$paginationCtrlscbet .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 		if($i >= $pagenumcbet+14){
 			break;
 		}
@@ -239,7 +239,7 @@
  
 		for($i = $pagenumcas-14; $i < $pagenumcas; $i++){
 			if($i > 0){
-		        $paginationCtrlscas .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		        $paginationCtrlscas .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 			}
 	    }
     }
@@ -247,7 +247,7 @@
 	$paginationCtrlscas .= ''.$pagenumcas.' &nbsp; ';
  
 	for($i = $pagenumcas+1; $i <= $lastcas; $i++){
-		$paginationCtrlscas .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		$paginationCtrlscas .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 		if($i >= $pagenumcas+14){
 			break;
 		}
@@ -304,7 +304,7 @@
  
 		for($i = $pagenumced-14; $i < $pagenumced; $i++){
 			if($i > 0){
-		        $paginationCtrlsced .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		        $paginationCtrlsced .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 			}
 	    }
     }
@@ -312,7 +312,7 @@
 	$paginationCtrlsced .= ''.$pagenumced.' &nbsp; ';
  
 	for($i = $pagenumced+1; $i <= $lastced; $i++){
-		$paginationCtrlsced .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		$paginationCtrlsced .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 		if($i >= $pagenumced+14){
 			break;
 		}
@@ -369,7 +369,7 @@
  
 		for($i = $pagenumipe-14; $i < $pagenumipe; $i++){
 			if($i > 0){
-		        $paginationCtrlsipe .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		        $paginationCtrlsipe .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 			}
 	    }
     }
@@ -377,7 +377,7 @@
 	$paginationCtrlsipe .= ''.$pagenumipe.' &nbsp; ';
  
 	for($i = $pagenumipe+1; $i <= $lastipe; $i++){
-		$paginationCtrlsipe .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
+		$paginationCtrlsipe .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'.#adminpanelcon" class="btn btn-outline-dark">'.$i.'</a> &nbsp; ';
 		if($i >= $pagenumipe+14){
 			break;
 		}

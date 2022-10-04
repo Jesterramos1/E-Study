@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin Settings</title>
 
-  <!--Bootstrap Link-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-  <!--Icon Bootstrap Link-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <!--CSS an Javascript-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
+  <!--Icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <style type="text/css">
-    .card{
-      width: 50%;
+    #settingcard{
+      width: 100%;
       margin-right: auto;
       margin-left: auto;
+      margin-top:0px;
     }
-    .card-header{
+    #settingcardheader{
       background-color: #1C5090;
       font-weight: bold;
       font-size: 20px;
@@ -35,7 +35,7 @@
     label{
       font-weight: bold;
     }
-    .btn{
+    #settingbtn{
       background-color: #1C5090;
     }
     .accordion-button{
@@ -43,14 +43,11 @@
       color: #1C5090;
     }
     
-
-
-
   </style>
 </head>
 <body>
-    <div class="card">
-      <div class="card-header">Admin Account Settings</div>
+    <div class="card" id="settingcard">
+      <div class="card-header" id="settingcardheader">Admin Account Settings</div>
       <div class="card-body">
         
         <div class="shadow-sm p-3 mb-5 bg-body rounded">
@@ -82,7 +79,7 @@
                     <input type="text" class="form-control" placeholder="Enter your new password" aria-label="newPass" aria-describedby="basic-addon1">
                   </div>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" type="button">Save</button>
+                    <button class="btn btn-primary" id ="settingbtn" type="button">Save</button>
                   </div>
                 </div>
               </div>
@@ -112,7 +109,7 @@
                   </div>
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" type="button">Add Admin</button>
+                    <button class="btn btn-primary" id = "settingbtn"type="button">Add Admin</button>
                   </div>
 
                 </div>
