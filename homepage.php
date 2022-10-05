@@ -92,8 +92,10 @@ else{
 <body>
 
 <!--Header-->
+<div class="sticky-sm-top">
 <?php
     require 'header.php';?>
+</div>    
 
 <!--Search bar-->
 <div style="padding-top: 3%;" class="container">
@@ -328,6 +330,8 @@ elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
   }
   mysqli_close($conn);
 ?>
+
+
 
 </body>
 </html>
