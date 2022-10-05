@@ -19,7 +19,6 @@
     <style type="text/css">
         body{
             overflow-x: hidden;
-            overflow-y: hidden;
         }
         #imgicon{
             height: 50px;
@@ -52,397 +51,432 @@
             color: white;
             
         }
+        .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        }
+        div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+        }
+
+        /* On screens that are less than 700px wide, make the sidebar into a topbar */
+        @media screen and (max-width: 700px) {
+        .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+        .sidebar a {float: left;}
+        div.content {margin-left: 0;}
+        }
+
+        /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+        @media screen and (max-width: 400px) {
+        .sidebar a {
+            text-align: center;
+            float: none;
+        }
+        }
 
     </style>
 
     <title>Research</title>
 </head>
 <body>
-    <?php
-    require 'header.php';
-    $tabChecker = NULL;
-    if (isset($_POST['Explore'])) {
-        $tabChecker = $_REQUEST['tabvalue'];
-    }?>
-
-    <nav>
-      <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
-        <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
-        <button class="nav-link <?php if ($tabChecker == "1") echo 'active'; ?>" id="nav-ceat-tab" data-bs-toggle="tab" data-bs-target="#nav-ceat" type="button" role="tab" aria-controls="nav-ceat" aria-selected="false">CEAT</button>
-        <button class="nav-link <?php if ($tabChecker == "2") echo 'active'; ?>" id="nav-cbet-tab" data-bs-toggle="tab" data-bs-target="#nav-cbet" type="button" role="tab" aria-controls="nav-cbet" aria-selected="false">CBET</button>
-        <button class="nav-link <?php if ($tabChecker == "3") echo 'active'; ?>" id="nav-cas-tab" data-bs-toggle="tab" data-bs-target="#nav-cas" type="button" role="tab" aria-controls="nav-cas" aria-selected="false">CAS</button>
-        <button class="nav-link <?php if ($tabChecker == "4") echo 'active'; ?>" id="nav-ced-tab" data-bs-toggle="tab" data-bs-target="#nav-ced" type="button" role="tab" aria-controls="nav-ced" aria-selected="false">CED</button>
-        <button class="nav-link <?php if ($tabChecker == "5") echo 'active'; ?>" id="nav-ipe-tab" data-bs-toggle="tab" data-bs-target="#nav-ipe" type="button" role="tab" aria-controls="nav-ipe" aria-selected="false">IPE</button>
-        <button class="nav-link <?php if ($tabChecker == "6") echo 'active'; ?>" id="nav-gs-tab" data-bs-toggle="tab" data-bs-target="#nav-gs" type="button" role="tab" aria-controls="nav-gs" aria-selected="false">GS</button>  
+    <div class="sticky-sm-top">
+        <?php
+        require 'header.php';
+        $tabChecker = NULL;
+        if (isset($_POST['Explore'])) {
+            $tabChecker = $_REQUEST['tabvalue'];
+        }?>
     </div>
-    </nav>
-
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade " id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-        <div class="container mt-4">
-            <?php include('message.php'); ?>
-            <div class="row">
-                <div class="col-md-12">
-
-        <!--Recently added category-->
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recently Added</h4>
-                        </div>
-                        <div class="card-body" >
-                            <?php 
-                                include "dbcon.php";
-                                $query = "SELECT * FROM storage ORDER BY id DESC";
-                                $result = mysqli_query($con,$query);
-                            ?>
-                            <table class="table table-bordered table-striped">                       
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%"></th>
-                                        <th style="width: 60%">Research Title</th>
-                                        <th style="width: 10%">Year of Publication</th>
-                                        <th style="width: 20%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($row = mysqli_fetch_array($result)){ ?>
-                                    <tr>
-                                        <?php
-                                        $chooseDept = $row['department'];       
-                                        if($chooseDept == 'CEAT'){
-                                            $choice = "i_ceat.png";
-                                        }elseif ($chooseDept == 'CBET') {
-                                            $choice = "i_cbet.png";
-                                        }elseif ($chooseDept == "CAS") {
-                                            $choice = "i_cas.png";
-                                        }elseif ($chooseDept == "CED"){
-                                            $choice = "i_ced.png";
-                                        }elseif ($chooseDept == "IPE"){
-                                            $choice = "i_ipe.png";
-                                        }elseif ($chooseDept == "GS"){
-                                            $choice = "i_gs.png";
-                                        }
-                                        ?>                                
-                                        <td><img id="imgicon"src="<?php echo "images/".$choice;?>" alt="Book Icon" id="bookIcon"></td>
-                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
-                                        <td><?php echo $row['date_publish']; ?></td>
-                                        <td>
-                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
-                                            
-                                        </td>
-                                    </tr>
-                                     <?php } ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-      </div>
-
-      <div class="tab-pane fade <?php if ($tabChecker == "1") echo ' show active'; ?>" id="nav-ceat" role="tabpanel" aria-labelledby="nav-ceat-tab">
-        <div class="container mt-4">
-            <?php include('message.php'); ?>
-            <div class="row">
-                <div class="col-md-12">
-
-        <!--CEAT category-->
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recently Added</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php 
-                                include "dbcon.php";
-                                $query = "SELECT * FROM storage WHERE department = 'CEAT' ORDER BY id DESC";
-                                $result = mysqli_query($con,$query);
-                            ?>
-                            <table class="table table-bordered table-striped">                       
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%"></th>
-                                        <th style="width: 60%">Research Title</th>
-                                        <th style="width: 10%">Year of Publication</th>
-                                        <th style="width: 20%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($row = mysqli_fetch_array($result)){ ?>
-                                    <tr>
-                                        <td><img id="imgicon"src="images/i_ceat.png" alt="Book Icon" id="bookIcon"></td>
-                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
-                                        <td><?php echo $row['date_publish']; ?></td>
-                                        <td>
-                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
-                                            
-                                        </td>
-                                    </tr>
-                                     <?php } ?>                                
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-      </div>
-      <div class="tab-pane fade <?php if ($tabChecker == "2") echo ' show active'; ?>" id="nav-cbet" role="tabpanel" aria-labelledby="nav-cbet-tab">
-        <div class="container mt-4">
-            <?php include('message.php'); ?>
-            <div class="row">
-                <div class="col-md-12">
-
-        <!--CBET category-->
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recently Added</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php 
-                                include "dbcon.php";
-                                $query = "SELECT * FROM storage WHERE department = 'CBET' ORDER BY id DESC";
-                                $result = mysqli_query($con,$query);
-                            ?>
-                            <table class="table table-bordered table-striped">                       
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%"></th>
-                                        <th style="width: 60%">Research Title</th>
-                                        <th style="width: 10%">Year of Publication</th>
-                                        <th style="width: 20%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($row = mysqli_fetch_array($result)){ ?>
-                                    <tr>
-                                        <td><img id="imgicon"src="images/i_cbet.png" alt="Book Icon" id="bookIcon"></td>
-                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
-                                        <td><?php echo $row['date_publish']; ?></td>
-                                        <td>
-                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
-                                            
-                                        </td>
-                                    </tr>
-                                     <?php } ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="tab-pane fade <?php if ($tabChecker == "3") echo ' show active'; ?>" id="nav-cas" role="tabpanel" aria-labelledby="nav-cas-tab">
-        <div class="container mt-4">
-            <?php include('message.php'); ?>
-            <div class="row">
-                <div class="col-md-12">
-
-        <!--CAS category-->
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recently Added</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php 
-                                include "dbcon.php";
-                                $query = "SELECT * FROM storage WHERE department = 'CAS' ORDER BY id DESC";
-                                $result = mysqli_query($con,$query);
-                            ?>
-                            <table class="table table-bordered table-striped">                       
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%"></th>
-                                        <th style="width: 60%">Research Title</th>
-                                        <th style="width: 10%">Year of Publication</th>
-                                        <th style="width: 20%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($row = mysqli_fetch_array($result)){ ?>
-                                    <tr>
-                                        <td><img id="imgicon"src="images/i_cas.png" alt="Book Icon" id="bookIcon"></td>
-                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
-                                        <td><?php echo $row['date_publish']; ?></td>
-                                        <td>
-                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
-                                            
-                                        </td>
-                                    </tr>
-                                     <?php } ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-          
-      </div>
-      <div class="tab-pane fade <?php if ($tabChecker == "4") echo ' show active'; ?>" id="nav-ced" role="tabpanel" aria-labelledby="nav-ced-tab">
-        <div class="container mt-4">
-            <?php include('message.php'); ?>
-            <div class="row">
-                <div class="col-md-12">
-
-        <!--CED category-->
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recently Added</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php 
-                                include "dbcon.php";
-                                $query = "SELECT * FROM storage WHERE department = 'CED' ORDER BY id DESC";
-                                $result = mysqli_query($con,$query);
-                            ?>
-                            <table class="table table-bordered table-striped">                       
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%"></th>
-                                        <th style="width: 60%">Research Title</th>
-                                        <th style="width: 10%">Year of Publication</th>
-                                        <th style="width: 20%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($row = mysqli_fetch_array($result)){ ?>
-                                    <tr>
-                                        <td><img id="imgicon"src="images/i_ced.png" alt="Book Icon" id="bookIcon"></td>
-                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
-                                        <td><?php echo $row['date_publish']; ?></td>
-                                        <td>
-                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
-                                            
-                                        </td>
-                                    </tr>
-                                     <?php } ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </div> 
-      <div class="tab-pane fade <?php if ($tabChecker == "5") echo ' show active'; ?>" id="nav-ipe" role="tabpanel" aria-labelledby="nav-ipe-tab">
-        <div class="container mt-4">
-            <?php include('message.php'); ?>
-            <div class="row">
-                <div class="col-md-12">
-
-        <!--IPE category-->
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recently Added</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php 
-                                include "dbcon.php";
-                                $query = "SELECT * FROM storage WHERE department = 'IPE' ORDER BY id DESC";
-                                $result = mysqli_query($con,$query);
-                            ?>
-                            <table class="table table-bordered table-striped">                       
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%"></th>
-                                        <th style="width: 60%">Research Title</th>
-                                        <th style="width: 10%">Year of Publication</th>
-                                        <th style="width: 20%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($row = mysqli_fetch_array($result)){ ?>
-                                    <tr>
-                                        <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
-                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
-                                        <td><?php echo $row['date_publish']; ?></td>
-                                        <td>
-                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
-                                            
-                                        </td>
-                                    </tr>
-                                     <?php } ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-
-
-
-      <div class="tab-pane fade <?php if ($tabChecker == "6") echo ' show active'; ?>" id="nav-gs" role="tabpanel" aria-labelledby="nav-gs-tab">
-        <div class="container mt-4">
-            <?php include('message.php'); ?>
-            <div class="row">
-                <div class="col-md-12">
-
-        <!--GS category-->
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recently Added</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php 
-                                include "dbcon.php";
-                                $query = "SELECT * FROM storage WHERE department = 'GS' ORDER BY id DESC";
-                                $result = mysqli_query($con,$query);
-                            ?>
-                            <table class="table table-bordered table-striped">                       
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10%"></th>
-                                        <th style="width: 60%">Research Title</th>
-                                        <th style="width: 10%">Year of Publication</th>
-                                        <th style="width: 20%">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while($row = mysqli_fetch_array($result)){ ?>
-                                    <tr>
-                                        <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
-                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
-                                        <td><?php echo $row['date_publish']; ?></td>
-                                        <td>
-                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
-                                            
-                                        </td>
-                                    </tr>
-                                     <?php } ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-
-
-
-
-
+    <div class="sidebar">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     </div>
+    <div class="content">
+        <nav>
+        <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
+            <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
+            <button class="nav-link <?php if ($tabChecker == "1") echo 'active'; ?>" id="nav-ceat-tab" data-bs-toggle="tab" data-bs-target="#nav-ceat" type="button" role="tab" aria-controls="nav-ceat" aria-selected="false">CEAT</button>
+            <button class="nav-link <?php if ($tabChecker == "2") echo 'active'; ?>" id="nav-cbet-tab" data-bs-toggle="tab" data-bs-target="#nav-cbet" type="button" role="tab" aria-controls="nav-cbet" aria-selected="false">CBET</button>
+            <button class="nav-link <?php if ($tabChecker == "3") echo 'active'; ?>" id="nav-cas-tab" data-bs-toggle="tab" data-bs-target="#nav-cas" type="button" role="tab" aria-controls="nav-cas" aria-selected="false">CAS</button>
+            <button class="nav-link <?php if ($tabChecker == "4") echo 'active'; ?>" id="nav-ced-tab" data-bs-toggle="tab" data-bs-target="#nav-ced" type="button" role="tab" aria-controls="nav-ced" aria-selected="false">CED</button>
+            <button class="nav-link <?php if ($tabChecker == "5") echo 'active'; ?>" id="nav-ipe-tab" data-bs-toggle="tab" data-bs-target="#nav-ipe" type="button" role="tab" aria-controls="nav-ipe" aria-selected="false">IPE</button>
+            <button class="nav-link <?php if ($tabChecker == "6") echo 'active'; ?>" id="nav-gs-tab" data-bs-toggle="tab" data-bs-target="#nav-gs" type="button" role="tab" aria-controls="nav-gs" aria-selected="false">GS</button>  
+        </div>
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade " id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+            <div class="container mt-4">
+                <?php include('message.php'); ?>
+                <div class="row">
+                    <div class="col-md-12">
+
+            <!--Recently added category-->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recently Added</h4>
+                            </div>
+                            <div class="card-body" >
+                                <?php 
+                                    include "dbcon.php";
+                                    $query = "SELECT * FROM storage ORDER BY id DESC";
+                                    $result = mysqli_query($con,$query);
+                                ?>
+                                <table class="table table-bordered table-striped">                       
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%"></th>
+                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 10%">Year of Publication</th>
+                                            <th style="width: 20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr>
+                                            <?php
+                                            $chooseDept = $row['department'];       
+                                            if($chooseDept == 'CEAT'){
+                                                $choice = "i_ceat.png";
+                                            }elseif ($chooseDept == 'CBET') {
+                                                $choice = "i_cbet.png";
+                                            }elseif ($chooseDept == "CAS") {
+                                                $choice = "i_cas.png";
+                                            }elseif ($chooseDept == "CED"){
+                                                $choice = "i_ced.png";
+                                            }elseif ($chooseDept == "IPE"){
+                                                $choice = "i_ipe.png";
+                                            }elseif ($chooseDept == "GS"){
+                                                $choice = "i_gs.png";
+                                            }
+                                            ?>                                
+                                            <td><img id="imgicon"src="<?php echo "images/".$choice;?>" alt="Book Icon" id="bookIcon"></td>
+                                            <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                            <td><?php echo $row['date_publish']; ?></td>
+                                            <td>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tab-pane fade <?php if ($tabChecker == "1") echo ' show active'; ?>" id="nav-ceat" role="tabpanel" aria-labelledby="nav-ceat-tab">
+            <div class="container mt-4">
+                <?php include('message.php'); ?>
+                <div class="row">
+                    <div class="col-md-12">
+
+            <!--CEAT category-->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recently Added</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php 
+                                    include "dbcon.php";
+                                    $query = "SELECT * FROM storage WHERE department = 'CEAT' ORDER BY id DESC";
+                                    $result = mysqli_query($con,$query);
+                                ?>
+                                <table class="table table-bordered table-striped">                       
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%"></th>
+                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 10%">Year of Publication</th>
+                                            <th style="width: 20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr>
+                                            <td><img id="imgicon"src="images/i_ceat.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                            <td><?php echo $row['date_publish']; ?></td>
+                                            <td>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                
+                                            </td>
+                                        </tr>
+                                        <?php } ?>                                
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade <?php if ($tabChecker == "2") echo ' show active'; ?>" id="nav-cbet" role="tabpanel" aria-labelledby="nav-cbet-tab">
+            <div class="container mt-4">
+                <?php include('message.php'); ?>
+                <div class="row">
+                    <div class="col-md-12">
+
+            <!--CBET category-->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recently Added</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php 
+                                    include "dbcon.php";
+                                    $query = "SELECT * FROM storage WHERE department = 'CBET' ORDER BY id DESC";
+                                    $result = mysqli_query($con,$query);
+                                ?>
+                                <table class="table table-bordered table-striped">                       
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%"></th>
+                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 10%">Year of Publication</th>
+                                            <th style="width: 20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr>
+                                            <td><img id="imgicon"src="images/i_cbet.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                            <td><?php echo $row['date_publish']; ?></td>
+                                            <td>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade <?php if ($tabChecker == "3") echo ' show active'; ?>" id="nav-cas" role="tabpanel" aria-labelledby="nav-cas-tab">
+            <div class="container mt-4">
+                <?php include('message.php'); ?>
+                <div class="row">
+                    <div class="col-md-12">
+
+            <!--CAS category-->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recently Added</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php 
+                                    include "dbcon.php";
+                                    $query = "SELECT * FROM storage WHERE department = 'CAS' ORDER BY id DESC";
+                                    $result = mysqli_query($con,$query);
+                                ?>
+                                <table class="table table-bordered table-striped">                       
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%"></th>
+                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 10%">Year of Publication</th>
+                                            <th style="width: 20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr>
+                                            <td><img id="imgicon"src="images/i_cas.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                            <td><?php echo $row['date_publish']; ?></td>
+                                            <td>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="tab-pane fade <?php if ($tabChecker == "4") echo ' show active'; ?>" id="nav-ced" role="tabpanel" aria-labelledby="nav-ced-tab">
+            <div class="container mt-4">
+                <?php include('message.php'); ?>
+                <div class="row">
+                    <div class="col-md-12">
+
+            <!--CED category-->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recently Added</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php 
+                                    include "dbcon.php";
+                                    $query = "SELECT * FROM storage WHERE department = 'CED' ORDER BY id DESC";
+                                    $result = mysqli_query($con,$query);
+                                ?>
+                                <table class="table table-bordered table-striped">                       
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%"></th>
+                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 10%">Year of Publication</th>
+                                            <th style="width: 20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr>
+                                            <td><img id="imgicon"src="images/i_ced.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                            <td><?php echo $row['date_publish']; ?></td>
+                                            <td>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="tab-pane fade <?php if ($tabChecker == "5") echo ' show active'; ?>" id="nav-ipe" role="tabpanel" aria-labelledby="nav-ipe-tab">
+            <div class="container mt-4">
+                <?php include('message.php'); ?>
+                <div class="row">
+                    <div class="col-md-12">
+
+            <!--IPE category-->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recently Added</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php 
+                                    include "dbcon.php";
+                                    $query = "SELECT * FROM storage WHERE department = 'IPE' ORDER BY id DESC";
+                                    $result = mysqli_query($con,$query);
+                                ?>
+                                <table class="table table-bordered table-striped">                       
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%"></th>
+                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 10%">Year of Publication</th>
+                                            <th style="width: 20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr>
+                                            <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                            <td><?php echo $row['date_publish']; ?></td>
+                                            <td>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="tab-pane fade <?php if ($tabChecker == "6") echo ' show active'; ?>" id="nav-gs" role="tabpanel" aria-labelledby="nav-gs-tab">
+            <div class="container mt-4">
+                <?php include('message.php'); ?>
+                <div class="row">
+                    <div class="col-md-12">
+
+            <!--GS category-->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recently Added</h4>
+                            </div>
+                            <div class="card-body">
+                                <?php 
+                                    include "dbcon.php";
+                                    $query = "SELECT * FROM storage WHERE department = 'GS' ORDER BY id DESC";
+                                    $result = mysqli_query($con,$query);
+                                ?>
+                                <table class="table table-bordered table-striped">                       
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%"></th>
+                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 10%">Year of Publication</th>
+                                            <th style="width: 20%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr>
+                                            <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                            <td><?php echo $row['date_publish']; ?></td>
+                                            <td>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
   
     
     <script type='text/javascript'>
