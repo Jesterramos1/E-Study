@@ -50,6 +50,7 @@
         .card-header{
             background: #194f90;
             color: white;
+            
         }
 
     </style>
