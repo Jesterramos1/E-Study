@@ -15,7 +15,7 @@
             background: #194f90;
             color: white;
         }
-        h4 {
+        h3 {
             margin-top: 5px;
             text-align: center;
            
@@ -30,8 +30,6 @@
         /* Then style the iframe to fit in the container div with full height and width */
         .responsive-iframe {
           position: absolute;
-          display: flex;
-          justify-content: center;
           top: 0;
           left: 0;
           bottom: 0;
@@ -53,46 +51,38 @@ include "dbcon.php";
 $input = $_POST['search'];
 $output = '';
 $sql = "SELECT * FROM storage WHERE title LIKE '%{$input}%' OR department LIKE '%{$input}%' OR date_publish LIKE '%{$input}%' OR 
-researchers LIKE '%{$input}%' OR  res_file LIKE '%{$input}%'";
+researchers LIKE '%{$input}%' OR  res_file LIKE '%{$input}%' LIMIT 9";
 $result = mysqli_query($con, $sql);
 
 if(mysqli_num_rows($result) > 0)
 
-{   
-   echo "<div class='card'>
-   <div class='card-body'>";
-  echo "<h4>Search Result<h4>";
-   $output .='<table class="table table-bordered table-striped">                       
-   <thead>
-       <tr>
-           <th style="width: 40%">Research Title</th>
-           <th style="width: 10%">Department</th>
-           <th style="width: 10%">Year of Publication</th>
-           <th style="width: 20%">Researchers</th>
-           <th style="width: 10%">Location</th>
-           <th style="width: 10%">Action</th>
-       </tr>
-   </thead>
-  <tbody>';
+    {   
+    
+    echo "<h3 align='center'>Search Result<h3>";
+    $output .='<table class="table table-bordered table-striped">                       
+    <thead>
+        <tr>
+            <th style="width: 40%">Research Title</th>
+            <th style="width: 10%">Department</th>
+            <th style="width: 10%">Year of Publication</th>
+            <th style="width: 20%">Researchers</th>
+            <th style="width: 10%">Location</th>
+            <th style="width: 10%">Action</th>
+        </tr>';
 
-while($row = mysqli_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
 
-$output .='<tr>
-<td> '.$row["title"].'</td>
-<td>'.$row["department"].'</td>
-<td>'.$row["date_publish"].'</td>
-<td>'.$row["researchers"].'</td>
-<td>'.$row["location"].'</td>
-<td>
-<button data-id = '.$row["id"].' class="studyinfo btn btn-success">View</button>
-</td>
-</tr>
+    $output .='<tr>
+    <td> '.$row["title"].'</td>
+    <td>'.$row["department"].'</td>
+    <td>'.$row["date_publish"].'</td>
+    <td>'.$row["researchers"].'</td>
+    <td>'.$row["location"].'</td>
+    <td>
+    <button data-id = '.$row["id"].' class="studyinfo btn btn-success">View</button>
+    </td>
+    </tr>';
 
-</tbody>
-</table>';
-
-echo "</div>
-</div>";
 
 }
 

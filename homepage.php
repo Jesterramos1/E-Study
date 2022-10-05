@@ -144,11 +144,11 @@ $(document).ready(function(){
        
       });
 
-      $('#mainContainer').hide();
+      $('#mainContainer, #Openbtn').hide();
 
     }else{
       $('#result').html('');
-      $('#mainContainer').show();
+      $('#mainContainer, #Openbtn').show();
     }
   });
 });
@@ -270,7 +270,7 @@ $(document).ready(function(){
 </div>
 
 <!--Login Form-->
-<button class="open-button" onclick="openForm()">ADMIN LOGIN</button>
+<button class="open-button" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
 
 <div class="form-popup" id="myForm">
 
