@@ -65,7 +65,7 @@
       <li class="nav-item" role="presentation">
           <a href="#adminpanelcon">
           <i class='bx bxs-folder-plus'></i>
-          <span class="links_name">Recentl Added</span>
+          <span class="links_name">Recently Added</span>
           </a>
          <span class="tooltip">Recently Added</span>
       </li>
@@ -107,7 +107,7 @@
   </div>
   <section class="home-section">
       <div class="sticky-sm-top">
-       <img src="images/adminheader.png">
+       <img src="images/adminheader.png" class="img-fluid">
       </div>
 
       <div class ="page-container" id="adminpanelcon">
