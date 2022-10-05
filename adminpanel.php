@@ -37,10 +37,12 @@
             <div class="card-body">
                 <nav>
                     <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
+
                     <h4>Recently Added</h4>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
+
                     <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
                         <div class="pagination-container"><center>
                             <div id="pagination_controls"><?php echo $paginationCtrls; ?></div><center>
@@ -90,6 +92,7 @@
                         </table>
                     </div>
                     
+
 
 </body>
 </html>

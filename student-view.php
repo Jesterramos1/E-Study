@@ -46,6 +46,12 @@
                 display: none;
             }
         }
+
+        .card-header{
+            background: #194f90;
+            color: white;
+        }
+
     </style>
 
     <title>Research</title>
@@ -66,7 +72,8 @@
         <button class="nav-link <?php if ($tabChecker == "3") echo 'active'; ?>" id="nav-cas-tab" data-bs-toggle="tab" data-bs-target="#nav-cas" type="button" role="tab" aria-controls="nav-cas" aria-selected="false">CAS</button>
         <button class="nav-link <?php if ($tabChecker == "4") echo 'active'; ?>" id="nav-ced-tab" data-bs-toggle="tab" data-bs-target="#nav-ced" type="button" role="tab" aria-controls="nav-ced" aria-selected="false">CED</button>
         <button class="nav-link <?php if ($tabChecker == "5") echo 'active'; ?>" id="nav-ipe-tab" data-bs-toggle="tab" data-bs-target="#nav-ipe" type="button" role="tab" aria-controls="nav-ipe" aria-selected="false">IPE</button>
-      </div>
+        <button class="nav-link <?php if ($tabChecker == "6") echo 'active'; ?>" id="nav-gs-tab" data-bs-toggle="tab" data-bs-target="#nav-gs" type="button" role="tab" aria-controls="nav-gs" aria-selected="false">GS</button>  
+    </div>
     </nav>
 
     <div class="tab-content" id="nav-tabContent">
@@ -82,7 +89,7 @@
                         <div class="card-header">
                             <h4>Recently Added</h4>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" >
                             <?php 
                                 include "dbcon.php";
                                 $query = "SELECT * FROM storage ORDER BY id DESC";
@@ -112,6 +119,8 @@
                                             $choice = "i_ced.png";
                                         }elseif ($chooseDept == "IPE"){
                                             $choice = "i_ipe.png";
+                                        }elseif ($chooseDept == "GS"){
+                                            $choice = "i_gs.png";
                                         }
                                         ?>                                
                                         <td><img id="imgicon"src="<?php echo "images/".$choice;?>" alt="Book Icon" id="bookIcon"></td>
@@ -375,8 +384,63 @@
                 </div>
             </div>
         </div>
-          
       </div>
+
+
+
+      <div class="tab-pane fade <?php if ($tabChecker == "6") echo ' show active'; ?>" id="nav-gs" role="tabpanel" aria-labelledby="nav-gs-tab">
+        <div class="container mt-4">
+            <?php include('message.php'); ?>
+            <div class="row">
+                <div class="col-md-12">
+
+        <!--GS category-->
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Recently Added</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php 
+                                include "dbcon.php";
+                                $query = "SELECT * FROM storage WHERE department = 'GS' ORDER BY id DESC";
+                                $result = mysqli_query($con,$query);
+                            ?>
+                            <table class="table table-bordered table-striped">                       
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10%"></th>
+                                        <th style="width: 60%">Research Title</th>
+                                        <th style="width: 10%">Year of Publication</th>
+                                        <th style="width: 20%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php while($row = mysqli_fetch_array($result)){ ?>
+                                    <tr>
+                                        <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
+                                        <td><?php echo ucwords(strtolower($row['title'])); ?></td>
+                                        <td><?php echo $row['date_publish']; ?></td>
+                                        <td>
+                                            <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                            
+                                        </td>
+                                    </tr>
+                                     <?php } ?>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
     </div>
   
     

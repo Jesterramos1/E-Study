@@ -109,6 +109,7 @@ else{
       </div>
     </div>
   </div> 
+  <div id="result"></div>
 </div> 
 
 
@@ -139,21 +140,21 @@ $(document).ready(function(){
 
         success:function(data){
           $('#result').html(data);
-        },
+        }
        
       });
 
-      $('#mainContainer').css("display", "none");
+      $('#mainContainer').hide();
 
     }else{
-      $('#result').css('display', 'none');
-      location.reload(true);
+      $('#result').html('');
+      $('#mainContainer').show();
     }
   });
 });
 </script>
 
-<div id="result"></div>
+
 
 <!--Departments-->
 
@@ -246,6 +247,26 @@ $(document).ready(function(){
     </div>
     </div>
 </div>
+
+
+<div class="card" style="width: 20rem; background-color: transparent;">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="images/Icongs.png" alt="GS" style="width:300px; height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h4>GRADUATE SCHOOL</h4>
+    <form action="student-view.php" method="POST">
+        <input type="hidden" name="tabvalue" value="6">
+        <input type="submit" name="Explore" class="btn btn-primary" id="dept" value="Explore">
+      </form>
+    </div>
+    </div>
+    </div>
+</div>
+
+
 </div>
 
 <!--Login Form-->

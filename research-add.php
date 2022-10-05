@@ -65,8 +65,11 @@
                                           <option  value="CEAT">College of Engineering, Architecture, and Technology</option>
                                           <option value="CBET">College of Business and Entrepreneurial Technology</option>
                                           <option value="CAS">College of Arts and Sciences</option>
-                                          <option value="IPE">Institute of Physical Education</option>
                                           <option value="CED">College of Education</option>
+                                          <option value="IPE">Institute of Physical Education</option>
+                                          <option value="GS">Graduate School</option>
+                                          
+
                                         </select>
                                     </div>
                                     <div class="mb-3">
@@ -80,9 +83,13 @@
                                     <div class="mb-3">
                                         <label>Location:</label>                               
                                         <select class="form-select" name="location" id="location" required>
-                                          <option selected>Choose Location</option>  
-                                          <option value="CBET Library">CBET LIBRARY</option>
-                                          <option value="CED Library">CED LIBRARY</option>
+                                          <option selected>Choose Location</option>
+                                          <option value="CEAT Library">CEAT Library - Multi-purpose Building / Third (3rd) Floor</option>  
+                                          <option value="CBET Library">CBET Library - SNAGAH Building / Second (2nd) Floor </option>
+                                          <option value="CAS Library">CAS Library - MAB Building / Second (2nd) Floor</option>
+                                          <option value="CED Library">CED Library - SNAGAH Building / Second (2nd) Floor</option>
+                                          <option value="IPE Library">IPE Library - MAB Building / Fifth (5th) Floor</option>
+                                          <option value="GS Library">GS Library - RND Building / Third (3rd) Floor</option>
                                         </select>
                                         
                                     </div>
