@@ -46,9 +46,10 @@
     iframe {
       display:relative;
       width:100%;
-      height:100%;
+      height:95%;
       margin-left:auto;
-      margin-right:auto;      
+      margin-right:auto;  
+      padding-bottom:30px;    
     }
     
 

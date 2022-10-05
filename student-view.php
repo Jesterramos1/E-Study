@@ -17,13 +17,16 @@
 
     <!-- Manual CSS -->
     <style type="text/css">
+        body{
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
         #imgicon{
             height: 50px;
             width: 50px;
         }
         .containers {
           position: relative;
-          overflow: hidden;
           width: 100%;
           padding-top: 100%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
         }
