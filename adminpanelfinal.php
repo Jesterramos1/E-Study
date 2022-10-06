@@ -5,8 +5,8 @@
     
     if (isset($_POST['logout'])) {
         setcookie('email','',time()-3600);
-         setcookie('pass','',time()-3600);
-         header("location: homepage.php");
+        setcookie('pass','',time()-3600);
+        header("location: homepage.php");
     }  
 ?>
 <html lang="en" dir="ltr">
