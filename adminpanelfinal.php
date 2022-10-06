@@ -94,8 +94,8 @@
          <div class="profile-details">
            <img src="images/profile.png" alt="profileImg">
            <div class="name_job">
-            <?php  if (isset($_SESSION['username'])) : ?>
-               <div class="name">Admin Ariola</div>
+            <?php  if (isset($_SESSION['email'])) : ?>
+               <div class="name">Admin <?php echo $_SESSION['email']; ?></div>
             <?php endif ?>
              <div class="job">E-STUDY ADMIN</div>
            </div>
