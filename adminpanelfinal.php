@@ -5,8 +5,8 @@
     
     if (isset($_POST['logout'])) {
         setcookie('email','',time()-3600);
-         setcookie('pass','',time()-3600);
-         header("location: homepage.php");
+        setcookie('pass','',time()-3600);
+        header("location: homepage.php");
     }  
 ?>
 <html lang="en" dir="ltr">
@@ -92,9 +92,11 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-           <img src="profile.png" alt="profileImg">
+           <img src="images/profile.png" alt="profileImg">
            <div class="name_job">
-             <div class="name">Admin Ariola</div>
+            <?php  if (isset($_SESSION['email'])) : ?>
+               <div class="name">Admin <?php echo $_SESSION['email']; ?></div>
+            <?php endif ?>
              <div class="job">E-STUDY ADMIN</div>
            </div>
          </div>

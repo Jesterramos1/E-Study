@@ -7,7 +7,7 @@ $total_records = $row[0];
 $tot_pages = ceil($total_records / $limit);
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
 $start_from = ($page-1) * $limit;  
-$p = "SELECT * FROM storage ORDER BY id ASC LIMIT $start_from, $limit";  
+$p = "SELECT * FROM storage ORDER BY id DESC LIMIT $start_from, $limit";  
 $rs_result = mysqli_query($con, $p); 
 ?>
 <!doctype html>
@@ -56,17 +56,17 @@ $rs_result = mysqli_query($con, $p);
     </script>
 </head>
 <body>
-        <?php include('message.php'); ?>
         <div class="card" id="admincard">
         <div class="sticky-sm-top">
             <div class="card-header" id="admincardheader">
                 Thesis Records
             </div>
         </div>    
-            <div class="card-body">                   
+            <div class="card-body">                
                     <h4>Recently Added</h4>
                     <center>
                         <nav><ul class="pagination">
+                        <?php include('message.php'); ?>   
                         <?php if(!empty($tot_pages)):for($i=1; $i<=$tot_pages; $i++):  
                                     if($i == 1):?>
                                     <li class='active'  id="<?php echo $i;?>"><a href='logic.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 

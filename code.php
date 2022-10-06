@@ -12,15 +12,14 @@ if(isset($_POST['delete_study']))
 
     if($query_run)
     {
+        header("Location: adminpanel.php");
         $_SESSION['message'] = "Student Deleted Successfully";
-
-        header("Location: adminpanelfinal.php#adminpanelcon");
         exit(0);
     }
     else
     {
+        header("Location: adminpanel.php");
         $_SESSION['message'] = "Study Not Deleted";
-        header("Location: adminpanelfinal.php");
         exit(0);
     }
 }
