@@ -92,7 +92,7 @@
      </li>
      <li class="profile">
          <div class="profile-details">
-           <img src="profile.png" alt="profileImg">
+           <img src="images/profile.png" alt="profileImg">
            <div class="name_job">
              <div class="name">Admin Ariola</div>
              <div class="job">E-STUDY ADMIN</div>

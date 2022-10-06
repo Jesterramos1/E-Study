@@ -1,25 +1,5 @@
 <?php
 require 'dbtable_creation.php';
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "estudy_db";
-
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "INSERT IGNORE INTO `rtu_admin`(`admin_id`, `admin_user`, `admin_pass`) VALUES ('1','rtu_admin','admin123')";
-
-if (mysqli_query($conn, $sql)) {
-
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
 
 //Account Verification
 if(isset($_POST['submit'])){
@@ -36,7 +16,8 @@ if(isset($_POST['submit'])){
         $data = $stmt_result->fetch_assoc();
         if($data['admin_pass']  === $pass){
         setcookie("email",$user,time() + 60*60*24*365);
-        setcookie("pass",$pass,time() + 60*60*24*365);  
+        setcookie("pass",$pass,time() + 60*60*24*365);
+
         header("Location: adminpanelfinal.php#adminpanelcon");
 
 

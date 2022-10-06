@@ -21,7 +21,7 @@
             mysqli_select_db($db,"estudy_db");
 
 	        //Creation Table for Admin
- 			$admin="CREATE TABLE IF NOT EXISTS rtu_admin (admin_id int(11) NOT NULL, 
+ 			$admin="CREATE TABLE IF NOT EXISTS rtu_admin (admin_id int(11) NOT NULL auto_increment, 
 	         	  admin_user varchar(50)NOT NULL,
 	              admin_pass varchar(50)NOT NULL, 
 
@@ -38,7 +38,35 @@
 
 	             PRIMARY KEY(id) )";
 	             $db->query($storing);   //the above lines create table and its columns if not available in the server
- 			
+			
+			 //Creation Table for Master Key
+	         $masterkey ="CREATE TABLE IF NOT EXISTS masterkey (id int(11) NOT NULL, 
+	         	  masterkeys varchar(255) NOT NULL,
+	             PRIMARY KEY(id))";
+	             $db->query($masterkey);   //the above lines create table and its columns if not available in the server
+				 
+ 	// Create connection
+	$conn = mysqli_connect("localhost","root","","estudy_db");
+	// Check connection
+	if (!$conn) {
+	die("Connection failed: " . mysqli_connect_error());
+	}
+	$sql = "INSERT IGNORE INTO `rtu_admin`(`admin_id`, `admin_user`, `admin_pass`) VALUES ('1','rtu_admin','admin123')";
+
+	if (mysqli_query($conn, $sql)) {
+	} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
+	
+	$sqlmaster = "INSERT IGNORE INTO `masterkey`(`masterkeys`) VALUES ('MPJRL79388')";
+
+	if (mysqli_query($conn, $sqlmaster)) {
+	} else {
+	echo "Error: " . $sqlmaster . "<br>" . mysqli_error($conn);
+	}
+
+
+	$loggedInUser = "";
 
 
 ?>
