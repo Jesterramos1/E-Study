@@ -24,8 +24,7 @@ if(isset($_POST['delete_study']))
     }
 }
 
-if(isset($_POST['update_study']))
-{
+if(isset($_POST['update_study'])){
     $study_id = mysqli_real_escape_string($con, $_POST['study_id']);
 
     $title = mysqli_real_escape_string($con, $_POST['title']);
@@ -109,3 +108,25 @@ if(isset($_POST['save_research'])){
     }
 }
 
+if(isset($_POST['update_study'])){
+    $newPassword = mysqli_real_escape_string($con, $_POST['newPassword']);
+    $oldPassword = mysqli_real_escape_string($con, $_POST['oldPassword']);
+    $titlechecker = mysqli_query($con,"SELECT * FROM rtu_admin WHERE admin_pass = '$oldPassword'");
+
+    $query = "UPDATE storage SET title='$title', department='$department', date_publish='$date_publish', researchers='$researchers',location='$location' WHERE id='$study_id' ";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run)
+    {
+        $_SESSION['message'] = "Study Updated Successfully";
+        header("Location: adminpanelfinal.php");
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "Study Not Updated";
+        header("Location: adminpanelfinal.php");
+        exit(0);
+    }
+
+}

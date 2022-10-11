@@ -6,6 +6,7 @@
     if (isset($_POST['logout'])) {
         setcookie('email','',time()-3600);
         setcookie('pass','',time()-3600);
+        session_destroy();
         header("location: homepage.php");
     }  
 ?>
@@ -94,9 +95,7 @@
          <div class="profile-details">
            <img src="images/profile.png" alt="profileImg">
            <div class="name_job">
-            <?php  if (isset($_SESSION['email'])) : ?>
-               <div class="name">Admin <?php echo $_SESSION['email']; ?></div>
-            <?php endif ?>
+               <div class="name">Admin <?php echo $_SESSION['user']; ?></div>
              <div class="job">E-STUDY ADMIN</div>
            </div>
          </div>

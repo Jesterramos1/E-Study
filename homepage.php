@@ -1,5 +1,6 @@
 <?php
 require 'dbtable_creation.php';
+session_start();
 
 //Account Verification
 if(isset($_POST['submit'])){
@@ -17,7 +18,6 @@ if(isset($_POST['submit'])){
         if($data['admin_pass']  === $pass){
         setcookie("email",$user,time() + 60*60*24*365);
         setcookie("pass",$pass,time() + 60*60*24*365);
-
         header("Location: adminpanelfinal.php#adminpanelcon");
 
 
@@ -291,7 +291,8 @@ if(isset($_POST['submit'])){
         $data = $stmt_result->fetch_assoc();
         if($data['admin_pass']  === $pass){
         setcookie("email",$user,time() + 60*60*24*365);
-        setcookie("pass",$pass,time() + 60*60*24*365);  
+        setcookie("pass",$pass,time() + 60*60*24*365);
+        $_SESSION["user"] = $_REQUEST['email'];  
         header("Location: adminpanel.php");
 
 
