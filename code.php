@@ -39,13 +39,13 @@ if(isset($_POST['update_study'])){
     if($query_run)
     {
         $_SESSION['message'] = "Study Updated Successfully";
-        header("Location: adminpanelfinal.php");
+        header("Location: adminpanel.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Study Not Updated";
-        header("Location: adminpanelfinal.php");
+        header("Location: adminpanel.php");
         exit(0);
     }
 
@@ -108,25 +108,22 @@ if(isset($_POST['save_research'])){
     }
 }
 
-if(isset($_POST['update_study'])){
+if(isset($_POST['update_password'])){
+    $user = $_SESSION['user'];
     $newPassword = mysqli_real_escape_string($con, $_POST['newPassword']);
-    $oldPassword = mysqli_real_escape_string($con, $_POST['oldPassword']);
-    $titlechecker = mysqli_query($con,"SELECT * FROM rtu_admin WHERE admin_pass = '$oldPassword'");
-
-    $query = "UPDATE storage SET title='$title', department='$department', date_publish='$date_publish', researchers='$researchers',location='$location' WHERE id='$study_id' ";
-    $query_run = mysqli_query($con, $query);
-
-    if($query_run)
-    {
-        $_SESSION['message'] = "Study Updated Successfully";
-        header("Location: adminpanelfinal.php");
-        exit(0);
+    $oldPassword = "SELECT admin_pass FROM rtu_admin WHERE admin_user = $user";
+    $oldPasswordInput = mysqli_real_escape_string($con, $_POST['oldPassword']);
+    
+    if($oldPasswordInput == $oldPassword){
+        $query = "UPDATE rtu_admin SET admin_pass='$newPassword' WHERE admin_user='$user' ";
+        $query_run = mysqli_query($con, $query);
+            if($query_run){               
+                header("Location: scheduling.php");
+                exit(0);
+            }else{
+                header("Location: research-edit.php");
+                exit(0);
+            }
     }
-    else
-    {
-        $_SESSION['message'] = "Study Not Updated";
-        header("Location: adminpanelfinal.php");
-        exit(0);
-    }
-
 }
+

@@ -34,7 +34,10 @@ session_start()
     label{
       font-weight: bold;
     }
-    #settingbtn{
+    #update_password{
+      background-color: #1C5090;
+    }
+    #createAdmin{
       background-color: #1C5090;
     }
     .accordion-button{
@@ -42,6 +45,7 @@ session_start()
       color: #1C5090;
     }
   </style>
+  
 </head>
 <body>
     <div class="card" id="settingcard">
@@ -59,17 +63,18 @@ session_start()
               </h2>
               <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
-                  <form action="code.php" method="POST">
+
+                  <form action = "code.php"method="POST">
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="username">Username:</span>
-                    <input type="text" class="form-control" placeholder="<?php echo $_SESSION['user'];?>" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                    <input type="text" class="form-control" placeholder="<?php echo $_SESSION['user'];?>" aria-label="Username" aria-describedby="basic-addon1" disabled >
                   </div>
 
                   <label for="pass" class="form-label">Password:</label>
 
                   <div class="input-group mb-3">
                     <button class="btn btn-primary" type="button" id="oldPasswordbtn"><i class="bi bi-eye-slash" id = "oldPasswordIcon"></i></button>
-                    <input type="password" class="form-control" placeholder="Enter your old password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="oldPasswordtxt" name="oldPassword" />
+                    <input type="password" class="form-control" placeholder="Enter old password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="oldPasswordtxt" name="oldPassword" required/>
                   </div>
 
                   <label for="pass" class="form-label">New Password:</label>
@@ -77,16 +82,17 @@ session_start()
                   
                   <div class="input-group mb-3">
                     <button class="btn btn-primary" type="button" id="newPasswordbtn"><i class="bi bi-eye-slash" id = "newPasswordIcon"></i></button>
-                    <input type="password" class="form-control" placeholder="Enter your new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="newPasswordtxt" name="newPassword" />
+                    <input type="password" class="form-control" placeholder="Enter new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="newPasswordtxt" name="newPassword" />
                   </div>
                   <div class="input-group mb-3">
                     <button class="btn btn-primary" type="button" id="confirmNewPasswordbtn"><i class="bi bi-eye-slash" id = "confirmNewPasswordIcon"></i></button>
                     <input type="password" class="form-control" placeholder="Confirm new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="confirmNewPasswordtxt" name="confirmNewPassword" />
                   </div>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" id ="update_password" type="button" name="update_password">Save</button>
+                    <button class="btn btn-primary" id ="update_password" type="button" name="update_password" disabled>Save</button>
                   </div>
                   </form>
+
                 </div>
               </div>
             </div>
@@ -118,7 +124,7 @@ session_start()
                   </div>
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" id = "settingbtn"type="button">Add Admin</button>
+                    <button class="btn btn-primary" id = "createAdmin" type="button">Add Admin</button>
                   </div>
     
                 </div>
@@ -140,6 +146,7 @@ session_start()
       const confirmNewPasswordbtn = document.querySelector('#confirmNewPasswordbtn');
       const confirmNewPasswordtxt = document.querySelector('#confirmNewPasswordtxt');
       const confirmNewIcon = document.querySelector('#confirmNewPasswordIcon');
+      const updatebtn = document.querySelector('#update_password');
 
       oldPasswordbtn.addEventListener('click', function (e) {    
         // toggle the type attribute
@@ -167,12 +174,14 @@ session_start()
       $('#newPasswordtxt, #confirmNewPasswordtxt').on('keyup', function () {
         if($('#newPasswordtxt').val() == "" || $('#confirmNewPasswordtxt').val() == ""){
           $('#messagetxt').html('').css('color', '');
-          $('#update_password').css('visibility', 'hidden'); 
+          $('#update_password').attr('disabled',true); 
         }else if ($('#newPasswordtxt').val() == $('#confirmNewPasswordtxt').val()) {
-          $('#messagetxt').html('Matching').css('color', 'green');       
-        }else 
+          $('#messagetxt').html('Matching').css('color', 'green');
+          $('#update_password').attr('disabled',false);       
+        }else{ 
           $('#messagetxt').html('Not Matching').css('color', 'red');
-          $('#update_password').css('visibility', 'hidden'); 
+          $('#update_password').attr('disabled',true); 
+        }
       });
 
     </script>
