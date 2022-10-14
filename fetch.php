@@ -115,13 +115,13 @@ echo $output;
         });
     </script>
      <div class="modal fade" id="empModal" role="dialog">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-dialog modal-xl   ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">Research View</h3>
+                    <h4 class="modal-title">Research Info</h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" >    
+                <div class="modal-body">
                 </div>
             </div>
         </div>
