@@ -34,9 +34,7 @@ session_start()
     label{
       font-weight: bold;
     }
-    #update_password{
-      background-color: #1C5090;
-    }
+    
     #createAdmin{
       background-color: #1C5090;
     }
@@ -63,8 +61,12 @@ session_start()
               </h2>
               <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                 <div class="accordion-body">
-
-                  <form action = "code.php"method="POST">
+                  <?php
+                  if($_SESSION['user'] == ""){
+                    $_SESSION['user'] = "No user found";
+                  }
+                  ?>
+                <form action ="code.php" method="POST">
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="username">Username:</span>
                     <input type="text" class="form-control" placeholder="<?php echo $_SESSION['user'];?>" aria-label="Username" aria-describedby="basic-addon1" disabled >
@@ -91,8 +93,7 @@ session_start()
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary" id ="update_password" type="button" name="update_password" disabled>Save</button>
                   </div>
-                  </form>
-
+                </form>
                 </div>
               </div>
             </div>
@@ -107,26 +108,26 @@ session_start()
               </h2>
               <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                 <div class="accordion-body">
-
+                <form action ="code.php" method="POST">
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                   </div>
 
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                   </div>
 
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                   </div>
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" id = "createAdmin" type="button">Add Admin</button>
+                    <button class="btn btn-primary" name="createAdmin" id = "createAdmin" type="button">Add Admin</button>
                   </div>
-    
+                </form>  
                 </div>
               </div>
             </div>

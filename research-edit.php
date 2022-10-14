@@ -17,12 +17,8 @@ require 'dbcon.php';
 </head>
 <body>
   
-    <div class="container mt-5">
-
         <?php include('message.php'); ?>
 
-        <div class="row">
-            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>Edit Research
@@ -41,12 +37,12 @@ require 'dbcon.php';
                                 ?>
                         <div class="container">
                           <div class="row">
-                            <div class="col">
+                            <div class="col-7">
                                 <div class="containers">
-                                <iframe class="responsive-iframe" src="uploads/<?=$storage['res_file']?>" width="94%" height="470px"></iframe>
+                                <iframe class="responsive-iframe" src="uploads/<?=$storage['res_file']?>#toolbar=0" width="94%" height="470px"></iframe>
                                 </div> 
                             </div>
-                            <div class="col">
+                            <div class="col-5">
                                 <form action="code.php" method="POST">
                                     <input type="hidden" name="study_id" value="<?= $storage['id']; ?>">
                                     <div class="mb-3">
@@ -93,9 +89,6 @@ require 'dbcon.php';
                                 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
