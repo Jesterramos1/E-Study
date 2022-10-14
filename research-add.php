@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <style type="text/css">
         canvas{
@@ -51,17 +52,21 @@
                         </div>
                             <div class="col">
                                 <div class="was">
-                                <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate required>
+                                <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation">
                                     <label class="form-label" for="myPdf">Research File</label>
-                                    <input type="file" id="myPdf" name="res_file" />
+                                    <input type="file" id="myPdf"  name="res_file" required/>
                                     <div class="mb-3">
+                                        <div>
+                                    <span id="fileError" class="h6 text-danger text-center mt-3"></span>
+                                        </div>
                                         <label>Research Title</label>
-                                        <input type="text" name="title" class="form-control h-25" required>
+                                        <input type="text" name="title" id="res_title" class="form-control h-25" required>
+                                        <span id="titleError" class="h6 text-danger text-center mt-3"></span>
                                     </div>
                                     <div class="mb-3">
                                         <label>Department</label>
                                         <select class="form-select" name="department" id="department" required>
-                                          <option selected>Select a department</option>  
+                                          <option selected value="">Select a department</option>  
                                           <option  value="CEAT">College of Engineering, Architecture, and Technology</option>
                                           <option value="CBET">College of Business and Entrepreneurial Technology</option>
                                           <option value="CAS">College of Arts and Sciences</option>
@@ -83,7 +88,7 @@
                                     <div class="mb-3">
                                         <label>Location:</label>                               
                                         <select class="form-select" name="location" id="location" required>
-                                          <option selected>Choose Location</option>
+                                          <option selected value="">Choose Location</option>
                                           <option value="CEAT Library">CEAT Library - Multi-purpose Building / Third (3rd) Floor</option>  
                                           <option value="CBET Library">CBET Library - SNAGAH Building / Second (2nd) Floor </option>
                                           <option value="CAS Library">CAS Library - MAB Building / Second (2nd) Floor</option>
@@ -94,7 +99,7 @@
                                         
                                     </div>
                                     <div class="mb-3">
-                                        <button type="submit" name="save_research" class="btn btn-primary">Save</button>
+                                        <button type="submit" name="save_research" id="resAdd" class="btn btn-primary">Save</button>
                                     </div>
                                 </form>
                                 </div>
@@ -154,7 +159,43 @@
             };
             fileReader.readAsArrayBuffer(file);
         }
+        var fileExtension = ['pdf'];
+        if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+            $('#fileError').html('The only file format allowed is pdf.');
+            $('#resAdd').attr('disabled', true);
+        }
+        else{
+            $('#fileError').html('');
+        }
+
+            
     });
+
+    $(document).ready(function(){
+        $('#res_title').keyup(function(){
+            var title = $('#res_title').val();
+            $.ajax({
+                url: "Check.php",
+                type: "post",
+                data:{title:title},
+
+                success: function(data){
+                    $('#titleError').html(data);
+                    if(data > '0'){
+                        $('#resAdd').attr('disabled', true);
+
+                    }
+                    $.ajax({
+
+                    });
+                }
+
+
+            });
+               
+            });
+    });
+    
 </script>
 </body>
 </html>

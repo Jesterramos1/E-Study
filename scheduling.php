@@ -51,7 +51,7 @@ minDate: 0
               data:{email:email},
               success: function(data){
                 $('#studEmailError').html(data);
-                
+                  
                 
               
     
@@ -98,16 +98,16 @@ minDate: 0
     <div class="input-group">
     
     <span class="input-group-text" style="background:#1C5090; color:white;"><b>Full Name:</b></span>
-    <input type="text" aria-label="First name" name="fname" class="form-control" placeholder="Juan" required>
-    <input type="text" aria-label="Last name" name="lname" class="form-control" placeholder="Dela Cruz" required>
+    <input type="text" aria-label="First name" name="fname" id="fname" class="form-control" placeholder="Juan" required>
+    <input type="text" aria-label="Last name" name="lname" id="lname" class="form-control" placeholder="Dela Cruz" required>
 
     </div>
     <span id="nameError"></span>
     </div>
 
     <div class="mb-3">
-    <label for="studNum" class="form-label" style="float: left;"><b>Student Number:</b></label>
-    <input class="form-control" type="text"  maxlength="11" name ="studNum" id="studNum" placeholder="2019-123456" required>
+    <label for="studNum" class="form-label"  pattern="/^[0-9]{4}\-[0-9]$/" style="float: left;"><b>Student Number:</b></label>
+    <input class="form-control" type="text" name ="studNum" id="studNum" placeholder="2019-123456" required maxlength="11">
     <span id="studNumError"></span>
     </div>
 
@@ -117,7 +117,7 @@ minDate: 0
     </div>
 
     <div class="mb-3">
-    <label for="email" class="form-label" style="float: left;"><b>Email:</b></label>
+    <label for="email" class="form-label" pattern="/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/." style="float: left;"><b>Email:</b></label>
     <input class="form-control" type="email"  name="email" id="email" placeholder="delacruzjuan123@gmail.com" required>
     <span id="studEmailError"></span>
     </div>
@@ -160,7 +160,7 @@ minDate: 0
     <option value="10:30 AM">10:30 AM</option>
     <option value="11:00 AM">11:00 AM</option>
     <option value="11:30 AM">11:30 AM</option>
-    <option value="12:00 AM">12:00 PM</option>
+    <option value="12:00 PM">12:00 PM</option>
     <option value="12:30 PM">12:30 PM</option>
     <option value="1:00 PM">01:00 PM</option>
     <option value="1:30 PM">01:30 PM</option>
