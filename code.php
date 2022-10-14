@@ -7,21 +7,28 @@ if(isset($_POST['delete_study']))
     $research_id = mysqli_real_escape_string($con, $_POST['delete_study']);
 
     $query = "DELETE FROM storage WHERE id='$research_id' ";
+    $resfilequery = "SELECT * FROM storage WHERE id='$research_id' ";
+    $resfile_run = mysqli_query($con, $resfilequery);
     $query_run = mysqli_query($con, $query);
+    $storage = mysqli_fetch_array($resfile_run);
+    if(unlink("uploads/".$storage['res_file'])){
+        if($query_run){
+            header("Location: adminpanel.php");
+            $_SESSION['message'] = "Research Deleted Successfully";
+            exit(0);
+        }else{
+            header("Location: adminpanel.php");
+            $_SESSION['message'] = "Research Not Deleted";
+            exit(0);
+        }
+    }else{
+        header("Location: adminpanel.php");
+            $_SESSION['message'] = "Research Not Deleted";
+            exit(0);
+    }
 
 
-    if($query_run)
-    {
-        header("Location: adminpanel.php");
-        $_SESSION['message'] = "Student Deleted Successfully";
-        exit(0);
-    }
-    else
-    {
-        header("Location: adminpanel.php");
-        $_SESSION['message'] = "Study Not Deleted";
-        exit(0);
-    }
+    
 }
 
 if(isset($_POST['update_study'])){
@@ -38,13 +45,13 @@ if(isset($_POST['update_study'])){
 
     if($query_run)
     {
-        $_SESSION['message'] = "Study Updated Successfully";
+        $_SESSION['message'] = "Research Updated Successfully";
         header("Location: adminpanel.php");
         exit(0);
     }
     else
     {
-        $_SESSION['message'] = "Study Not Updated";
+        $_SESSION['message'] = "Research Not Updated";
         header("Location: adminpanel.php");
         exit(0);
     }
@@ -93,13 +100,13 @@ if(isset($_POST['save_research'])){
                 $query_run = mysqli_query($con, $query);
                 if($query_run)
                 {
-                    $_SESSION['message-insert'] = "Study Added Successfully";
+                    $_SESSION['message-insert'] = "Research Added Successfully";
                     header("Location: adminpanelfinal.php#research-addcon");
                     exit(0);
                 }
                 else
                 {
-                    $_SESSION['message-insert'] = "Study Not Added";
+                    $_SESSION['message-insert'] = "Research Not Added";
                     header("Location: adminpanelfinal.php#research-addcon");
                     exit(0);
                 }

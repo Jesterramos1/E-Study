@@ -38,7 +38,7 @@
       background:#F2F6FB;
     }
     .concon{
-      width: 100%; /* Can be in percentage also. */
+      width: 100%;
       height: 700px;
       padding: 10px;
       position: relative;

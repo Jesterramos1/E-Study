@@ -1,5 +1,7 @@
 <?php
 include('dbcon.php');
+session_start();
+
 $countSql = "SELECT COUNT(id) FROM storage";  
 $result = mysqli_query($con, $countSql);   
 $row = mysqli_fetch_row($result);  
