@@ -10,6 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -84,7 +87,49 @@
             float: none;
         }
         }
-
+        #searchDiv{
+            margin-top: 2%;
+            margin-left: 1.5%;
+        }
+        #browse{
+            background-color: white;
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+            padding-bottom: 5%;
+        }
+        h5{
+            padding-top: 15%;
+            margin-left: 4%;
+        }
+        #year, #author, #alpha{
+            transition: all .5s ease;
+            color: black;
+            border: none;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            width: 90%;
+            background-color : transparent;
+            outline: none;
+            padding-top: 3%;
+            margin-left: 4%;
+            margin-top: -3%;
+        }
+        #year:hover, #author:hover, #alpha:hover {
+            color: white;
+            background-color: #194F90;
+            width: 100%;
+        }
+        hr, #oy{
+            margin-top: -1%;
+        }
+        #oy{
+            width:90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        
     </style>
 
     <title>Research</title>
@@ -98,9 +143,29 @@
             $tabChecker = $_REQUEST['tabvalue'];
         }?>
     </div>
+
+    
+    <!--Sidebar Search-->
     <div class="sidebar">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    </div>
+    
+        <div class="input-group mb-3" id="searchDiv">
+            <input type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-primary me-md-2" type="button" id="sideB"><i class="bi bi-search"></i></button>
+        </div>
+
+        <div id="browse">
+            <h5><i class="bi bi-sliders" style="margin-right:5%; margin-left:2%;"></i>BROWSE</h5>
+            <hr>
+            <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
+            <hr id="oy">
+            <button id="author"><i class="bi bi-person-lines-fill" style="margin-right:4%;"></i>Author</button>
+            <hr id="oy">
+            <button id="year"><i class="bi bi-journal-bookmark" style="margin-right:4%;"></i>Year</button>
+            <hr id="oy">  
+        </div>
+
+
+
     <div class="content">
         <nav>
         <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
