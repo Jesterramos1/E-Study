@@ -61,12 +61,15 @@ require 'dbcon.php';
                                         <label>Researchers</label>
                                         <textarea id="researchers" name="researchers" value="<?=$storage['researchers'];?>" class="form-control"><?=$storage['researchers'];?></textarea>
                                     </div>
-                                    <div class="mb-3">
-                                        <label>Location</label>
-                                        <select class="form-select" name="location" id="location">
-                                          <option selected><?=$storage['location']?></option>  
-                                          <option value="CBET Library">CBET LIBRARY</option>
-                                          <option value="CED Library">CED LIBRARY</option>
+                                    <div class="mb-3">                                    
+                                        <select class="form-select" name="location" id="location" required>
+                                            <option selected><?=$storage['location']?></option>
+                                            <option value="CEAT Library">CEAT Library - Multi-purpose Building / Third (3rd) Floor</option>  
+                                            <option value="CBET Library">CBET Library - SNAGAH Building / Second (2nd) Floor </option>
+                                            <option value="CAS Library">CAS Library - MAB Building / Second (2nd) Floor</option>
+                                            <option value="CED Library">CED Library - SNAGAH Building / Second (2nd) Floor</option>
+                                            <option value="IPE Library">IPE Library - MAB Building / Fifth (5th) Floor</option>
+                                            <option value="GS Library">GS Library - RND Building / Third (3rd) Floor</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">

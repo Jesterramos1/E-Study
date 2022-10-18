@@ -1,6 +1,5 @@
 <?php
 session_start()
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,6 +41,8 @@ session_start()
       font-weight: bold;
       color: #1C5090;
     }
+    
+    
   </style>
   
 </head>
@@ -49,6 +50,7 @@ session_start()
     <div class="card" id="settingcard">
       <div class="card-header" id="settingcardheader">Admin Account Settings</div>
       <div class="card-body">
+      <label><?php $messageUpdatelbl?></label>
         
         <!--EDIT CURRENT ADMIN INFO -->
         <div class="shadow-sm p-3 mb-5 bg-body rounded">
@@ -73,25 +75,24 @@ session_start()
                   </div>
 
                   <label for="pass" class="form-label">Password:</label>
-
+                  <span id='messagepasstxt'></span>
                   <div class="input-group mb-3">
-                    <button class="btn btn-primary" type="button" id="oldPasswordbtn"><i class="bi bi-eye-slash" id = "oldPasswordIcon"></i></button>
                     <input type="password" class="form-control" placeholder="Enter old password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="oldPasswordtxt" name="oldPassword" required/>
+                    <button class="btn btn-primary" type="button" id="oldPasswordbtn"><i class="bi bi-eye-slash" id = "oldPasswordIcon"></i></button>
                   </div>
 
                   <label for="pass" class="form-label">New Password:</label>
-                  <span id='messagetxt'></span>
-                  
-                  <div class="input-group mb-3">
-                    <button class="btn btn-primary" type="button" id="newPasswordbtn"><i class="bi bi-eye-slash" id = "newPasswordIcon"></i></button>
+                  <span id='messagetxt'></span>                  
+                  <div class="input-group mb-3">                    
                     <input type="password" class="form-control" placeholder="Enter new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="newPasswordtxt" name="newPassword" />
+                    <button class="btn btn-primary" type="button" id="newPasswordbtn"><i class="bi bi-eye-slash" id = "newPasswordIcon"></i></button>
                   </div>
-                  <div class="input-group mb-3">
-                    <button class="btn btn-primary" type="button" id="confirmNewPasswordbtn"><i class="bi bi-eye-slash" id = "confirmNewPasswordIcon"></i></button>
+                  <div class="input-group mb-3">                    
                     <input type="password" class="form-control" placeholder="Confirm new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="confirmNewPasswordtxt" name="confirmNewPassword" />
+                    <button class="btn btn-primary" type="button" id="confirmNewPasswordbtn"><i class="bi bi-eye-slash" id = "confirmNewPasswordIcon"></i></button>
                   </div>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" id ="update_password" type="button" name="update_password" disabled>Save</button>
+                    <button class="btn btn-primary" id ="update_password" name="update_password" disabled>Save</button>
                   </div>
                 </form>
                 </div>
@@ -111,21 +112,28 @@ session_start()
                 <form action ="code.php" method="POST">
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
                   </div>
 
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword"  name="newUserPassword"required>
+                    <button class="btn btn-primary" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id = "newUserPassIcon"></i></button>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password:</span>
+                    <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
+                    <button class="btn btn-primary" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id = "newUserPassConfirmIcon"></i></button>
                   </div>
 
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
+                    <button class="btn btn-primary" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id = "masterkeyIcon"></i></button>
                   </div>
 
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" name="createAdmin" id = "createAdmin" type="button">Add Admin</button>
+                    <button class="btn btn-primary" name="createAdminbtn" id = "createAdminbtn">Add Admin</button>
                   </div>
                 </form>  
                 </div>
@@ -148,6 +156,14 @@ session_start()
       const confirmNewPasswordtxt = document.querySelector('#confirmNewPasswordtxt');
       const confirmNewIcon = document.querySelector('#confirmNewPasswordIcon');
       const updatebtn = document.querySelector('#update_password');
+      const newUserPasswordbtn = document.querySelector('#newUserPasswordbtn');
+      const newUserPasswordtxt = document.querySelector('#newUserPassword');
+      const newUserPasswordConfirmbtn = document.querySelector('#newUserPasswordConfirmbtn');
+      const newUserPasswordConfirmtxt = document.querySelector('#newUserPasswordConfirm');
+      const masterkeyInputtxt = document.querySelector('#masterkeyInput');
+      const masterkeyInputbtn = document.querySelector('#masterkeyInputbtn');
+
+      
 
       oldPasswordbtn.addEventListener('click', function (e) {    
         // toggle the type attribute
@@ -171,19 +187,54 @@ session_start()
         // toggle the eye slash icon
         confirmNewIcon.classList.toggle('bi-eye');
       });
+      newUserPasswordbtn.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const typer = newUserPasswordtxt.getAttribute('type') === 'password' ? 'text' : 'password';
+        newUserPasswordtxt.setAttribute('type', typer);
+        // toggle the eye slash icon
+        newUserPassIcon.classList.toggle('bi-eye');
+      });
+      newUserPasswordConfirmbtn.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const typer = newUserPasswordConfirmtxt.getAttribute('type') === 'password' ? 'text' : 'password';
+        newUserPasswordConfirmtxt.setAttribute('type', typer);
+        // toggle the eye slash icon
+        newUserPassConfirmIcon.classList.toggle('bi-eye');
+      });
+      masterkeyInputbtn.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const typer = masterkeyInputtxt.getAttribute('type') === 'password' ? 'text' : 'password';
+        masterkeyInputtxt.setAttribute('type', typer);
+        // toggle the eye slash icon
+        masterkeyIcon.classList.toggle('bi-eye');
+      });
+      
 
+    
       $('#newPasswordtxt, #confirmNewPasswordtxt').on('keyup', function () {
         if($('#newPasswordtxt').val() == "" || $('#confirmNewPasswordtxt').val() == ""){
           $('#messagetxt').html('').css('color', '');
-          $('#update_password').attr('disabled',true); 
+          $('#update_password').attr('disabled',true);
+
         }else if ($('#newPasswordtxt').val() == $('#confirmNewPasswordtxt').val()) {
-          $('#messagetxt').html('Matching').css('color', 'green');
-          $('#update_password').attr('disabled',false);       
+          $('#messagetxt').html('Password Match').css('color', 'green');
+          $('#update_password').attr('disabled',false);
+          $('#newPasswordtxt').css('border-color', 'green');
+          $('#confirmNewPasswordtxt').css('border-color', 'green');       
         }else{ 
-          $('#messagetxt').html('Not Matching').css('color', 'red');
+          $('#messagetxt').html('Password Do Not Match').css('color', 'red');
           $('#update_password').attr('disabled',true); 
+          $('#newPasswordtxt').css('border-color', 'red');
+          $('#confirmNewPasswordtxt').css('border-color', 'red');
         }
       });
+      $('#oldPasswordtxt').on('keyup', function () {
+        if($('#oldPasswordtxt').val() == ""){
+          $('#messagepasstxt').html('Do not leave blank').css('color', 'red');
+        }else{
+          $('#messagepasstxt').html('Valid').css('color', 'green');
+        }
+      });  
 
     </script>
 </body>

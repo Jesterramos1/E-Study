@@ -26,7 +26,7 @@
         }
         .containers {
           position: relative;
-          width: 100%;
+          width: 100%;  
           padding-top: 100%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
         }
 
