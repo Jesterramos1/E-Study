@@ -264,13 +264,13 @@
                                             }elseif ($chooseDept == 'CBET') {
                                                 $choice = "n_cbet.png";
                                             }elseif ($chooseDept == "CAS") {
-                                                $choice = "i_cas.png";
+                                                $choice = "n_cas.png";
                                             }elseif ($chooseDept == "CED"){
-                                                $choice = "i_ced.png";
+                                                $choice = "n_ced.png";
                                             }elseif ($chooseDept == "IPE"){
-                                                $choice = "i_ipe.png";
+                                                $choice = "n_ipe.png";
                                             }elseif ($chooseDept == "GS"){
-                                                $choice = "i_gs.png";
+                                                $choice = "n_gs.png";
                                             }
                                             ?>                                
                                             <td><img id="imgicon"src="<?php echo "images/".$choice;?>" alt="Book Icon" id="bookIcon"></td>
@@ -421,7 +421,7 @@
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
                                         <tr style="text-align: center;">
-                                            <td><img id="imgicon"src="images/i_cas.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><img id="imgicon"src="images/n_cas.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
@@ -470,7 +470,7 @@
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
                                         <tr style="text-align: center;">
-                                            <td><img id="imgicon"src="images/i_ced.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><img id="imgicon"src="images/n_ced.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
@@ -518,7 +518,7 @@
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
                                         <tr style="text-align: center;">
-                                            <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><img id="imgicon"src="images/n_ipe.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
@@ -569,7 +569,7 @@
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
                                         <tr style="text-align: center;">
-                                            <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><img id="imgicon"src="images/n_gs.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
