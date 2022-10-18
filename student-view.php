@@ -323,7 +323,7 @@
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
 
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <td><img id="imgicon"src="images/n_ceat.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
@@ -372,7 +372,7 @@
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <td><img id="imgicon"src="images/n_cbet.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
