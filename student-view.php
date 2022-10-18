@@ -6,14 +6,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!--Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+    <!-- Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--Side Calendar-->
+    <link rel="stylesheet" href="calendar-display.css">
+	<script src="vanilla-calendar.min.js" defer></script>
 
     <!-- Manual CSS -->
     <style type="text/css">
@@ -54,14 +61,14 @@
         .sidebar {
         margin: 0;
         padding: 0;
-        width: 200px;
+        width: 300px;
         background-color: #f1f1f1;
         position: fixed;
         height: 100%;
         overflow: auto;
         }
         div.content {
-        margin-left: 200px;
+        margin-left: 300px;
         padding: 1px 16px;
         height: 1000px;
         }
@@ -84,7 +91,76 @@
             float: none;
         }
         }
-
+        #searchDiv{
+            margin-top: 5%;
+            margin-left: 1.5%;
+        }
+        #browse{
+            background-color: white;
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+            padding-bottom: 7%;
+        }
+        h5{
+            padding-top: 15%;
+            margin-left: 4%;
+        }
+        #year, #author, #alpha{
+            transition: all .5s ease;
+            color: black;
+            border: none;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            width: 90%;
+            background-color : transparent;
+            outline: none;
+            padding-top: 3%;
+            margin-left: 4%;
+            margin-top: -3%;
+        }
+        #year:hover, #author:hover, #alpha:hover {
+            color: white;
+            background-color: #194F90;
+            width: 100%;
+        }
+        hr, #oy{
+            margin-top: -1%;
+        }
+        #oy{
+            width:90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .vanilla-calendar {
+			font-family: 'Helvetica', 'Arial', sans-serif;
+            padding-top: 10%;
+            padding-bottom:8%;
+            width:96%;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: solid;
+            border-color: #194F90;
+		}
+        #cal{
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5%;
+        }
+        .form-floating{
+        width: 93%;
+        margin-left: auto;
+        margin-right: auto;
+        }
+        .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        background-color: #194F90 !important;
+        }
+        #nav-pills:active {
+        background-color: #194F90 !important;
+        }
+        
+        
+        
     </style>
 
     <title>Research</title>
@@ -98,9 +174,42 @@
             $tabChecker = $_REQUEST['tabvalue'];
         }?>
     </div>
+
+    
+    <!--Sidebar Search-->
     <div class="sidebar">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    
+        <div class="input-group mb-3" id="searchDiv">
+            <input type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-primary me-md-2" type="button" id="sideB"><i class="bi bi-search"></i></button>
+        </div>
+
+        <div id="browse">
+            <h5><i class="bi bi-sliders" style="margin-right:5%; margin-left:2%;"></i>BROWSE</h5>
+            <hr>
+            <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
+            <hr id="oy">
+            <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
+            <hr id="oy">
+            <form class="form-floating">
+            <input type="text" class="form-control" id="floatingInputValue" placeholder="2022" value="2022">
+            <label for="floatingInputValue"><i class="bi bi-calendar2-week"></i>   Year</label>
+            </form>
+        </div>
+
+        <div id="cal">
+        <div class="vanilla-calendar col-sm-1" ></div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const calendar = new VanillaCalendar('.vanilla-calendar');
+                    calendar.init();
+                });
+            </script>
+        </div>
+
     </div>
+
+
     <div class="content">
         <nav>
         <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
@@ -121,11 +230,11 @@
                 <div class="row">
                     <div class="col-md-12">
 
-            <!--Recently added category-->
+            <!--All Category-->
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recently Added</h4>
+                                <h4>Explore</h4>
                             </div>
                             <div class="card-body" >
                                 <?php 
@@ -146,11 +255,11 @@
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
                                         <tr>
                                             <?php
-                                            $chooseDept = $row['department'];       
+                                            $chooseDept = strtoupper($row['department']);       
                                             if($chooseDept == 'CEAT'){
-                                                $choice = "i_ceat.png";
+                                                $choice = "n_ceat.png";
                                             }elseif ($chooseDept == 'CBET') {
-                                                $choice = "i_cbet.png";
+                                                $choice = "n_cbet.png";
                                             }elseif ($chooseDept == "CAS") {
                                                 $choice = "i_cas.png";
                                             }elseif ($chooseDept == "CED"){
@@ -211,7 +320,7 @@
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
                                         <tr>
-                                            <td><img id="imgicon"src="images/i_ceat.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><img id="imgicon"src="images/n_ceat.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
@@ -260,7 +369,7 @@
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
                                         <tr>
-                                            <td><img id="imgicon"src="images/i_cbet.png" alt="Book Icon" id="bookIcon"></td>
+                                            <td><img id="imgicon"src="images/n_cbet.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
