@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--BOOTSTRAP LINK-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <!--JQUERY AND CSS OF CALENDAR-->
 <link rel="stylesheet" href="calendar.css">
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>	
 
 <!--JQUERY DATE PICKER-->
@@ -51,10 +48,6 @@ minDate: 0
               data:{email:email},
               success: function(data){
                 $('#studEmailError').html(data);
-                
-                
-              
-    
               }
             });
           }
@@ -62,33 +55,89 @@ minDate: 0
       }
     });
 
-  });
-  
-    });
-  
-  
-  
-
-  
+  }); 
+});
 </script>
 
 <title>Schedule</title>
 </head>
 
-
 <body>
 <!--HEADER-->
-<?php
+<?php require 'header.php'; ?>
 
-  require 'header.php'; 
+<!--Safety Reminder Form-->
+<div class="card text-center" style="width: 45%; float: left; margin-left:4%; margin-top:1.5%;">
+  <h5 class="card-header" style="font-family: Helvetica, sans-serif; font-weight: bold; background:#1C5090; color:white;">SAFETY REMINDERS</h5>
+      <div class="card-body">
+        
+        <div class="row" style="margin-left:auto; margin-right:auto;">
+          <div class="col-sm-4">
+                  <div class="card" style="width: 12rem;">
+                    <img src="images/disinfect.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">The library is sanitized regularly.</p>
+                    </div>
+                  </div>
+          </div>
 
-  ?>
+          <div class="col-sm-4">
+                  <div class="card" style="width: 12rem;">
+                    <img src="images/vaccine.jpg" style="border-style:solid; border-color:#c7c0f3;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">All employees are fully vaccinated.</p>
+                    </div>
+                  </div>
+          </div>
 
-<!--FORM-->
+          <div class="col-sm-4">
+                  <div class="card" style="width: 12rem;">
+                    <img src="images/sanitation.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Sanitation stations are available upon entry.</p>
+                    </div>
+                  </div>
+          </div>
+        </div>
+
+
+        <div class="row" style="margin-left:auto; margin-right:auto;">
+          <div class="col-sm-4">
+                  <div class="card" style="width: 12rem;">
+                    <img src="images/mask.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Wear a mask at all times.</p>
+                    </div>
+                  </div>
+          </div>
+
+          <div class="col-sm-4">
+                  <div class="card" style="width: 12rem;">
+                    <img src="images/shoerug.jpg" style="border-style:solid; border-color:#5bacee;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Wear a shoe rug inside the premises.</p>
+                    </div>
+                  </div>
+          </div>
+
+          <div class="col-sm-4">
+                  <div class="card" style="width: 12rem;">
+                    <img src="images/distance.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Practice physical distancing.</p>
+                    </div>
+                  </div>
+          </div>
+        </div>
+
+      </div>
+</div>
+
+<!-- SCHEDULING FORM-->
 <br><br>
-<div class="card text-center" style="width: 45%; margin-left: auto; margin-right: auto;">
+<div class="card text-center" style="width: 45%; float: right; margin-right:4%;">
   <h5 class="card-header" style="font-family: Helvetica, sans-serif; font-weight: bold; background:#1C5090; color:white;">
-    SCHEDULE YOUR VISIT
+    BOOK VISITATION
   </h5>
   <div class="card-body">
     <form action="insert.php" method="POST" name="info">

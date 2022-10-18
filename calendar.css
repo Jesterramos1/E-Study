@@ -1,17 +1,3 @@
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
-
-}
-
-
- /* NAVIGATION */
-.navbar{
-  background-color:#194f90;
-}
-
 #system{
   color:white;
   margin-left: -86%;
