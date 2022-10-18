@@ -91,6 +91,12 @@
             float: none;
         }
         }
+
+
+        .modal-header {
+            background-color: #194f90;
+            color: white;
+        }  
         #searchDiv{
             margin-top: 5%;
             margin-left: 1.5%;
@@ -158,9 +164,6 @@
         #nav-pills:active {
         background-color: #194F90 !important;
         }
-        
-        
-        
     </style>
 
     <title>Research</title>
@@ -244,16 +247,16 @@
                                 ?>
                                 <table class="table table-bordered table-striped">                       
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th style="width: 10%"></th>
-                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 70%">Research Title</th>
                                             <th style="width: 10%">Year of Publication</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while($row = mysqli_fetch_array($result)){ ?>
-                                        <tr>
+                                    <?php while($row = mysqli_fetch_array($result)){ ?>
+                                        <tr style="text-align: center;">
                                             <?php
                                             $chooseDept = strtoupper($row['department']);       
                                             if($chooseDept == 'CEAT'){
@@ -274,7 +277,7 @@
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
-                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo  btn btn-outline-success">View</button>
                                                 
                                             </td>
                                         </tr>
@@ -310,21 +313,22 @@
                                 ?>
                                 <table class="table table-bordered table-striped">                       
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th style="width: 10%"></th>
-                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 70%">Research Title</th>
                                             <th style="width: 10%">Year of Publication</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
+
                                         <tr>
                                             <td><img id="imgicon"src="images/n_ceat.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
-                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-outline-success">View</button>
                                                 
                                             </td>
                                         </tr>
@@ -359,11 +363,11 @@
                                 ?>
                                 <table class="table table-bordered table-striped">                       
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th style="width: 10%"></th>
-                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 70%">Research Title</th>
                                             <th style="width: 10%">Year of Publication</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -373,7 +377,7 @@
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
-                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-outline-success">View</button>
                                                 
                                             </td>
                                         </tr>
@@ -407,21 +411,21 @@
                                 ?>
                                 <table class="table table-bordered table-striped">                       
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th style="width: 10%"></th>
-                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 70%">Research Title</th>
                                             <th style="width: 10%">Year of Publication</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <td><img id="imgicon"src="images/i_cas.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
-                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-outline-success">View</button>
                                                 
                                             </td>
                                         </tr>
@@ -456,21 +460,21 @@
                                 ?>
                                 <table class="table table-bordered table-striped">                       
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th style="width: 10%"></th>
-                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 70%">Research Title</th>
                                             <th style="width: 10%">Year of Publication</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <td><img id="imgicon"src="images/i_ced.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
-                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-outline-success">View</button>
                                                 
                                             </td>
                                         </tr>
@@ -504,21 +508,21 @@
                                 ?>
                                 <table class="table table-bordered table-striped">                       
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th style="width: 10%"></th>
-                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 70%">Research Title</th>
                                             <th style="width: 10%">Year of Publication</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
-                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-outline-success">View</button>
                                                 
                                             </td>
                                         </tr>
@@ -555,21 +559,21 @@
                                 ?>
                                 <table class="table table-bordered table-striped">                       
                                     <thead>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <th style="width: 10%"></th>
-                                            <th style="width: 60%">Research Title</th>
+                                            <th style="width: 70%">Research Title</th>
                                             <th style="width: 10%">Year of Publication</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_array($result)){ ?>
-                                        <tr>
+                                        <tr style="text-align: center;">
                                             <td><img id="imgicon"src="images/i_ipe.png" alt="Book Icon" id="bookIcon"></td>
                                             <td><?php echo ucwords(strtolower($row['title'])); ?></td>
                                             <td><?php echo $row['date_publish']; ?></td>
                                             <td>
-                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-success">View</button>
+                                                <button data-id = '<?php echo $row['id'];?>' class="studyinfo btn btn-outline-success">View</button>
                                                 
                                             </td>
                                         </tr>
@@ -608,7 +612,7 @@
         <div class="modal-dialog modal-xl   ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Research Info</h4>
+                <h4 class="modal-title">Research Info</h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
