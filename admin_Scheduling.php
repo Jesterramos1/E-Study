@@ -63,7 +63,7 @@
             </tr>
           </thead>
           <?php 
-             $con = mysqli_connect("localhost", "root", "", "estudy_db");
+        $con = mysqli_connect("localhost", "root", "", "estudy_db");
         $query = "SELECT * FROM booked_schedule WHERE location = 'ceat' ORDER BY id DESC";
 
       if ($result = mysqli_query($con, $query)){
@@ -74,12 +74,17 @@
           $studSched = $row['studSched'];
           $StudSched = date('m/d/Y',strtotime($studSched));
           $startTime  = $row['studTime']; 
-          $StartTime = date('h:i', strtotime($startTime));
-          $compareTime = date('h:i');
+          $StartTime = date('g:i a', strtotime($startTime));
+          $compareTime = date('g:i a');
 
-          if ($date_now < $StudSched && $compareTime < $StartTime){
+          if ($date_now > $StudSched && $compareTime > $StartTime){
 
-              echo "<tr>";
+            $id = $row['id'];
+            $sql = "DELETE FROM booked_schedule WHERE id='$id'";
+            $sql_run = mysqli_query($con, $sql);
+
+          }else{
+           echo "<tr>";
                 echo "<td>" . $row['date_filed'] . "</td>";
                 echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
                 echo "<td>" . $row['lName'] . "</td>";
@@ -91,11 +96,6 @@
                 echo "<td>" . $row['studSched'] . "</td>";
                 echo "<td>" . $row['studTime'] . "</td>";
             echo "</tr>";
-
-          }else{
-            $id = $row['id'];
-            $sql = "DELETE FROM booked_schedule WHERE id='$id'";
-            $sql_run = mysqli_query($con, $sql);
 
           }
     }
@@ -135,35 +135,36 @@
               echo "<tbody>";
               while($row = mysqli_fetch_array($result)){
                  date_default_timezone_set('Asia/Manila');
-          $date_now = date('m/d/Y');
-          $studSched = $row['studSched'];
-          $StudSched = date('m/d/Y',strtotime($studSched));
-          $startTime  = $row['studTime']; 
-          $StartTime = date('h:i', strtotime($startTime));
-          $compareTime = date('h:i');
+                  $date_now = date('m/d/Y');
+                  $studSched = $row['studSched'];
+                  $StudSched = date('m/d/Y',strtotime($studSched));
+                  $startTime  = $row['studTime']; 
+                  $StartTime = date('g:i a', strtotime($startTime));
+                  $compareTime = date('g:i a');
 
-          if ($date_now < $StudSched && $compareTime < $StartTime){
+                  if ($date_now > $StudSched && $compareTime > $StartTime){
 
-              echo "<tr>";
-                echo "<td>" . $row['date_filed'] . "</td>";
-                echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
-                echo "<td>" . $row['lName'] . "</td>";
-                echo "<td>" . $row['fName'] . "</td>";
-                echo "<td>" . $row['studCourse'] . "</td>";
-                echo "<td>" . $row['studEmail'] . "</td>";
-                echo "<td>" . $row['studContact'] . "</td>";
-                echo "<td class='lib'>" . $row['location'] . "</td>";
-                echo "<td>" . $row['studSched'] . "</td>";
-                echo "<td>" . $row['studTime'] . "</td>";
-            echo "</tr>";
+                    $id = $row['id'];
+                    $sql = "DELETE FROM booked_schedule WHERE id='$id'";
+                    $sql_run = mysqli_query($con, $sql);
 
-          }else{
-            $id = $row['id'];
-            $sql = "DELETE FROM booked_schedule WHERE id='$id'";
-            $sql_run = mysqli_query($con, $sql);
+                  }else{
+                    
+                    echo "<tr>";
+                        echo "<td>" . $row['date_filed'] . "</td>";
+                        echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
+                        echo "<td>" . $row['lName'] . "</td>";
+                        echo "<td>" . $row['fName'] . "</td>";
+                        echo "<td>" . $row['studCourse'] . "</td>";
+                        echo "<td>" . $row['studEmail'] . "</td>";
+                        echo "<td>" . $row['studContact'] . "</td>";
+                        echo "<td class='lib'>" . $row['location'] . "</td>";
+                        echo "<td>" . $row['studSched'] . "</td>";
+                        echo "<td>" . $row['studTime'] . "</td>";
+                    echo "</tr>";
 
-          }
-    }
+                  }
+            }
 
 
 
@@ -199,6 +200,22 @@
             if ($result = mysqli_query($con, $query)){
               echo "<tbody>";
               while($row = mysqli_fetch_array($result)){
+                date_default_timezone_set('Asia/Manila');
+                $date_now = date('m/d/Y');
+                $studSched = $row['studSched'];
+                $StudSched = date('m/d/Y',strtotime($studSched));
+                $startTime  = $row['studTime']; 
+                $StartTime = date('g:i a', strtotime($startTime));
+                $compareTime = date('g:i a');
+
+                if ($date_now > $StudSched && $compareTime > $StartTime){
+
+                  $id = $row['id'];
+                  $sql = "DELETE FROM booked_schedule WHERE id='$id'";
+                  $sql_run = mysqli_query($con, $sql);
+
+                }else{
+                  
                   echo "<tr>";
                       echo "<td>" . $row['date_filed'] . "</td>";
                       echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
@@ -211,12 +228,17 @@
                       echo "<td>" . $row['studSched'] . "</td>";
                       echo "<td>" . $row['studTime'] . "</td>";
                   echo "</tr>";
-            }
-              echo "</tbody>";
-              mysqli_free_result($result);
-          }else{
-              echo "No records matching your query were found.";
+
+                }
           }
+
+
+
+  echo "</tbody>";
+  mysqli_free_result($result);
+}
+  mysqli_close($con);
+           
           ?>
         </table>
       </div>
@@ -252,9 +274,15 @@
           $StartTime = date('h:i', strtotime($startTime));
           $compareTime = date('h:i');
 
-          if ($date_now < $StudSched && $compareTime < $StartTime){
+          if ($date_now > $StudSched && $compareTime > $StartTime){
 
-              echo "<tr>";
+            $id = $row['id'];
+            $sql = "DELETE FROM booked_schedule WHERE id='$id'";
+            $sql_run = mysqli_query($con, $sql);
+
+          }else{
+            
+            echo "<tr>";
                 echo "<td>" . $row['date_filed'] . "</td>";
                 echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
                 echo "<td>" . $row['lName'] . "</td>";
@@ -266,11 +294,6 @@
                 echo "<td>" . $row['studSched'] . "</td>";
                 echo "<td>" . $row['studTime'] . "</td>";
             echo "</tr>";
-
-          }else{
-            $id = $row['id'];
-            $sql = "DELETE FROM booked_schedule WHERE id='$id'";
-            $sql_run = mysqli_query($con, $sql);
 
           }
     }
@@ -316,25 +339,26 @@
           $StartTime = date('h:i', strtotime($startTime));
           $compareTime = date('h:i');
 
-          if ($date_now < $StudSched && $compareTime < $StartTime){
+          if ($date_now > $StudSched && $compareTime > $StartTime){
 
-              echo "<tr>";
-                echo "<td>" . $row['date_filed'] . "</td>";
-                echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
-                echo "<td>" . $row['lName'] . "</td>";
-                echo "<td>" . $row['fName'] . "</td>";
-                echo "<td>" . $row['studCourse'] . "</td>";
-                echo "<td>" . $row['studEmail'] . "</td>";
-                echo "<td>" . $row['studContact'] . "</td>";
-                echo "<td class='lib'>" . $row['location'] . "</td>";
-                echo "<td>" . $row['studSched'] . "</td>";
-                echo "<td>" . $row['studTime'] . "</td>";
-            echo "</tr>";
-
-          }else{
             $id = $row['id'];
             $sql = "DELETE FROM booked_schedule WHERE id='$id'";
             $sql_run = mysqli_query($con, $sql);
+             
+          }else{
+            
+            echo "<tr>";
+            echo "<td>" . $row['date_filed'] . "</td>";
+            echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
+            echo "<td>" . $row['lName'] . "</td>";
+            echo "<td>" . $row['fName'] . "</td>";
+            echo "<td>" . $row['studCourse'] . "</td>";
+            echo "<td>" . $row['studEmail'] . "</td>";
+            echo "<td>" . $row['studContact'] . "</td>";
+            echo "<td class='lib'>" . $row['location'] . "</td>";
+            echo "<td>" . $row['studSched'] . "</td>";
+            echo "<td>" . $row['studTime'] . "</td>";
+        echo "</tr>";
 
           }
     }
@@ -381,9 +405,15 @@
           $StartTime = date('h:i', strtotime($startTime));
           $compareTime = date('h:i');
 
-          if ($date_now < $StudSched && $compareTime < $StartTime){
+          if ($date_now > $StudSched && $compareTime > $StartTime){
 
-              echo "<tr>";
+            $id = $row['id'];
+            $sql = "DELETE FROM booked_schedule WHERE id='$id'";
+            $sql_run = mysqli_query($con, $sql);
+
+          }else{
+           
+            echo "<tr>";
                 echo "<td>" . $row['date_filed'] . "</td>";
                 echo "<td>" . htmlspecialchars($row['studNum']) . "</td>";
                 echo "<td>" . $row['lName'] . "</td>";
@@ -395,11 +425,6 @@
                 echo "<td>" . $row['studSched'] . "</td>";
                 echo "<td>" . $row['studTime'] . "</td>";
             echo "</tr>";
-
-          }else{
-            $id = $row['id'];
-            $sql = "DELETE FROM booked_schedule WHERE id='$id'";
-            $sql_run = mysqli_query($con, $sql);
 
           }
     }
