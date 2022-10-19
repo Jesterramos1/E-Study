@@ -7,25 +7,31 @@ if(isset($_POST['delete_study']))
     $research_id = mysqli_real_escape_string($con, $_POST['delete_study']);
 
     $query = "DELETE FROM storage WHERE id='$research_id' ";
+    $resfilequery = "SELECT * FROM storage WHERE id='$research_id' ";
+    $resfile_run = mysqli_query($con, $resfilequery);
     $query_run = mysqli_query($con, $query);
+    $storage = mysqli_fetch_array($resfile_run);
+    if(unlink("uploads/".$storage['res_file'])){
+        if($query_run){
+            header("Location: adminpanel.php");
+            $_SESSION['message'] = "Research Deleted Successfully";
+            exit(0);
+        }else{
+            header("Location: adminpanel.php");
+            $_SESSION['message'] = "Research Not Deleted";
+            exit(0);
+        }
+    }else{
+        header("Location: adminpanel.php");
+            $_SESSION['message'] = "Research Not Deleted";
+            exit(0);
+    }
 
 
-    if($query_run)
-    {
-        header("Location: adminpanel.php");
-        $_SESSION['message'] = "Student Deleted Successfully";
-        exit(0);
-    }
-    else
-    {
-        header("Location: adminpanel.php");
-        $_SESSION['message'] = "Study Not Deleted";
-        exit(0);
-    }
+    
 }
 
-if(isset($_POST['update_study']))
-{
+if(isset($_POST['update_study'])){
     $study_id = mysqli_real_escape_string($con, $_POST['study_id']);
 
     $title = mysqli_real_escape_string($con, $_POST['title']);
@@ -39,14 +45,14 @@ if(isset($_POST['update_study']))
 
     if($query_run)
     {
-        $_SESSION['message'] = "Study Updated Successfully";
-        header("Location: adminpanelfinal.php");
+        $_SESSION['message'] = "Research Updated Successfully";
+        header("Location: adminpanel.php");
         exit(0);
     }
     else
     {
-        $_SESSION['message'] = "Study Not Updated";
-        header("Location: adminpanelfinal.php");
+        $_SESSION['message'] = "Research Not Updated";
+        header("Location: adminpanel.php");
         exit(0);
     }
 
@@ -94,13 +100,13 @@ if(isset($_POST['save_research'])){
                 $query_run = mysqli_query($con, $query);
                 if($query_run)
                 {
-                    $_SESSION['message-insert'] = "Study Added Successfully";
+                    $_SESSION['message-insert'] = "Research Added Successfully";
                     header("Location: adminpanelfinal.php#research-addcon");
                     exit(0);
                 }
                 else
                 {
-                    $_SESSION['message-insert'] = "Study Not Added";
+                    $_SESSION['message-insert'] = "Research Not Added";
                     header("Location: adminpanelfinal.php#research-addcon");
                     exit(0);
                 }
@@ -108,4 +114,65 @@ if(isset($_POST['save_research'])){
         }
     }
 }
+
+if(isset($_POST['update_password'])){
+    $user = $_SESSION['user'];
+    $newPassword = mysqli_real_escape_string($con, $_POST['newPassword']);
+    $oldPasswordInput = mysqli_real_escape_string($con, $_POST['oldPassword']);
+    
+    $sql = "SELECT admin_pass FROM rtu_admin";
+    $result = $con->query($sql);
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()) {
+            $oldPassword = $row['admin_pass'];
+            if($oldPasswordInput == $oldPassword){
+                $query = "UPDATE rtu_admin SET admin_pass='$newPassword' WHERE admin_user='$user' ";
+                $query_run = mysqli_query($con, $query);
+                if($query_run){   
+                    $messageUpdatelbl = "Password Succesfully Changed";            
+                    header("Location: admin_settings.php");
+                    exit(0);
+                }else{
+                    $messageUpdatelbl = "Error Changing Password"; 
+                    header("Location: admin_settings.php");
+                    exit(0);
+                }
+            }else{
+                $messagelbl = "Password is Incorrect";
+            }
+            
+        }
+    }      
+}
+
+if(isset($_POST['createAdminbtn'])){
+    $newUser = mysqli_real_escape_string($con, $_POST['newUser']);
+    $newUserPassword = mysqli_real_escape_string($con, $_POST['newUserPassword']);
+    $masterkeyInput = mysqli_real_escape_string($con, $_POST['masterkeyInput']);
+    $sql = "SELECT masterkeys FROM masterkey";
+    $result = $con->query($sql);
+    if($result->num_rows > 0){
+        while($row = $result->fetch_assoc()) {
+            $masterkey = $row['masterkeys'];
+            if($masterkey == $masterkeyInput){
+                $sql = "INSERT IGNORE INTO `rtu_admin`( `admin_user`, `admin_pass`) VALUES ('$newUser','$newUserPassword')";
+                if (mysqli_query($con, $sql)){
+                    $messageCreatelbl = "User Created Succesfully";            
+                    header("Location: admin_settings.php");
+                    exit(0);
+                }else{
+                    $messageCreatelbl = "Error Creating new User";            
+                    header("Location: admin_settings.php");
+                    exit(0);
+                }
+            }else{
+                $messageCreatelbl = "User Created Succesfully";            
+                    header("Location: admin_settings.php");
+                    exit(0);
+            }
+            
+        }    
+    }
+}
+
 

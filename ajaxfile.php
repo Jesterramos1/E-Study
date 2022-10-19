@@ -9,24 +9,44 @@ while( $row = mysqli_fetch_array($result) ){
 ?>
 
 <div class="row">
-    <div class="col">
+    <div class="col-md-7 col-sm-12" >
         <div class="containers">
-          <iframe class="responsive-iframe" src="uploads/<?php echo $row['res_file']?>"></iframe>
+          <iframe
+          class="responsive-iframe" src="uploads/<?php echo $row['res_file']?>#toolbar=0">
+        </iframe>
         </div>  
     </div>
-    <div class="col">
-        <table border='0' width='100%'>
-        <tr>
-            <td style="padding:20px;">
-            <p>Title : <?php echo $row['title']; ?></p>
-            <p>Department : <?php echo $row['department']; ?></p>
-            <p>Date Publish : <?php echo $row['date_publish']; ?></p>
-            <p>Researchers : <?php echo $row['researchers']; ?></p>
-            <p>Location : <?php echo $row['location']; ?></p>
-            </td>
-        </tr>
-        </table>
+    <div class="col-md-5 col-sm-12" >
+    <div class="card">
+        <div class="card-header" style=text-align:center;>
+            <b>Details</b>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <b>Title:</b><br><?php echo $row['title']; ?>
+            </li>
+            <li class="list-group-item">
+                <b>Department:</b><br><?php echo $row['department']; ?>
+            </li>
+            <li class="list-group-item">
+                <b>Date Published:</b><br><?php echo $row['date_publish']; ?>
+            </li>
+            <li class="list-group-item">
+                <b>Researchers:</b><br><?php echo $row['researchers']; ?>
+            </li>
+            <li class="list-group-item">
+                <b>Location:</b><br><?php echo $row['location']; ?>
+            </li>
+            
+        </ul>
+        <div class="card-footer">
+            <div class="modal-footer">
+                <a class="btn btn-outline-primary" href="scheduling.php" role="button">Book Visit</a>
+            </div>
+        </div>
     </div>
+    </div>
+</div>    
     
  
 <?php } ?>

@@ -1,5 +1,6 @@
 <?php
 require 'dbtable_creation.php';
+session_start();
 
 
 ?>
@@ -205,6 +206,7 @@ require 'dbtable_creation.php';
 <?php
 //Account Verification
 if(isset($_POST['submit'])){
+
   $user = $_REQUEST['email'];
   $pass = $_REQUEST['pass'];
   if($conn->connect_error){
@@ -221,12 +223,10 @@ if(isset($_POST['submit'])){
       setcookie("pass",$pass,time() + 60*60*24*365);
       echo"<script> location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
       exit();
-     
-      
       }else{
       echo '<script>openmail()</script>';
       echo '<script>openForm()</script>';       
-    }
+      }
     }else{
       echo '<script>openmail()</script>';
       echo '<script>openForm()</script>'; 

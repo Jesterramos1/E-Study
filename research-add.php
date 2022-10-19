@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,11 +33,10 @@
     <title>Admin Panel</title>
 </head>
 <body>
-  
+    
     <div class="container">
         <div class="row">
         <?php include('message-insert.php'); ?>
-            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" id="resaddcardheader">
                         <h4>Add New Research</h4>
@@ -47,10 +44,10 @@
                     <br>
                     <div class="container">
                         <div class="row" >
-                        <div class="col">
+                        <div class="col-5">
                             <canvas id="pdfViewer"></canvas>
                         </div>
-                            <div class="col">
+                            <div class="col-7">
                                 <div class="was">
                                 <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation">
                                     <label class="form-label" for="myPdf">Research File</label>
@@ -109,7 +106,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">// Loaded via <script> tag, create shortcut to access PDF.js exports.
