@@ -260,7 +260,7 @@ $(document).ready(function(){
     <label id="message">Username and Password does not match</label>
     <br>
     <label for="email"><b>USERNAME:</b></label>
-    <input type="text" placeholder="RTU Admin" name="email" required>
+    <input type="text" placeholder="RTU Admin" name="email" autocomplete="off" required>
 
     <label for="psw"><b>PASSWORD:</b></label>
     <input type="password" placeholder="Password" name="pass" required>
