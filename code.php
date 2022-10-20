@@ -85,7 +85,7 @@ if(isset($_POST['save_research'])){
         exit(0);
         }
     else{
-        if (!in_array($extension, ['pdf', 'docx'])) {
+        if (!in_array($extension, ['pdf'])) {
              $_SESSION['message-insert'] = "File Type must be in pdf or docx only";
             header("Location: adminpanelfinal.php#research-addcon");
             exit(0);

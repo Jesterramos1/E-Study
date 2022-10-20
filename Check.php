@@ -5,8 +5,8 @@ $con = mysqli_connect("localhost", "root", "", "estudy_db");
 
 if(!empty($_POST['fname']) && !empty($_POST['lname'])){
 
-    $fName = mysqli_real_escape_string($con, $_REQUEST['fname']);
-    $lName = mysqli_real_escape_string($con, $_REQUEST['lname']);
+    $fName = strtoupper(mysqli_real_escape_string($con, $_REQUEST['fname']));
+    $lName = strtoupper(mysqli_real_escape_string($con, $_REQUEST['lname']));
     $userCheck = "SELECT fName, lName FROM booked_schedule WHERE fName LIKE '%{$fName}%' AND lName LIKE '%{$lName}%' ";
     $result = mysqli_query($con, $userCheck);
     $nameCount = mysqli_num_rows($result);
@@ -44,8 +44,19 @@ if(!empty($_POST['fname']) && !empty($_POST['lname'])){
         echo "<span class='h6 text-success text-center mt-3'>email is available.</span>";
     }
 
+}elseif(isset($_POST['title'])){
+    $studTitle = mysqli_real_escape_string($con, $_REQUEST['title']);
+    $titleCheck = "SELECT title FROM storage WHERE title LIKE '%{$studTitle}%' ";
+    $resulttitle = mysqli_query($con, $titleCheck);
+    $titleCount = mysqli_num_rows($resulttitle);
+
+    if($titleCount > 0){
+        echo "<span class='h6 text-danger text-center mt-3'>Title already exist .</span>";
+
+    }else{
+        echo "<span class='h6 text-success text-center mt-3'>title is available.</span>";
+    }
+
+
 }
-
-
-
 ?>
