@@ -118,7 +118,7 @@
       </div>
       <div class ="page-container" id="research-addcon">
         <div class = "concon">
-          <?php include 'research-add.php'?>
+          <?php include 'research-file-add.php'?>
         </div>
       </div>
       <div class ="page-container" id="schedulingcon">
