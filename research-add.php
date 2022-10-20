@@ -158,7 +158,7 @@
         var fileExtension = ['pdf'];
         if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
             $('#fileError').html('The only file format allowed is pdf.');
-            $('#resAdd').attr('disabled', true);
+            
         }
         else{
             $('#fileError').html('');
@@ -178,7 +178,7 @@
                 success: function(data){
                     $('#titleError').html(data);
                     if(data > '0'){
-                        $('#resAdd').attr('disabled', true);
+                    
 
                     }
                     $.ajax({

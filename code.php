@@ -89,7 +89,7 @@ if(isset($_POST['save_research'])){
              $_SESSION['message-insert'] = "File Type must be in pdf or docx only";
             header("Location: adminpanelfinal.php#research-addcon");
             exit(0);
-        }elseif ($_FILES['res_file']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
+        }elseif ($_FILES['res_file']['size'] > 1000000000) { // file shouldn't be larger than 1Megabyte
             $_SESSION['message-insert'] = "File size is to big";
             header("Location: adminpanelfinal.php#research-addcon");
             exit(0);
