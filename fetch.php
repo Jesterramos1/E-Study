@@ -12,7 +12,6 @@
     <style>
         .card{
             margin-top: 20px;
-            background: #194f90;
             color: white;
         }
         h3 {
@@ -38,6 +37,22 @@
           height: 100%;
         }
 
+        .card-header {
+            background-color: #194f90;
+            color: white;
+            font-size: large;
+            text-align: center;
+        }
+
+        li {
+            font-size: medium;
+            text-align: left;
+        }
+        .modal-header {
+            background-color: #194f90;
+            color: white;
+        }
+
               
        
 
@@ -57,10 +72,10 @@ if(mysqli_num_rows($result) > 0)
 
     {   
     
-    echo "<h3 align='center'>Search Result<h3>";
-    $output .='<table class="table table-bordered table-striped">                       
+    echo "<h3 align='center' style='margin-top: 3%;'>Search Result</h3>";
+    $output .='<table class="table table-bordered table-striped" style="margin-top: 3%;">                       
     <thead>
-        <tr>
+        <tr style="text-align:center;">
             <th style="width: 40%">Research Title</th>
             <th style="width: 10%">Department</th>
             <th style="width: 10%">Year of Publication</th>
@@ -71,14 +86,14 @@ if(mysqli_num_rows($result) > 0)
 
     while($row = mysqli_fetch_assoc($result)){
 
-    $output .='<tr>
+    $output .='<tr style="text-align:center;">
     <td> '.$row["title"].'</td>
     <td>'.$row["department"].'</td>
     <td>'.$row["date_publish"].'</td>
     <td>'.$row["researchers"].'</td>
     <td>'.$row["location"].'</td>
     <td>
-    <button data-id = '.$row["id"].' class="studyinfo btn btn-success">View</button>
+    <button data-id = '.$row["id"].' class="studyinfo btn btn-outline-success">View</button>
     </td>
     </tr>';
 
@@ -113,11 +128,12 @@ echo $output;
             });
         });
     </script>
+
      <div class="modal fade" id="empModal" role="dialog">
         <div class="modal-dialog modal-xl   ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Info</h4>
+                <h4 class="modal-title">Research Info</h4>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
