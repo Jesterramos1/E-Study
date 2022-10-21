@@ -2,8 +2,7 @@
 session_start();
 require 'dbcon.php';
 
-if(isset($_POST['delete_study']))
-{
+if(isset($_POST['delete_study'])){
     $research_id = mysqli_real_escape_string($con, $_POST['delete_study']);
 
     $query = "DELETE FROM storage WHERE id='$research_id' ";
@@ -173,6 +172,15 @@ if(isset($_POST['createAdminbtn'])){
             
         }    
     }
+}
+
+if(isset($_POST['preUpload'])){
+
+    $_SESSION['try'] = $_FILES['preFileUpload']['name'];
+    header("Location: research-file-add.php");
+    
+
+    
 }
 
 
