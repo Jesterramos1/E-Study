@@ -180,9 +180,10 @@ if(isset($_POST['preUpload'])){
     $file = $_FILES['preFileUpload']['tmp_name'];
 
     if (move_uploaded_file($file, $destination)) {
-        $_SESSION['tempFile'] = $filename;        
+        $_SESSION['tempFile'] = $filename;
+        header("Location: research-add.php");
+        exit(0);        
     }else{
-        
     }
 
     

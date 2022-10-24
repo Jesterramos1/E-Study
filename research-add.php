@@ -17,12 +17,13 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <style type="text/css">
-        canvas{
+        iframe{
             padding: 0;
             margin: auto;
             display: block;
             width: 100%;
             border: 2px solid black;
+            height: 100%;
         }
         #resaddcardheader{
             background-color: #1C5090;
@@ -49,7 +50,7 @@ session_start();
                     <div class="container">
                         <div class="row" >
                         <div class="col-5">
-                            <canvas id="pdfViewer"></canvas>
+                            <iframe src="tempUpload/<?php echo $_SESSION['tempFile'] ?>#toolbar=0" frameborder="0"></iframe>
                         </div>
                             <div class="col-7">
                                 <div class="was">

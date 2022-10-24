@@ -59,7 +59,7 @@
                     <label id="status"></label>                                     
                 </div>
                 <div>
-                <a src="research-add.php"><button class="btn btn-outline-primary" name="preUpload" id="preUpload">Submit File</button></a>   
+                <button class="btn btn-outline-primary" name="preUpload" id="preUpload">Submit File</button>  
                 </div>
             </div>           
         </div>
