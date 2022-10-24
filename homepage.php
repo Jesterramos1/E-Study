@@ -13,6 +13,7 @@ session_start();
 <link rel="stylesheet" href="style.css">
 
 <!--Bootstrap-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -32,10 +33,19 @@ session_start();
     height: 5%;
     width: 5%;
   }
+
+
+#footer {
+  position: relative;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+}
 </style>
 
 
 <body>
+
 
 <!--Header-->
 <div class="sticky-sm-top">
@@ -179,6 +189,61 @@ session_start();
 </div>
 
 
+
+<!------------------------------FOOTER------------------------------>
+
+
+<footer id="footer" class="footer" style="background-color: #0053aa;" contentEditable>
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+              <h5 class="mb-3" style="letter-spacing: 2px; color: white;">footer content</h5>
+              <h6>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              </h6>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+              <h5 class="mb-3" style="letter-spacing: 2px; color: white;">Contact Us</h5>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-1">
+                  <a href="mailto:libraryservices@rtu.edu.ph" style="color: white;"><i class="bi bi-envelope-heart-fill"></i> libraryservices@rtu.edu.ph</a>
+                </li>
+                <li class="mb-1">
+                  <a href="https://web.facebook.com/rtulrc" style="color: white;"><i class="bi bi-facebook"></i> RTU Learning Resource Center 2020</a>
+                </li>
+                <li class="mb-1">
+                  <a href="https://sites.google.com/rtu.edu.ph/rtu-ulrc" style="color: white;"><i class="bi bi-browser-chrome"></i> OTHER WEBSITE</a>
+                </li>
+                <li style="color: white;">
+                  <i class="bi bi-telephone-fill"></i> 285348267</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+              <h5 class="mb-1" style="letter-spacing: 2px; color: white;">Library Hours</h5>
+              <table class="table" style="color: white; border-color: #666;">
+                <tbody>
+                  <tr>
+                    <td>Mon - Fri:</td>
+                    <td>8:00 A.M. -<br> 5:00 P.M.</td>
+                  </tr>
+                  <tr>
+                    <td>Lunch Break:</td>
+                    <td>12:00 P.M. -<br> 1:00 P.M</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-3" style="background-color: #194f90;">
+          © 2022 Variable Set. All Rights Reserved.
+        </div>
+      </footer>
+
+
+
+
 </div>
 
 <!--Login Form-->
@@ -240,6 +305,9 @@ exit(header("Location: adminpanelfinal.php#adminpanelcon"));
 ?>
 
 
+
+
+ 
 
 </body>
 </html>
