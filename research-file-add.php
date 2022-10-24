@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +36,11 @@ session_start();
     #semicon{
         margin-top: 10%;
     }
+    #status{
+        font-size: 30x;
+        color: #198754;
+    }
+    
     
 </style>
 <body>
@@ -52,12 +55,11 @@ session_start();
                 <h5 class="card-title">Upload Thesis Soft Copy</h5>
                 <div>
                     <label for="formFileLg" class="form-label">Large file input example</label>
-                    <input class="form-control form-control-lg" id="preFileUpload" type="file"><br>
-                    <button class="btn btn-outline-primary" name="preUpload" id="preUpload">Submit File</button>                    
+                    <input class="form-control form-control-lg" id="preFileUpload" name = "preFileUpload" type="file">
+                    <label id="status"></label>                                     
                 </div>
                 <div>
-                    <label>Status</label>
-                    <label id="status">aas</label>
+                <a src="research-add.php"><button class="btn btn-outline-primary" name="preUpload" id="preUpload">Submit File</button></a>   
                 </div>
             </div>           
         </div>
@@ -68,20 +70,25 @@ session_start();
     </form>
 </div>
 <script>
-     $(document).ready(function() {
-        $("#preFileUpload").change(function(e){
-            var file = e.target.files[0].name;
-            $.ajax({
-                url: "checkUpload.php",
-                method: "POST",
-                data:{file:file},
-                success: function(data){
-                    if(data > '0'){
-                        $('#status').text('File already exists');
-                    }
-                }
+    $('#preFileUpload').change(function(){
+    var filename = $('#preFileUpload').val().replace(/C:\\fakepath\\/i, '')
+    $.ajax({
+        url: "code.php",
+        method: "POST",
+        data:{filename:filename},
+        success: function(data){
+            if(data > 0){
+                //true(existing)
+                $('#status').html("File Already Exist");
+                $('#preUpload').attr('disabled', true);
+            }else{
+                //false(non-existing)
+                $('#status').html("Ready to be Uploaded");
+                $('#preUpload').attr('disabled', false);
+            }
+               
+        }
         }); 
-        });
     });
 </script>    
 </body>

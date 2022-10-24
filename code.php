@@ -175,12 +175,27 @@ if(isset($_POST['createAdminbtn'])){
 }
 
 if(isset($_POST['preUpload'])){
+    $filename = $_FILES['preFileUpload']['name'];
+    $destination = 'tempUpload/' . $filename;
+    $file = $_FILES['preFileUpload']['tmp_name'];
 
-    $_SESSION['try'] = $_FILES['preFileUpload']['name'];
-    header("Location: research-file-add.php");
-    
+    if (move_uploaded_file($file, $destination)) {
+        $_SESSION['tempFile'] = $filename;        
+    }else{
+        
+    }
 
     
+    
+}
+
+if(isset($_POST['filename'])){
+
+    $filename = $_POST['filename'];
+    $fileCheck = "SELECT * FROM storage WHERE res_file LIKE '%{$filename}%'";
+    $result = mysqli_query($con, $fileCheck);
+    $fileCount = mysqli_num_rows($result);
+    echo $fileCount;
 }
 
 
