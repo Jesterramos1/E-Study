@@ -18,6 +18,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
     <!--Side Calendar-->
     <link rel="stylesheet" href="calendar-display.css">
 	<script src="vanilla-calendar.min.js" defer></script>
@@ -25,6 +28,7 @@
     <!-- Manual CSS -->
     <style type="text/css">
         body{
+            font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
             overflow-x: hidden;
         }
         #imgicon{
@@ -160,10 +164,8 @@
         }
         .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
         background-color: #194F90 !important;
-        }
-        #nav-pills:active {
-        background-color: #194F90 !important;
-        }
+        }        
+        
     </style>
 
     <title>Research</title>
@@ -215,15 +217,15 @@
 
     <div class="content">
         <nav>
-        <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
-            <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
-            <button class="nav-link <?php if ($tabChecker == "1") echo 'active'; ?>" id="nav-ceat-tab" data-bs-toggle="tab" data-bs-target="#nav-ceat" type="button" role="tab" aria-controls="nav-ceat" aria-selected="false">CEAT</button>
-            <button class="nav-link <?php if ($tabChecker == "2") echo 'active'; ?>" id="nav-cbet-tab" data-bs-toggle="tab" data-bs-target="#nav-cbet" type="button" role="tab" aria-controls="nav-cbet" aria-selected="false">CBET</button>
-            <button class="nav-link <?php if ($tabChecker == "3") echo 'active'; ?>" id="nav-cas-tab" data-bs-toggle="tab" data-bs-target="#nav-cas" type="button" role="tab" aria-controls="nav-cas" aria-selected="false">CAS</button>
-            <button class="nav-link <?php if ($tabChecker == "4") echo 'active'; ?>" id="nav-ced-tab" data-bs-toggle="tab" data-bs-target="#nav-ced" type="button" role="tab" aria-controls="nav-ced" aria-selected="false">CED</button>
-            <button class="nav-link <?php if ($tabChecker == "5") echo 'active'; ?>" id="nav-ipe-tab" data-bs-toggle="tab" data-bs-target="#nav-ipe" type="button" role="tab" aria-controls="nav-ipe" aria-selected="false">IPE</button>
-            <button class="nav-link <?php if ($tabChecker == "6") echo 'active'; ?>" id="nav-gs-tab" data-bs-toggle="tab" data-bs-target="#nav-gs" type="button" role="tab" aria-controls="nav-gs" aria-selected="false">GS</button>  
-        </div>
+            <div class="nav nav-tabs nav-pills nav-fill" id="nav-tab" role="tablist">
+                <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
+                <button class="nav-link <?php if ($tabChecker == "1") echo 'active'; ?>" id="nav-ceat-tab" data-bs-toggle="tab" data-bs-target="#nav-ceat" type="button" role="tab" aria-controls="nav-ceat" aria-selected="false">CEAT</button>
+                <button class="nav-link <?php if ($tabChecker == "2") echo 'active'; ?>" id="nav-cbet-tab" data-bs-toggle="tab" data-bs-target="#nav-cbet" type="button" role="tab" aria-controls="nav-cbet" aria-selected="false">CBET</button>
+                <button class="nav-link <?php if ($tabChecker == "3") echo 'active'; ?>" id="nav-cas-tab" data-bs-toggle="tab" data-bs-target="#nav-cas" type="button" role="tab" aria-controls="nav-cas" aria-selected="false">CAS</button>
+                <button class="nav-link <?php if ($tabChecker == "4") echo 'active'; ?>" id="nav-ced-tab" data-bs-toggle="tab" data-bs-target="#nav-ced" type="button" role="tab" aria-controls="nav-ced" aria-selected="false">CED</button>
+                <button class="nav-link <?php if ($tabChecker == "5") echo 'active'; ?>" id="nav-ipe-tab" data-bs-toggle="tab" data-bs-target="#nav-ipe" type="button" role="tab" aria-controls="nav-ipe" aria-selected="false">IPE</button>
+                <button class="nav-link <?php if ($tabChecker == "6") echo 'active'; ?>" id="nav-gs-tab" data-bs-toggle="tab" data-bs-target="#nav-gs" type="button" role="tab" aria-controls="nav-gs" aria-selected="false">GS</button>  
+            </div>
         </nav>
 
         <div class="tab-content" id="nav-tabContent">

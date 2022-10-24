@@ -6,6 +6,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </script>
 
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
 <!--JQUERY AND CSS OF CALENDAR-->
 <link rel="stylesheet" href="calendar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -61,12 +64,13 @@ minDate: 0
 <style>
   body{
     overflow-x: hidden;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   }
   .card-text{
     font-size: 14px;
   }
   .card-header{
-    font-family: Helvetica, sans-serif; 
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     font-weight: bold; 
     background:#1C5090; 
     color:white;
@@ -91,7 +95,14 @@ minDate: 0
             <h5 class="card-header" >LIBRARY HOUSE RULES</h5>
               <div class="card-body">
                 <div class="row" >
-                  <img src="images/rule.png" class="img-fluid" alt="rules" style="height:276px; object-fit:cover;">
+                  <div style="position: relative; width: 100%; height: 0; padding-top: 44.0000%;
+                              padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                              border-radius: 8px; will-change: transform;">
+                      <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                        src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFP1Zc0PBQ&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                      </iframe>
+                  </div>
+                  <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFP1Zc0PBQ&#x2F;view?utm_content=DAFP1Zc0PBQ&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>                
                 </div>
               </div>
           </div>
