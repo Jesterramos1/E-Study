@@ -2,8 +2,7 @@
 session_start();
 require 'dbcon.php';
 
-if(isset($_POST['delete_study']))
-{
+if(isset($_POST['delete_study'])){
     $research_id = mysqli_real_escape_string($con, $_POST['delete_study']);
 
     $query = "DELETE FROM storage WHERE id='$research_id' ";
@@ -173,6 +172,30 @@ if(isset($_POST['createAdminbtn'])){
             
         }    
     }
+}
+
+if(isset($_POST['preUpload'])){
+    $filename = $_FILES['preFileUpload']['name'];
+    $destination = 'tempUpload/' . $filename;
+    $file = $_FILES['preFileUpload']['tmp_name'];
+
+    if (move_uploaded_file($file, $destination)) {
+        $_SESSION['tempFile'] = $filename;        
+    }else{
+        
+    }
+
+    
+    
+}
+
+if(isset($_POST['filename'])){
+
+    $filename = $_POST['filename'];
+    $fileCheck = "SELECT * FROM storage WHERE res_file LIKE '%{$filename}%'";
+    $result = mysqli_query($con, $fileCheck);
+    $fileCount = mysqli_num_rows($result);
+    echo $fileCount;
 }
 
 

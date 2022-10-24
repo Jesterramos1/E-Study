@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,36 +11,85 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <style>
     .maincon{
         width: 100%;
-        height: 100%;
+        
+    }
+    #resaddcardheader{
+        background-color: #1C5090;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
     }
     #preFileUpload{
         width: 40%;
         margin-left: auto;
         margin-right: auto;
     }
+    #card{        
+        height:500px;
+    }
+    #semicon{
+        margin-top: 10%;
+    }
+    #status{
+        font-size: 30x;
+        color: #198754;
+    }
+    
+    
 </style>
 <body>
 <div class="maincon">
     <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation">        
-    <div class="card text-center">
-        <div class="card-header">
+    <div class="card text-center" id="card">
+        <div class="card-header" id="resaddcardheader">
             Featured
         </div>
         <div class="card-body">
-            <h5 class="card-title">Upload Thesis Soft Copy</h5>
-            <div>
-                <label for="formFileLg" class="form-label">Large file input example</label>
-                <input class="form-control form-control-lg" id="preFileUpload" type="file">
+            <div id="semicon">
+                <h5 class="card-title">Upload Thesis Soft Copy</h5>
+                <div>
+                    <label for="formFileLg" class="form-label">Large file input example</label>
+                    <input class="form-control form-control-lg" id="preFileUpload" name = "preFileUpload" type="file">
+                    <label id="status"></label>                                     
+                </div>
+                <div>
+                <a src="research-add.php"><button class="btn btn-outline-primary" name="preUpload" id="preUpload">Submit File</button></a>   
+                </div>
             </div>           
         </div>
-        <div class="card-footer text-muted">
-            2 days ago
+        <div class="card-footer text-muted" id="resaddcardheader">
+            
         </div>
     </div>
     </form>
-</div>    
+</div>
+<script>
+    $('#preFileUpload').change(function(){
+    var filename = $('#preFileUpload').val().replace(/C:\\fakepath\\/i, '')
+    $.ajax({
+        url: "code.php",
+        method: "POST",
+        data:{filename:filename},
+        success: function(data){
+            if(data > 0){
+                //true(existing)
+                $('#status').html("File Already Exist");
+                $('#preUpload').attr('disabled', true);
+            }else{
+                //false(non-existing)
+                $('#status').html("Ready to be Uploaded");
+                $('#preUpload').attr('disabled', false);
+            }
+               
+        }
+        }); 
+    });
+</script>    
 </body>
 </html>

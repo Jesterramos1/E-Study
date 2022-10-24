@@ -1,3 +1,7 @@
+
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -50,8 +54,8 @@
                             <div class="col-7">
                                 <div class="was">
                                 <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation">
-                                    <label class="form-label" for="myPdf">Research File</label>
-                                    <input type="file" id="myPdf"  name="res_file" required/>
+                                    <label class="form-label" >Research File</label>
+                                    <label  ><?php echo $_SESSION['tempFile'] ?></label>
                                     <div class="mb-3">
                                         <div>
                                     <span id="fileError" class="h6 text-danger text-center mt-3"></span>
