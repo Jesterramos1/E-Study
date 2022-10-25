@@ -2,6 +2,43 @@
 require 'dbtable_creation.php';
 session_start();
 
+//Account Verification
+if(isset($_POST['submit'])){
+
+  $user = $_REQUEST['email'];
+  $pass = $_REQUEST['pass'];
+  if($conn->connect_error){
+    die("Failed to connect: " .$conn->connect_error);
+  }else{
+    $stmt = $conn->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $stmt_result = $stmt->get_result();
+    if($stmt_result->num_rows > 0){
+      $data = $stmt_result->fetch_assoc();
+      if($data['admin_pass']  === $pass){
+      setcookie("email",$user,time() + 60*60*24*365);
+      setcookie("pass",$pass,time() + 60*60*24*365);
+      $_SESSION['user'] = $user;
+      $_SESSION['whoactive'] = "0";
+      echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
+
+      }else{
+      echo '<script>openmail()</script>';
+      echo '<script>openForm()</script>';       
+      }
+    }else{
+      echo '<script>openmail()</script>';
+      echo '<script>openForm()</script>'; 
+    }
+  }
+}elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
+  echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
+  $_SESSION['user'] = $user;
+
+}
+
+
 
 ?>
 <html>
@@ -286,8 +323,8 @@ if(isset($_POST['submit'])){
       if($data['admin_pass']  === $pass){
       setcookie("email",$user,time() + 60*60*24*365);
       setcookie("pass",$pass,time() + 60*60*24*365);
-      echo"<script> location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
-      exit();
+      echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
+
       }else{
       echo '<script>openmail()</script>';
       echo '<script>openForm()</script>';       
@@ -297,17 +334,9 @@ if(isset($_POST['submit'])){
       echo '<script>openForm()</script>'; 
     }
   }
-}
-elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-exit(header("Location: adminpanelfinal.php#adminpanelcon"));
-
+}elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
+  echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
 }
 ?>
-
-
-
-
- 
-
 </body>
 </html>
