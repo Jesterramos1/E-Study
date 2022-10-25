@@ -6,6 +6,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </script>
 
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
 <!--JQUERY AND CSS OF CALENDAR-->
 <link rel="stylesheet" href="calendar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -188,19 +191,17 @@
 <style>
   body {
     overflow-x: hidden;
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   }
-
   .card-text {
     font-size: 14px;
   }
-
   .card-header {
     font-family: Helvetica, sans-serif;
     font-weight: bold;
     background: #1C5090;
     color: white;
   }
-
   #forms {
     margin-top: 1%;
   }
