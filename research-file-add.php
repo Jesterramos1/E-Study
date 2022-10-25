@@ -59,7 +59,7 @@
                     <label id="status"></label>                                     
                 </div>
                 <div>
-                <button class="btn btn-outline-primary" name="preUpload" id="preUpload">Submit File</button>  
+                <button class="btn btn-outline-primary" name="preUpload" id="preUpload">Submit File</button>
                 </div>
             </div>           
         </div>
