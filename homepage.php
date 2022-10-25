@@ -19,6 +19,8 @@ if(isset($_POST['submit'])){
       if($data['admin_pass']  === $pass){
       setcookie("email",$user,time() + 60*60*24*365);
       setcookie("pass",$pass,time() + 60*60*24*365);
+      $_SESSION['user'] = $user;
+      $_SESSION['whoactive'] = "0";
       echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
 
       }else{
@@ -32,6 +34,7 @@ if(isset($_POST['submit'])){
   }
 }elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
   echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
+  $_SESSION['user'] = $user;
 
 }
 

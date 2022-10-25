@@ -118,7 +118,7 @@
       </div>
       <div class ="page-container" id="research-addcon">
         <div class = "concon">
-          <?php include 'research-file-add.php'?>
+        <iframe src="research-add.php" frameborder="0"></iframe>
         </div>
       </div>
       <div class ="page-container" id="schedulingcon">
