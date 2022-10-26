@@ -77,6 +77,10 @@ if(isset($_POST['submit'])){
             padding: 10px 10px 0px 10px;
             bottom: 0;
             width: 100%;
+}@media only screen and (max-width: 1100px) {
+    .fadeshow {
+        display: none;
+    }
 }
 </style>
 
@@ -284,9 +288,9 @@ if(isset($_POST['submit'])){
 </div>
 
 <!--Login Form-->
-<button class="open-button" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
+<button class="open-button fadeshow" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
 
-<div class="form-popup" id="myForm">
+<div class="form-popup fadeshow" id="myForm">
 
   <form method = "POST" id="adminForm" class="form-container">
     <hr>
