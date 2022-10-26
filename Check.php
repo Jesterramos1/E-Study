@@ -3,19 +3,27 @@
 $con = mysqli_connect("localhost", "root", "", "estudy_db");
 
 
+
 if(!empty($_POST['fname']) && !empty($_POST['lname'])){
 
-    $fName = strtoupper(mysqli_real_escape_string($con, $_REQUEST['fname']));
-    $lName = strtoupper(mysqli_real_escape_string($con, $_REQUEST['lname']));
-    $userCheck = "SELECT fName, lName FROM booked_schedule WHERE fName LIKE '%{$fName}%' AND lName LIKE '%{$lName}%' ";
+    $fName = strtoupper(mysqli_real_escape_string($con, $_POST['fname']));
+    $lName = strtoupper(mysqli_real_escape_string($con, $_POST['lname']));
+    $userCheck = "SELECT fName, lName FROM booked_schedule WHERE fName LIKE '{$fName}' AND lName LIKE '{$lName}' ";
     $result = mysqli_query($con, $userCheck);
     $nameCount = mysqli_num_rows($result);
 
     if($nameCount > 0){
-        echo "<span class='h6 text-danger text-center mt-3'>Name already exists.</span>";
+        echo "false";
+        
 
-    }else{
-        echo "<span class='h6 text-success text-center mt-3'>Name is available.</span>";
+    }elseif($nameCount == 0 && !preg_match('/\d/', $fName) && !preg_match('/\d/', $lName) ){
+
+        echo "true";
+
+    }elseif(preg_match('/\d/', $fName) || preg_match('/\d/', $lName)){
+
+        echo "numdet";
+
     }
 
 }elseif(!empty($_POST['studNum'])){
@@ -25,10 +33,16 @@ if(!empty($_POST['fname']) && !empty($_POST['lname'])){
     $studNumCount = mysqli_num_rows($resultstudnum);
 
     if($studNumCount > 0){
-        echo "<span class='h6 text-danger text-center mt-3'>student number already exists.</span>";
+        echo "false";
 
-    }else{
-        echo "<span class='h6 text-success text-center mt-3'>student number is available.</span>";
+    }elseif(!preg_match('/[0-9]{4}-[0-9]{6}$/', $studNum)){
+
+        echo "notValid";
+
+    }elseif($studNumCount == 0 && preg_match('/[0-9]{4}-[0-9]{6}$/', $studNum)){
+        
+        echo "true";
+
     }
 
 }elseif(!empty($_POST['email'])){
@@ -38,13 +52,40 @@ if(!empty($_POST['fname']) && !empty($_POST['lname'])){
     $studEmailCount = mysqli_num_rows($resultstudemail);
 
     if($studEmailCount > 0){
-        echo "<span class='h6 text-danger text-center mt-3'>email already exists.</span>";
+        echo "false";
 
-    }else{
-        echo "<span class='h6 text-success text-center mt-3'>email is available.</span>";
+    }elseif(!preg_match("/^([a-z0-9\+_\-]+)(\. [a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[ a-z]{2,6}$/ix", $studEmail)){
+
+        echo "notValid";
+        
+
+    }elseif($studEmailCount == 0 && preg_match("/^([a-z0-9\+_\-]+)(\. [a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[ a-z]{2,6}$/ix", $studEmail)){
+
+        echo "true";
+        
     }
 
-}elseif(isset($_POST['title'])){
+}elseif(!empty($_POST['contact'])){
+
+    $studContact = mysqli_real_escape_string($con, $_REQUEST['contact']);
+    $studcontactCheck = "SELECT studContact FROM booked_schedule WHERE studContact LIKE '%{$studContact}%' ";
+    $resultstudcontact = mysqli_query($con, $studcontactCheck);
+    $studContactCount = mysqli_num_rows($resultstudcontact);
+
+    if(preg_match('/9[0-9]{9}/', $studContact)){
+
+        echo "valid";
+
+    }else{
+
+        echo "notValid";
+
+    }
+
+}
+
+//Research Add
+if(isset($_POST['title'])){
     $studTitle = mysqli_real_escape_string($con, $_REQUEST['title']);
     $titleCheck = "SELECT title FROM storage WHERE title LIKE '%{$studTitle}%' ";
     $resulttitle = mysqli_query($con, $titleCheck);
@@ -53,10 +94,7 @@ if(!empty($_POST['fname']) && !empty($_POST['lname'])){
     if($titleCount > 0){
         echo "<span class='h6 text-danger text-center mt-3'>Title already exist .</span>";
 
-    }else{
-        echo "<span class='h6 text-success text-center mt-3'>title is available.</span>";
     }
-
 
 }
 ?>

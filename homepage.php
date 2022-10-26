@@ -19,6 +19,8 @@ if(isset($_POST['submit'])){
       if($data['admin_pass']  === $pass){
       setcookie("email",$user,time() + 60*60*24*365);
       setcookie("pass",$pass,time() + 60*60*24*365);
+      $_SESSION['user'] = $user;
+      $_SESSION['whoactive'] = "0";
       echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
 
       }else{
@@ -32,6 +34,7 @@ if(isset($_POST['submit'])){
   }
 }elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
   echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
+  $_SESSION['user'] = $user;
 
 }
 
@@ -47,6 +50,7 @@ if(isset($_POST['submit'])){
 <link rel="stylesheet" href="style.css">
 
 <!--Bootstrap-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -81,6 +85,7 @@ if(isset($_POST['submit'])){
 
 
 <body>
+
 
 <!--Header-->
 <div class="sticky-sm-top">
@@ -217,8 +222,6 @@ if(isset($_POST['submit'])){
     </div>
     </div>
 </div>
-
-
 <!------------------------------FOOTER------------------------------>
 
   <div id="page-container">
@@ -278,9 +281,7 @@ if(isset($_POST['submit'])){
           </div>
       <footer id="footer"></footer>
   </div>
-
 <!------------------------------END OF FOOTER------------------------------>
-
 </div>
 
 <!--Login Form-->
@@ -338,8 +339,5 @@ if(isset($_POST['submit'])){
   echo"<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
 }
 ?>
-
-
-
 </body>
 </html>

@@ -308,98 +308,95 @@
     </head>
         
     <body>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p class="category">Admin Settings</p>
-                        <div class="card">
-                            <div class="card-header">
-                                <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="rtublue">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#changePass" role="tab"><i class="bi bi-shield-lock"></i> Change Password</a>
-                                    </li>
+        <div class="row">
+            <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="rtublue">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#changePass" role="tab"><i class="bi bi-shield-lock"></i> Change Password</a>
+                                </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#newAdmin" role="tab"><i class="bi bi-person-plus"></i> Add New Admin</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="card-body">
-                            <!-- Tab panes -->
-                                <div class="tab-content text-center">
-                                    <div class="tab-pane active" id="changePass" role="tabpanel">
-                                        <?php
-                                         if($_SESSION['user'] == ""){
-                                            $_SESSION['user'] = "No user found";
-                                            }
-                                        ?>
-                                        <form action ="code.php" method="POST">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="username">Username:</span>
-                                                <input type="text" class="form-control" placeholder="<?php echo $_SESSION['user'];?>" aria-label="Username" aria-describedby="basic-addon1" disabled >
-                                            </div>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#newAdmin" role="tab"><i class="bi bi-person-plus"></i> Add New Admin</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                        <!-- Tab panes -->
+                            <div class="tab-content text-center">
+                                <div class="tab-pane active" id="changePass" role="tabpanel">
+                                    <?php
+                                        if($_SESSION['user'] == ""){
+                                        $_SESSION['user'] = "No user found";
+                                        }
+                                    ?>
+                                    <form action ="code.php" method="POST">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="username">Username:</span>
+                                            <input type="text" class="form-control" placeholder="<?php echo $_SESSION['user'];?>" aria-label="Username" aria-describedby="basic-addon1" disabled >
+                                        </div>
 
-                                            <label for="pass" class="form-label">Password:</label>
-                                            <span id='messagepasstxt'></span>
-                                            <div class="input-group mb-3">
-                                                <input type="password" class="form-control" placeholder="Enter old password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="oldPasswordtxt" name="oldPassword" required/>
-                                                <button class="btn btn-primary" type="button" id="oldPasswordbtn"><i class="bi bi-eye-slash" id = "oldPasswordIcon"></i></button>
-                                            </div>
+                                        <label for="pass" class="form-label">Password:</label>
+                                        <span id='messagepasstxt'></span>
+                                        <div class="input-group mb-3">
+                                            <input type="password" class="form-control" placeholder="Enter old password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="oldPasswordtxt" name="oldPassword" required/>
+                                            <button class="btn btn-primary" type="button" id="oldPasswordbtn"><i class="bi bi-eye-slash" id = "oldPasswordIcon"></i></button>
+                                        </div>
 
-                                            <label for="pass" class="form-label">New Password:</label>
-                                            <span id='messagetxt'></span>                  
-                                            <div class="input-group mb-3">                    
-                                                <input type="password" class="form-control" placeholder="Enter new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="newPasswordtxt" name="newPassword" />
-                                                <button class="btn btn-primary" type="button" id="newPasswordbtn"><i class="bi bi-eye-slash" id = "newPasswordIcon"></i></button>
-                                            </div>
-                                            <div class="input-group mb-3">                    
-                                                <input type="password" class="form-control" placeholder="Confirm new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="confirmNewPasswordtxt" name="confirmNewPassword" />
-                                                <button class="btn btn-primary" type="button" id="confirmNewPasswordbtn"><i class="bi bi-eye-slash" id = "confirmNewPasswordIcon"></i></button>
-                                            </div>
-                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button class="btn btn-primary" id ="update_password" name="update_password" disabled>Save</button>
-                                            </div>
-                                        </form>
+                                        <label for="pass" class="form-label">New Password:</label>
+                                        <span id='messagetxt'></span>                  
+                                        <div class="input-group mb-3">                    
+                                            <input type="password" class="form-control" placeholder="Enter new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="newPasswordtxt" name="newPassword" />
+                                            <button class="btn btn-primary" type="button" id="newPasswordbtn"><i class="bi bi-eye-slash" id = "newPasswordIcon"></i></button>
+                                        </div>
+                                        <div class="input-group mb-3">                    
+                                            <input type="password" class="form-control" placeholder="Confirm new password" aria-label="Example text with button addon" aria-describedby="button-addon1" id="confirmNewPasswordtxt" name="confirmNewPassword" />
+                                            <button class="btn btn-primary" type="button" id="confirmNewPasswordbtn"><i class="bi bi-eye-slash" id = "confirmNewPasswordIcon"></i></button>
+                                        </div>
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button class="btn btn-primary" id ="update_password" name="update_password" disabled>Save</button>
+                                        </div>
+                                    </form>
 
 
-                                    </div>
+                                </div>
 
 
 
-                                    <div class="tab-pane" id="newAdmin" role="tabpanel">
-                                        <form action ="code.php" method="POST">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-                                                <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
-                                            </div>
+                                <div class="tab-pane" id="newAdmin" role="tabpanel">
+                                    <form action ="code.php" method="POST">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
+                                            <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
+                                        </div>
 
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
-                                                <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword"  name="newUserPassword"required>
-                                                <button class="btn btn-primary" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id = "newUserPassIcon"></i></button>
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password:</span>
-                                                <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
-                                                <button class="btn btn-primary" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id = "newUserPassConfirmIcon"></i></button>
-                                            </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Password:</span>
+                                            <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword"  name="newUserPassword"required>
+                                            <button class="btn btn-primary" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id = "newUserPassIcon"></i></button>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Confirm Password:</span>
+                                            <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
+                                            <button class="btn btn-primary" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id = "newUserPassConfirmIcon"></i></button>
+                                        </div>
 
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
-                                                <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
-                                                <button class="btn btn-primary" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id = "masterkeyIcon"></i></button>
-                                            </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
+                                            <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
+                                            <button class="btn btn-primary" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id = "masterkeyIcon"></i></button>
+                                        </div>
 
-                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button class="btn btn-primary" name="createAdminbtn" id = "createAdminbtn">Add Admin</button>
-                                            </div>
-                                        </form> 
-                                    </div>
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button class="btn btn-primary" name="createAdminbtn" id = "createAdminbtn">Add Admin</button>
+                                        </div>
+                                    </form> 
                                 </div>
                             </div>
                         </div>
-                    <!-- End Tabs on plain Card -->
-                </div>
+                    </div>
+                <!-- End Tabs on plain Card -->
             </div>
         </div>
     </body>
