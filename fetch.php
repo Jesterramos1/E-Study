@@ -76,24 +76,20 @@ if(mysqli_num_rows($result) > 0)
     $output .='<table class="table table-bordered table-striped" style="margin-top: 3%;">                       
     <thead>
         <tr style="text-align:center;">
-            <th style="width: 40%">Research Title</th>
-            <th style="width: 10%">Department</th>
-            <th style="width: 10%">Year of Publication</th>
-            <th style="width: 20%">Researchers</th>
-            <th style="width: 10%">Location</th>
-            <th style="width: 10%">Action</th>
+            <th style="width: 40%" id="theader">Research Title</th>
+            <th style="width: 5%" id="theader">Department</th>
+            <th style="width: 10%" id="hidetable">Year of Publication</th>
+            <th style="width: 10%" id="theader">Action</th>
         </tr>';
 
     while($row = mysqli_fetch_assoc($result)){
 
     $output .='<tr style="text-align:center;">
-    <td> '.$row["title"].'</td>
-    <td>'.$row["department"].'</td>
-    <td>'.$row["date_publish"].'</td>
-    <td>'.$row["researchers"].'</td>
-    <td>'.$row["location"].'</td>
-    <td>
-    <button data-id = '.$row["id"].' class="studyinfo btn btn-outline-success">View</button>
+    <td id="tdata"> '.$row["title"].'</td>
+    <td id="tdata">'.$row["department"].'</td>
+    <td id="hidetable">'.$row["date_publish"].'</td>
+    <td id="tdata">
+    <button data-id = '.$row["id"].' class="studyinfo btn btn-outline-success" id="viewbtn">View</button>
     </td>
     </tr>';
 

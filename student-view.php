@@ -202,16 +202,6 @@
             </form>
         </div>
 
-        <div id="cal">
-        <div class="vanilla-calendar col-sm-1" ></div>
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const calendar = new VanillaCalendar('.vanilla-calendar');
-                    calendar.init();
-                });
-            </script>
-        </div>
-
     </div>
 
 

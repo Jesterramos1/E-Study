@@ -70,6 +70,10 @@ if(isset($_POST['submit'])){
     height: 5%;
     width: 5%;
   }
+  #tdata,#hidetable,#theader{
+    text-align: center;
+    vertical-align: middle;
+  }
 
 
 #footer {
@@ -77,9 +81,19 @@ if(isset($_POST['submit'])){
             padding: 10px 10px 0px 10px;
             bottom: 0;
             width: 100%;
-}@media only screen and (max-width: 1100px) {
+}
+@media only screen and (max-width: 1100px) {
     .fadeshow {
         display: none;
+    }
+    #hidetable{
+        display: none;
+    }
+    .table{
+      font-size: 12px;
+    }
+    #viewbtn{
+      font-size: 12px;
     }
 }
 </style>
