@@ -68,7 +68,7 @@
         }
 
         /* On screens that are less than 700px wide, make the sidebar into a topbar */
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 800px) {
             .sidebar {
                 width: 100%;
                 height: auto;
@@ -102,36 +102,33 @@
             .sidebar{
                 display:none;
             }
+            .content{
+                width: 100%;
+                position: relative;
+            }
         }
+
         
         .modal-header {
             background-color: #194f90;
             color: white;
         }  
 
-        #searchDiv{
-            
-        }
         #search{
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: red;
-            color: white;
-            text-align: center;
+          margin-top: -7%;
+          margin-left: 1%;
         }
 
         #browse{
             background-color: white;
-            margin-left: 1.5%;
-            margin-right: 1.5%;
-            padding-bottom: 10px;
+            padding-bottom: 1px;
         }
 
         h5{
             padding-top: 15%;
             margin-left: 4%;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         #year, #author, #alpha{
@@ -139,11 +136,12 @@
             color: black;
             border: none;
             text-align: left;
-            text-transform: uppercase;
             letter-spacing: .5px;
             width: 90%;
             background-color : transparent;
             outline: none;
+            font-size: 16px;
+            text-transform: uppercase;
             padding-top: 3%;
             margin-left: 4%;
             margin-top: -3%;
@@ -184,22 +182,6 @@
         letter-spacing: 0.1em;
         }
 
-        .with-arrow .nav-link.active {
-        position: relative;
-        }
-
-        .with-arrow .nav-link.active::after {
-        content: '';
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-top: 6px solid #1c5090;
-        position: absolute;
-        bottom: -6px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: block;
-        }
-
         .lined .nav-link {
         border: none;
         border-bottom: 3px solid transparent;
@@ -207,25 +189,35 @@
 
         .lined .nav-link:hover {
         border: none;
-        border-bottom: 3px solid transparent;
+        border-bottom: 3 px solid transparent;
         }
 
         .lined .nav-link.active {
         background: none;
-        color: #555;
+        color: #1c5090;
         border-color: #1c5090;
         }
 
-        .tdata{
+        .tdata, th{
             text-align: center;
             vertical-align: middle;
         }
-
+        h6{
+            margin-top: 1px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .offcanvas-body{
+            overflow-x: hidden;
+        }
+        .aal{
+            font-size: 14px;
+        }
 
         
     </style>
 
-    <title>Research</title>
+    <title>Explore Research</title>
 </head>
 <body>
 
@@ -241,21 +233,30 @@
     <!--Off Canvas-->
     <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="staticBackdropLabel">E-Study</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title" id="staticBackdropLabel">E-Study</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 0.8em; margin-bottom: 0.9em; overflow: hidden;
+                    border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFQIO-E05w&#x2F;view?embed">
+                </iframe>
             </div>
-            <div class="offcanvas-body">
-                <div>
-                <div class="input-group mb-3" id="searchDiv">
+
+            <div class="input-group mb-3" style="margin-left:0%;" id="search">
                 <input type="text" class="form-control" placeholder="Search">
                 <button class="btn btn-primary me-md-2" type="button" id="sideB"><i class="bi bi-search"></i></button>
             </div>
 
-            <div id="browse">
-                <div class="heading">
-                    <h5><i class="bi bi-sliders" style="margin-right:5%; margin-left:2%;"></i>BROWSE</h5>
-                    <hr>
-                </div>
+            <div id="browse"  style="background-color:#194F90;">
+                <h5 style="color:white;"><i class="bi bi-sliders" style="color: white; margin-right:5%; margin-left:2%;"></i>BROWSE BY:</h5>
+                <hr style="color:white;">
+            </div>
+        
+            <div class="pt-4 pb-2" style=" background-color:white;">
                 <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
                 <hr id="oy">
                 <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
@@ -266,64 +267,64 @@
                 </form>
             </div>
 
-            <!-- -->
-            <div id="cal">
-                <div class=" col-sm-1" ></div>
-                    
-                </div>
-            </div>
         </div>
     </div>
 
     <!--Sidebar Search-->
-    <div class="sidebar">
-
-        <div id="searchDiv">
-            <div class="input-group mb-3" id="search">
-                <input type="text" class="form-control" placeholder="Search">
-                <button class="btn btn-primary me-md-2" type="button" id="sideB"><i class="bi bi-search"></i></button>
-            </div>
+    <div class="sidebar">     
             <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 0.8em; margin-bottom: 0.9em; overflow: hidden;
                 border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
                     src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFQIO-E05w&#x2F;view?embed">
                 </iframe>
             </div>
-            
-            
-        </div>
+
+            <div class="input-group mb-2" id="search">
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn btn-primary me-md-2" type="button" id="sideB"><i class="bi bi-search"></i></button>
+            </div>
     
+            <div id="browse"  style="background-color:#194F90;">
+                <h5 style="color:white;"><i class="bi bi-sliders" style="color: white; margin-right:5%; margin-left:2%;"></i>BROWSE BY:</h5>
+                <hr style="color:white;">
+            </div>
         
+            <div class="pt-4 pb-2" style=" background-color:white;">
+                <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
+                <hr id="oy">
+                <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
+                <hr id="oy">
+                <form class="form-floating">
+                <input type="text" class="form-control" id="floatingInputValue" placeholder="2022" value="2022">
+                <label for="floatingInputValue"><i class="bi bi-calendar2-week"></i>   Year</label>
+                </form>
+            </div>
 
-        <div id="browse"  style="background-color:#194F90;">
-            <h5 style="color:white;"><i class="bi bi-sliders" style="color: white; margin-right:5%; margin-left:2%;"></i>BROWSE</h5>
-            <hr style="color:white;">
-        </div>
-        
-        <div style=" padding-top:1%; background-color:white;">
-            <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
-            <hr id="oy">
-            <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
-            <hr id="oy">
-            <form class="form-floating">
-            <input type="text" class="form-control" id="floatingInputValue" placeholder="2022" value="2022">
-            <label for="floatingInputValue"><i class="bi bi-calendar2-week"></i>   Year</label>
-            </form>
-        </div>
-        
-
-       
+            <div class="card text-center">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="images/rtulib.jpg" style="margin-top: 12px; margin-left:8px;" class="img-fluid rounded-start" alt="RTU ULRC">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h6 class="card-title">Rizal Technologival University Learning Resource Center</h6>
+                        <button class="btn btn-primary aal"><i class="bi bi-messenger"></i>  Ask a Librarian</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
 
     </div>
 
     <!--Main Container-->
     <div class="content">
-        <button class="btn btn-primary" id="burgerMenu"  type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-            Toggle static offcanvas
-        </button>
+
         <nav>
             <div class="nav nav-tabs nav-pills with-arrow lined text-center nav-fill pt-3" id="nav-tab" role="tablist">
+                <button class="btn btn-primary d-sm-block d-md-block d-lg-none" id="burgerMenu"  type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                <i class="bi bi-list"></i>
+                </button>
                 <button class="nav-link text-uppercase rounded-0 " id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "1") echo 'active'; ?>" id="nav-ceat-tab" data-bs-toggle="tab" data-bs-target="#nav-ceat" type="button" role="tab" aria-controls="nav-ceat" aria-selected="false">CEAT</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "2") echo 'active'; ?>" id="nav-cbet-tab" data-bs-toggle="tab" data-bs-target="#nav-cbet" type="button" role="tab" aria-controls="nav-cbet" aria-selected="false">CBET</button>
@@ -345,7 +346,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Explore</h4>
+                                <h4>Explore All Categories</h4>
                             </div>
                             <div class="card-body" >
                                 <?php 
@@ -411,7 +412,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recently Added</h4>
+                                <h4>College of Engineering, Architecture, and Technology Research</h4>
                             </div>
                             <div class="card-body">
                                 <?php 
@@ -461,7 +462,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recently Added</h4>
+                                <h4>College of Business and Entrepreneurial Technology Research</h4>
                             </div>
                             <div class="card-body">
                                 <?php 
@@ -509,7 +510,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recently Added</h4>
+                                <h4>College of Arts and Sciences Research</h4>
                             </div>
                             <div class="card-body">
                                 <?php 
@@ -558,7 +559,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recently Added</h4>
+                                <h4>College of Education Research</h4>
                             </div>
                             <div class="card-body">
                                 <?php 
@@ -606,7 +607,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recently Added</h4>
+                                <h4>Institute of Physical Education Research</h4>
                             </div>
                             <div class="card-body">
                                 <?php 
@@ -657,7 +658,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recently Added</h4>
+                                <h4>Graduate School Research</h4>
                             </div>
                             <div class="card-body">
                                 <?php 
