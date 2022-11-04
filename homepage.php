@@ -70,6 +70,24 @@ if(isset($_POST['submit'])){
     height: 5%;
     width: 5%;
   }
+  #tdata,#hidetable,#theader{
+    text-align: center;
+    vertical-align: middle;
+  }
+@media only screen and (max-width: 1100px) {
+    .fadeshow {
+        display: none;
+    }
+    #hidetable{
+        display: none;
+    }
+    .table{
+      font-size: 12px;
+    }
+    #viewbtn{
+      font-size: 12px;
+    }
+}
   body {
   background-image: url('images/homepagebg.png');
   background-repeat: no-repeat;
@@ -285,9 +303,9 @@ if(isset($_POST['submit'])){
 </div>
 
 <!--Login Form-->
-<button class="open-button" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
+<button class="open-button fadeshow" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
 
-<div class="form-popup" id="myForm">
+<div class="form-popup fadeshow" id="myForm">
 
   <form method = "POST" id="adminForm" class="form-container">
     <hr>

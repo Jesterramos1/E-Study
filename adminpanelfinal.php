@@ -56,6 +56,11 @@
 
    </style>
 <body>
+  <?php
+  if($_SESSION['user'] == ""){
+    $_SESSION['user'] = "No user Found";
+  }
+  ?>
 
   <div class="sidebar">
     <div class="logo-details">

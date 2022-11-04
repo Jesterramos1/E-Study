@@ -251,6 +251,7 @@
                 <button class="btn btn-primary me-md-2" type="button" id="sideB"><i class="bi bi-search"></i></button>
             </div>
 
+
             <div id="browse"  style="background-color:#194F90;">
                 <h5 style="color:white;"><i class="bi bi-sliders" style="color: white; margin-right:5%; margin-left:2%;"></i>BROWSE BY:</h5>
                 <hr style="color:white;">
