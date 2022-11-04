@@ -78,7 +78,7 @@
             success: function(data) {
 
               if (data == 'false') {
-                
+
                 counterNum = 1;
                 $('#studNumError').text('student number already exists.').css('color', 'red');
 
@@ -126,7 +126,7 @@
                     $('#studEmailError').text('Email already exist.').css('color', 'red');
 
 
-                  }else{
+                  } else {
 
                     $('#studEmailError').text('');
 
@@ -149,9 +149,9 @@
 
                         counterContact = 0;
                         $('#phonenumError').text('');
-                        
 
-                      }else{
+
+                      } else {
 
                         $('#phonenumError').text('');
 
@@ -161,7 +161,7 @@
 
                         $('#schedSubmit').removeAttr('disabled');
 
-                      }else {
+                      } else {
 
                         $('#schedSubmit').attr('disabled', true);
 
@@ -193,24 +193,27 @@
     overflow-x: hidden;
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   }
+
   .card-text {
     font-size: 14px;
   }
+
   .card-header {
     font-family: Helvetica, sans-serif;
     font-weight: bold;
     background: #1C5090;
     color: white;
   }
+
   #forms {
     margin-top: 1%;
   }
-  @media only screen and (max-width: 1100px){
-    #safety{
-      display:none;
+
+  @media only screen and (max-width: 1100px) {
+    #safety {
+      display: none;
     }
   }
-
 </style>
 </head>
 
@@ -219,7 +222,7 @@
   <?php require 'header.php'; ?>
 
   <!--Safety Reminder Form-->
-  <div class="row" id="main">
+  <div class="row">
     <div class="col-lg-5 col-sm-12" id="forms">
       <div class="row">
         <div class="col-12">
@@ -232,68 +235,68 @@
             </div>
           </div>
         </div>
-      <div class="col-12" id="safety">
-        <div class="card text-center">
-          <h5 class="card-header" >SAFETY REMINDERS</h5>
-              <div class="card-body">
-
-                <div class="row" >
-                  <div class="col">
-                          <div class="card" >
-                            <img src="images/disinfect.jfif" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <p class="card-text">The library is sanitized regularly.</p>
-                            </div>
-                          </div>
-                  </div>
-
-                  <div class="col">
-                          <div class="card" >
-                            <img src="images/vaccine.jpg" style="border-style:solid; border-color:#c7c0f3;" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <p class="card-text">All employees are fully vaccinated.</p>
-                            </div>
-                          </div>
-                  </div>
-
-                  <div class="col">
-                          <div class="card" >
-                            <img src="images/sanitation.jfif" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <p class="card-text">Sanitation stations are available upon entry.</p>
-                            </div>
-                          </div>
+        <div class="col-12" id="safety">
+          <div class="card text-center">
+            <h5 class="card-header">SAFETY REMINDERS</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <div class="card">
+                    <img src="images/disinfect.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">The library is sanitized regularly.</p>
+                    </div>
                   </div>
                 </div>
-                <div class="row" >
-                  <div class="col">
-                          <div class="card" >
-                            <img src="images/mask.jfif" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <p class="card-text">Wear a mask at all times.</p>
-                            </div>
-                          </div>
-                  </div>
 
-                  <div class="col">
-                          <div class="card" >
-                            <img src="images/shoerug.jpg" style="border-style:solid; border-color:#5bacee;" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <p class="card-text">Wear a shoe rug inside the premises.</p>
-                            </div>
-                          </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="images/vaccine.jpg" style="border-style:solid; border-color:#c7c0f3;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">All employees are fully vaccinated.</p>
+                    </div>
                   </div>
+                </div>
 
-                  <div class="col">
-                          <div class="card" >
-                            <img src="images/distance.jfif" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <p class="card-text">Practice physical distancing.</p>
-                            </div>
-                          </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="images/sanitation.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Sanitation stations are available upon entry.</p>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card">
+                    <img src="images/mask.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Wear a mask at all times.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card">
+                    <img src="images/shoerug.jpg" style="border-style:solid; border-color:#5bacee;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Wear a shoe rug inside the premises.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card">
+                    <img src="images/distance.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text">Practice physical distancing.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
