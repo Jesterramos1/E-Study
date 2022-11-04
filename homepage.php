@@ -74,14 +74,6 @@ if(isset($_POST['submit'])){
     text-align: center;
     vertical-align: middle;
   }
-
-
-#footer {
-  position: relative;
-            padding: 10px 10px 0px 10px;
-            bottom: 0;
-            width: 100%;
-}
 @media only screen and (max-width: 1100px) {
     .fadeshow {
         display: none;
@@ -96,6 +88,17 @@ if(isset($_POST['submit'])){
       font-size: 12px;
     }
 }
+  body {
+  background-image: url('images/homepagebg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+  #footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
 </style>
 
 
@@ -108,13 +111,14 @@ if(isset($_POST['submit'])){
     require 'header.php';?>
 </div>    
 
+
 <!--Search bar-->
 <div style="padding-top: 3%;" class="container">
   <div class="row justify-content-md-center">
     <div class="col col-lg-6">
       <div class="input-group">
-        <input type="text" class="form-control rounded" id="Search_bar" placeholder="What are you looking for" aria-label="Search" aria-describedby="search-addon" style="border-style: solid;border-width: 3px;border-color: #1c5090" />
-        <button type="button" class="btn btn-outline-primary" style="border-style: solid;border-width: 3px;border-color: #1c5090">
+        <input type="text" class="form-control rounded" id="Search_bar" placeholder="What are you looking for" aria-label="Search" aria-describedby="search-addon" style=" background-color: transparent; border-style: solid; border-width: 2px; border-color: #1c5090"/>
+        <button type="button" class="btn btn-outline-primary" style="border-style: solid;border-width: 2px;border-color: #1c5090">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
@@ -124,12 +128,6 @@ if(isset($_POST['submit'])){
   </div> 
   <div id="result"></div>
 </div> 
-
-
-
-
-
-
 
 
 
@@ -242,63 +240,66 @@ if(isset($_POST['submit'])){
     </div>
     </div>
 </div>
-
-
-
 <!------------------------------FOOTER------------------------------>
 
+  <div id="page-container">
+    <div id="content-wrap">
+      <!-- all other page content -->
 
-<footer id="footer" class="footer" style="background-color: #0053aa;" contentEditable>
-        <div class="container p-4">
-          <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4">
-              <h5 class="mb-3" style="letter-spacing: 2px; color: white;">footer content</h5>
-              <h6>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              </h6>
+        <div class="row-12">
+            <footer style="background-color: #0053aa;">
+            <div class="container p-4">
+              <div class="row">
+                <div class="col-lg-5 col-md-12 mb-4">
+                  <h5 class="mb-3" style="letter-spacing: 2px; color: white;"><!---add title here----></h5>
+                  <h6 style="color: white;">
+                   <!------------add content here-------------->
+                  </h6>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <h5 class="mb-3" style="letter-spacing: 2px; color: white;">Contact Us</h5>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-1">
+                      <a href="mailto:libraryservices@rtu.edu.ph" style="color: white;"><i class="bi bi-envelope-heart-fill"></i> libraryservices@rtu.edu.ph</a>
+                    </li>
+                    <li class="mb-1">
+                      <a href="https://web.facebook.com/rtulrc" style="color: white;"><i class="bi bi-facebook"></i> RTU Learning Resource Center 2020</a>
+                    </li>
+                    <li class="mb-1">
+                      <a href="https://sites.google.com/rtu.edu.ph/rtu-ulrc" style="color: white;"><i class="bi bi-browser-chrome"></i> OTHER WEBSITE</a>
+                    </li>
+                    <li style="color: white;">
+                      <i class="bi bi-telephone-fill"></i> 285348267</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                  <h5 class="mb-1" style="letter-spacing: 2px; color: white;">Library Hours</h5>
+                  <table class="table" style="color: white; border-color: #666;">
+                    <tbody>
+                      <tr>
+                        <td>Mon - Fri:</td>
+                        <td>8:00 A.M. -<br> 5:00 P.M.</td>
+                      </tr>
+                      <tr>
+                        <td>Lunch Break:</td>
+                        <td>12:00 P.M. -<br> 1:00 P.M</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-              <h5 class="mb-3" style="letter-spacing: 2px; color: white;">Contact Us</h5>
-              <ul class="list-unstyled mb-0">
-                <li class="mb-1">
-                  <a href="mailto:libraryservices@rtu.edu.ph" style="color: white;"><i class="bi bi-envelope-heart-fill"></i> libraryservices@rtu.edu.ph</a>
-                </li>
-                <li class="mb-1">
-                  <a href="https://web.facebook.com/rtulrc" style="color: white;"><i class="bi bi-facebook"></i> RTU Learning Resource Center 2020</a>
-                </li>
-                <li class="mb-1">
-                  <a href="https://sites.google.com/rtu.edu.ph/rtu-ulrc" style="color: white;"><i class="bi bi-browser-chrome"></i> OTHER WEBSITE</a>
-                </li>
-                <li style="color: white;">
-                  <i class="bi bi-telephone-fill"></i> 285348267</a>
-                </li>
-              </ul>
+            <div class="text-center p-3" style="background-color: #194f90;">
+              © 2022 Variable Set. All Rights Reserved.
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-              <h5 class="mb-1" style="letter-spacing: 2px; color: white;">Library Hours</h5>
-              <table class="table" style="color: white; border-color: #666;">
-                <tbody>
-                  <tr>
-                    <td>Mon - Fri:</td>
-                    <td>8:00 A.M. -<br> 5:00 P.M.</td>
-                  </tr>
-                  <tr>
-                    <td>Lunch Break:</td>
-                    <td>12:00 P.M. -<br> 1:00 P.M</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <!-- Copyright -->
+          </footer>
+        </div>
           </div>
-        </div>
-        <div class="text-center p-3" style="background-color: #194f90;">
-          © 2022 Variable Set. All Rights Reserved.
-        </div>
-      </footer>
-
-
-
-
+      <footer id="footer"></footer>
+  </div>
+<!------------------------------END OF FOOTER------------------------------>
 </div>
 
 <!--Login Form-->
