@@ -97,4 +97,20 @@ if(isset($_POST['title'])){
     }
 
 }
-?>
+//Old password check
+if(!empty($_POST['oldPass'])){
+    $oldPass = mysqli_real_escape_string($con, $_POST['oldPass']);
+    $adminPassCheck = "SELECT admin_pass FROM rtu_admin WHERE admin_pass LIKE '{$oldPass}'";
+    $resultadminPass = mysqli_query($con, $adminPassCheck);
+    $adminPassCount = mysqli_num_rows($resultadminPass);
+
+    if($adminPassCount > 0){
+        echo "true";
+
+    }else{
+
+        echo "false";
+
+    }
+
+}

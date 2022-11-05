@@ -51,12 +51,6 @@
 	if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
 	}
-	$sql = "INSERT IGNORE INTO `rtu_admin`(`admin_id`, `admin_user`, `admin_pass`) VALUES ('1','rtu_admin','admin123')";
-
-	if (mysqli_query($conn, $sql)) {
-	} else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}
 	
 	$sqlmaster = "INSERT IGNORE INTO `masterkey`(`masterkeys`) VALUES ('MPJRL79388')";
 
@@ -67,6 +61,3 @@
 
 
 	$loggedInUser = "";
-
-
-?>

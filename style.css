@@ -1,22 +1,25 @@
-body{
- overflow-x: hidden;
- background-image: url('bg.png');
-}
- /* NAVIGATION */
-.navbar{
-  background-color:#194f90;
+body {
+  overflow-x: hidden;
+  background-image: url('bg.png');
 }
 
- /* LOGO */
-#logo{
+/* NAVIGATION */
+.navbar {
+  background-color: #194f90;
+}
+
+/* LOGO */
+#logo {
   width: 9%;
-  height: 10%; 
+  height: 10%;
   margin-left: 20px;
 }
 
- /* LOGIN FORM (ADMIN) #FFB833*/
+/* LOGIN FORM (ADMIN) #FFB833*/
 
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 .open-button {
   background-color: #194f90;
@@ -31,7 +34,7 @@ body{
   right: 28px;
   width: 280px;
   font-weight: bold;
-  
+
 }
 
 .form-popup {
@@ -49,7 +52,8 @@ body{
   background-color: white;
 }
 
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text],
+.form-container input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -57,7 +61,8 @@ body{
   background: #f1f1f1;
 }
 
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -70,7 +75,7 @@ body{
   font-weight: bold;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   opacity: 0.8;
 }
 
@@ -78,27 +83,29 @@ body{
   background-color: #a50000;
 }
 
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover,
+.open-button:hover {
   opacity: 1;
 }
 
-#login{
-  color:#194f90;
+#login {
+  color: #194f90;
   text-align: center;
   font-weight: bold;
   line-height: 36px;
   letter-spacing: -1px;
 }
 
-#main, p{
-  color:white;
+#main,
+p {
+  color: white;
   margin-left: -87%;
   position: absolute;
   margin-top: -40px;
 }
 
 
- /* SEARCH BAR */
+/* SEARCH BAR */
 .search {
   width: 100%;
   position: absolute;
@@ -116,7 +123,7 @@ body{
   color: #9DBFAF;
 }
 
-.searchTerm:focus{
+.searchTerm:focus {
   color: black;
 }
 
@@ -132,7 +139,7 @@ body{
   padding-top: 5px;
 }
 
-.wrap{
+.wrap {
   width: 50%;
   position: absolute;
   top: 30%;
@@ -140,40 +147,43 @@ body{
   transform: translate(-50%, -50%);
 }
 
- /* FLIP CARD #194f90*/
-#mainContainer{
-  position:absolute;
+/* FLIP CARD #194f90*/
+#mainContainer {
+  position: absolute;
   background-color: transparent;
-  padding:10px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   margin-top: 5%;
-  
+
 }
-.card{
+
+.card {
   background-color: #5e1990;
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 1.8%;
 }
 
-#sub{
+#sub {
   height: 10%;
   width: 10%;
-  
+
 }
 
-.ceat-row{
+.ceat-row {
   margin-left: 10%;
 }
-h4{
+
+h4 {
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -80%);
 }
-#dept{
+
+#dept {
   margin-top: 180px;
   margin: 0;
   position: absolute;
@@ -182,7 +192,7 @@ h4{
   transform: translate(-50%, 110%)
 }
 
-#mainContainer .btn{
+#mainContainer .btn {
   background-color: #194f90;
   border: 2px solid white;
   color: white;
@@ -199,16 +209,16 @@ h4{
   letter-spacing: .5;
 }
 
-#mainContainer .btn{
-  background-color: transparent; 
-  color: white; 
+#mainContainer .btn {
+  background-color: transparent;
+  color: white;
   border: 2px solid white;
 
 }
 
-#mainContainer .btn:hover{
-  background-color: #FFB833; 
-  color: black; 
+#mainContainer .btn:hover {
+  background-color: #FFB833;
+  color: black;
   border: 2px solid #194f90;
 }
 
@@ -216,7 +226,7 @@ h4{
   background-color: transparent;
   width: 300px;
   height: 300px;
-  perspective: 1000px; 
+  perspective: 1000px;
 }
 
 .flip-card-inner {
@@ -233,11 +243,12 @@ h4{
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; 
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 

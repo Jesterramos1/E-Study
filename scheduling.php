@@ -78,7 +78,7 @@
             success: function(data) {
 
               if (data == 'false') {
-                
+
                 counterNum = 1;
                 $('#studNumError').text('student number already exists.').css('color', 'red');
 
@@ -126,7 +126,7 @@
                     $('#studEmailError').text('Email already exist.').css('color', 'red');
 
 
-                  }else{
+                  } else {
 
                     $('#studEmailError').text('');
 
@@ -149,9 +149,9 @@
 
                         counterContact = 0;
                         $('#phonenumError').text('');
-                        
 
-                      }else{
+
+                      } else {
 
                         $('#phonenumError').text('');
 
@@ -161,7 +161,7 @@
 
                         $('#schedSubmit').removeAttr('disabled');
 
-                      }else {
+                      } else {
 
                         $('#schedSubmit').attr('disabled', true);
 
@@ -193,15 +193,18 @@
     overflow-x: hidden;
     font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   }
+
   .card-text {
     font-size: 14px;
   }
+
   .card-header {
     font-family: Helvetica, sans-serif;
     font-weight: bold;
     background: #1C5090;
     color: white;
   }
+
   #forms {
     margin-top: 1%;
   }
