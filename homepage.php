@@ -318,7 +318,7 @@ if(isset($_POST['submit'])){
 
     <label for="psw"><b>PASSWORD:</b></label>
     <input type="password" placeholder="Password" name="pass" id="Pass" required>
-
+    <a><b>Forgot Password?</b></a>
     <button type="submit" class="btn" name="submit"> LOGIN</button>
     <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
   </form>
