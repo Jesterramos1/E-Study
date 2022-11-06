@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+<!doctype html>
+<html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--BOOTSTRAP LINK-->
@@ -230,7 +235,13 @@
             <h5 class="card-header">LIBRARY HOUSE RULES</h5>
             <div class="card-body">
               <div class="row">
-                <img src="images/rule.png" class="img-fluid" alt="rules" style="height:276px; object-fit:cover;">
+                <div style="position: relative; width: 100%; height: 0; padding-top: 44.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+                  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFP1Zc0PBQ&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                  </iframe>
+                </div>
+                <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFP1Zc0PBQ&#x2F;view?utm_content=DAFP1Zc0PBQ&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
               </div>
             </div>
           </div>
@@ -334,7 +345,7 @@
 
             <div class="mb-3">
               <label for="barcode" class="form-label"><b>Thesis Barcode:</b></label>
-              <input class="form-control" type="text" name="barcode" id="barcode" placeholder="TLA125" required>
+              <input class="form-control" type="text" name="barcode" id="barcode" placeholder="<?php echo $_SESSION['selected-thesiscode']; ?>" disabled>
             </div>
 
             <div class="mb-3">
@@ -351,8 +362,8 @@
 
             <span><b>Location:</b></span>
             <div class=" form-floating mb-3">
-              <select class="form-select" name="library" id="library" required>
-                <option selected value="ceat">CEAT Library - Multi-purpose Building / Third (3rd) Floor</option>
+              <select class="form-select" name="library" id="library" required disabled>
+                <option selected value="<?php echo $_SESSION['selected-location']; ?>"><?php echo $_SESSION['selected-location']; ?></option>
                 <option value="cbet">CBET Library - SNAGAH Building / Second (2nd) Floor </option>
                 <option value="cas">CAS Library - MAB Building / Second (2nd) Floor </option>
                 <option value="ced">CED Library - SNAGAH Building / Second (2nd) Floor </option>

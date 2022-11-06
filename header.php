@@ -6,7 +6,6 @@
 	<title>Document</title>
 </head>
 <body>
-		<a href="homepage.php" title=""><img src="images/header.png" class="img-fluid"></a>
-	
+		<a href="homepage.php" title=""><img src="images/header.png" class="img-fluid"></a>	
 </body>
 </html>

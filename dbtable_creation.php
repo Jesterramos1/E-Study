@@ -31,7 +31,7 @@
 
             //Creation Table for Storage
 	         $storing ="CREATE TABLE IF NOT EXISTS storage (id int(11) NOT NULL auto_increment, 
-	         	  title varchar(255) NOT NULL,
+	         	  title varchar(255) NOT NULL,thesis_code varchar(255) NOT NULL,
 	         	  department varchar(255)NOT NULL, date_publish int(4)NOT NULL,
 	              researchers varchar(255)NOT NULL, location varchar(255)NOT NULL,
 	              res_file varchar(255)NOT NULL, 
