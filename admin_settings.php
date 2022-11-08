@@ -368,7 +368,7 @@
                                     <form action ="code.php" method="POST">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-                                            <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
+                                            <input type="text" class="form-control" placeholder="Enter admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
                                         </div>
 
                                         <div class="input-group mb-3">

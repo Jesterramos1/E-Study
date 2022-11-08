@@ -1,5 +1,6 @@
 <?php
 require 'dbtable_creation.php';
+session_start();
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
@@ -17,7 +18,7 @@ $lName = ucwords(mysqli_real_escape_string($link, $_REQUEST['lname']));
 $studCourse = mysqli_real_escape_string($link, $_REQUEST['course']);
 $studEmail = mysqli_real_escape_string($link, $_REQUEST['email']);
 $studContact = mysqli_real_escape_string($link, $_REQUEST['contact']);
-$location = mysqli_real_escape_string($link, $_REQUEST['library']);
+$location = $_SESSION['selected-location'];
 $date_filed = date ("Y-m-d");
 $studSched = mysqli_real_escape_string($link, $_REQUEST['calendar']);
 $studTime = mysqli_real_escape_string($link, $_REQUEST['time']);
