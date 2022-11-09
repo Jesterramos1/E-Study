@@ -40,11 +40,16 @@
       
       document.querySelector("#send").addEventListener("click", async () => {
         let xhr = new XMLHttpRequest();
-        var userMessage = document.querySelector("#userInput").value
-
+        var userMessage = document.querySelector("#userInput").value;
         let userHtml = '<div class="userSection">'+'<div class="messages user-message">'+userMessage+'</div>'+
         '<div class="seperator"></div>'+'</div>'
+        if(userMessage.search(/Book/i) > -1 ){
+          setTimeout(function() { 
+            location.href = 'scheduling.php';
+          }, 2000);
+          
 
+        }
         document.querySelector('#body').innerHTML+= userHtml;
 
         xhr.open("POST", "query.php");
