@@ -362,7 +362,7 @@ if (isset($_POST['submit'])) {
     </div>
     <!------------------------------END OF FOOTER------------------------------>
   </div>
-  <!---------------------------------------------ITONG MODAL PARA KAY OLAF-------------------------------->
+  <!---------------------------------------------OLAF MODAL-------------------------------->
 
   <!--Chatbot-->
   <button type="button" class="btn btn-primary" id="chatbotbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
