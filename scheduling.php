@@ -200,7 +200,9 @@ session_start();
   }
 
   .card-text {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    color:#1C5090;
   }
 
   .card-header {
@@ -323,12 +325,28 @@ session_start();
             <div class="mb-3">
               <div class="input-group">
 
-                <span class="input-group-text" style="background:#1C5090; color:white;"><b>Full Name:</b></span>
+                <span class="input-group-text" style="background:#1C5090; color:white; font-weight:bold;">Full Name:</span>
                 <input type="text" aria-label="First name" name="fname" class="form-control" placeholder="Juan" id="fname" autocomplete="off" required>
                 <input type="text" aria-label="Last name" name="lname" class="form-control" placeholder="Dela Cruz" id="lname" autocomplete="off" required>
 
               </div>
               <span id="nameError" class='text-center mt-3'></span>
+            </div>
+
+            <div class="mb-3">
+              <div class="card">
+                <div class="card-header" style="background:#1C5090; color:white; font-weight:bold;">Are you an RTU Student?</div>
+                <div class="card-body">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="yes" value="option1">
+                    <label class="form-check-label" for="yes" style="font-weight:bold;">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="no" value="option2">
+                    <label class="form-check-label" for="no" style="font-weight:bold;">No</label>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="row g-2 mb-3">
