@@ -57,6 +57,7 @@ if (isset($_POST['submit'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="homepageScript.js"></script>
 
+
 </head>
 
 <!--Manual CSS-->
@@ -94,6 +95,14 @@ if (isset($_POST['submit'])) {
     #viewbtn {
       font-size: 12px;
     }
+
+    #chatbotbtn{
+
+      display: none;
+
+    }
+
+
   }
 
   body {
@@ -109,32 +118,9 @@ if (isset($_POST['submit'])) {
     width: 100%;
   }
 
-  #forgotPassModalbtn {
-    background: none;
-    color: red;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-    text-decoration: underline;
-    text-decoration-color: inherit;
-  }
-
-  .input-group-text {
-    background-color: #1C5090;
-    color: white;
-    font-weight: bold;
-  }
-
-  .eye,
-  .eye:hover,
-  .eye:active,
-  .eye:visited {
-    background-color: #194F90;
-  }
 
   /*****************************CSS PARA KAY OLAF AT SA BUTTON NA (NEED HELP?)********************************/
+
   #chatbotbtn {
     background-color: #194f90;
     color: white;
@@ -145,14 +131,27 @@ if (isset($_POST['submit'])) {
     opacity: 0.8;
     position: fixed;
     bottom: 23px;
-    right: 80%;
+    right: 76%;
     width: 280px;
     font-weight: bold;
+    
+  }
+
+  #chatbutton:hover{
+
+    opacity: 0.1;
+
   }
 
   #Olaf {
 
     float: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
 
   }
 
@@ -167,6 +166,8 @@ if (isset($_POST['submit'])) {
     background-color: #194f90;
 
   }
+
+
 
   /************************HANGGANG DITO ANG CSS KAY OLAF*********************************************************************/
 </style>
@@ -187,8 +188,8 @@ if (isset($_POST['submit'])) {
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <div class="input-group">
-          <input type="text" class="form-control rounded" id="Search_bar" placeholder="What are you looking for" aria-label="Search" aria-describedby="search-addon" style=" background-color: transparent; border-style: solid; border-width: 2px; border-color: #1c5090" />
-          <button type="button" class="btn btn-outline-primary" style="border-style: solid;border-width: 2px;border-color: #1c5090">
+          <input type="text" class="form-control rounded" id="Search_bar" placeholder="What are you looking for" aria-label="Search" aria-describedby="search-addon" autocomplete="off" style=" background-color: transparent; border-style: solid; border-width: 2px; border-color: #1c5090" />
+          <button type="button" class="btn btn-outline-primary" id="Search_btn" style="border-style: solid;border-width: 2px;border-color: #1c5090">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
@@ -373,6 +374,31 @@ if (isset($_POST['submit'])) {
     </div>
     <!------------------------------END OF FOOTER------------------------------>
   </div>
+  <!---------------------------------------------OLAF MODAL-------------------------------->
+
+  <!--Chatbot-->
+  <button type="button" class="btn btn-primary" id="chatbotbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    NEED HELP?
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="height: 100%;">
+      <div class="modal-content" style="height: 100%;">
+        <div class="modal-header" id="olafHead">
+          <h5 class="modal-title" id="olafTitle">Olaf Assistance</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modal-body">
+
+          <iframe src="bot.php" frameborder="0" id="Olaf"  width="100%" height="100%"></iframe>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!------------------------------------------END OF OLAF MODAL-------------------------->
 
   <!--Login Form-->
   <button class="open-button fadeshow" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
@@ -390,79 +416,13 @@ if (isset($_POST['submit'])) {
 
       <label for="psw"><b>PASSWORD:</b></label>
       <input type="password" placeholder="Password" name="pass" id="Pass" required>
-      <!-- trigger forgot password modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#forgotPassModal" id="forgotPassModalbtn">
-        <b>Forgot Password?</b>
-      </button>
+
       <button type="submit" class="btn" name="submit"> LOGIN</button>
       <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
     </form>
   </div>
-  <!-- Modal -->
-  <div class="modal fade" id="forgotPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Reset your password</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="code.php" method="POST">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-              <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
-            </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">New Password:</span>
-              <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword" name="newUserPassword" required>
-              <button class="btn btn-primary eye" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id="newUserPassIcon"></i></button>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Confirm New Password:</span>
-              <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
-              <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
-            </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
-              <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
-              <button class="btn btn-primary eye" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id="masterkeyIcon"></i></button>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button class="btn btn-success" name="createAdminbtn" id="createAdminbtn">Reset Password</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <!---------------------------------------------ITONG MODAL PARA KAY OLAF-------------------------------->
-
-  <!--Chatbot-->
-  <button type="button" class="btn btn-primary" id="chatbotbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    NEED HELP?
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" style="height: 100%;">
-      <div class="modal-content" style="height: 100%;">
-        <div class="modal-header" id="olafHead">
-          <h5 class="modal-title" id="olafTitle">Olaf Assistance</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" id="modal-body">
-
-          <iframe src="bot.php" frameborder="0" scrolling="no" height="95%" width="59%" id="Olaf"></iframe>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--------------------------------------------HANGGANG DITO ANG MODAL-------------------------->
   <?php
   //Account Verification
   if (isset($_POST['submit'])) {
@@ -495,6 +455,7 @@ if (isset($_POST['submit'])) {
     echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
   }
   ?>
+
 </body>
 
 </html>
