@@ -167,7 +167,6 @@ if (isset($_POST['preUpload'])) {
 }
 
 if (isset($_POST['filename'])) {
-
     $filename = $_POST['filename'];
     $fileCheck = "SELECT * FROM storage WHERE res_file LIKE '%{$filename}%'";
     $result = mysqli_query($con, $fileCheck);
@@ -184,5 +183,16 @@ if (isset($_POST['filename'])) {
         }
     } else {
         echo "0";
+    }
+}
+if (isset($_POST['searchbtn'])) {
+    $search = mysqli_real_escape_string($con, $_POST['searchInput']);
+    if ($search != "") {
+        $_SESSION["querychoice"] = "1";
+        $_SESSION["searchdata"] = $search;
+        header("Location: student-view.php");
+        exit(0);
+    } else {
+        $_SESSION["querychoice"] = "";
     }
 }
