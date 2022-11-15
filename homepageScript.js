@@ -1,37 +1,51 @@
-//Login Form Script
-function openForm() {
- $('#myForm').show();
-}
-function closeForm() {
-  $('#myForm').hide();
-}
-function openmail(){
-  document.getElementById("message").style.display = "block";
-}
+ //Login Form Script
+ function openForm() {
+    $('#myForm').show();
+  }
 
-$(document).ready(function(){
-  $('#Search_bar').keyup(function(){
-    var txt = $(this).val();
-    if(txt != ''){
-      $.ajax({
-        url:"fetch.php",
-        method: "post",
-        data:{search:txt},
-        dataType:"text",
+  function closeForm() {
+    $('#myForm').hide();
+  }
 
-        success:function(data){
-          $('#result').html(data);
-        }
-       
-      });
+  function openmail() {
+    document.getElementById("message").style.display = "block";
+  }
 
-      $('#mainContainer, #Openbtn').hide();
+  $(document).ready(function() {
+    $('#Search_btn').click(function() {
+      var txt = $('#Search_bar').val().trim();
+      if (txt != '') {
+        $.ajax({
+          url: "fetch.php",
+          method: "post",
+          data: {
+            search: txt
+          },
+          dataType: "text",
 
-    }else{
-      $('#result').html('');
-      $('#mainContainer, #Openbtn').show();
-    }
+          success: function(data) {
+            $('#result').html(data);
+          }
+
+        });
+
+        $('#mainContainer, #Openbtn, #chatbotbtn').hide();
+
+
+      }
+
+    });
+
+    $('#Search_bar').keyup(function(){
+      var txt = $('#Search_bar').val().trim();
+      if(txt == ''){
+
+        $('#result').html('');
+        $('#mainContainer, #Openbtn, #chatbotbtn').show();
+
+      }
+
+    });
+
+
   });
-
- 
-});

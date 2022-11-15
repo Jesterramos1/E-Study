@@ -95,9 +95,7 @@ if (isset($_POST['submit'])) {
     #viewbtn {
       font-size: 12px;
     }
-
     #chatbotbtn {
-
       display: none;
 
     }
@@ -119,8 +117,6 @@ if (isset($_POST['submit'])) {
     bottom: 0;
     width: 100%;
   }
-
-
   /*****************************CSS PARA KAY OLAF AT SA BUTTON NA (NEED HELP?)********************************/
 
   #chatbotbtn {
@@ -136,11 +132,9 @@ if (isset($_POST['submit'])) {
     right: 76%;
     width: 280px;
     font-weight: bold;
-
   }
 
   #chatbutton:hover {
-
     opacity: 0.1;
 
   }
@@ -390,7 +384,6 @@ if (isset($_POST['submit'])) {
         <div class="modal-body" id="modal-body">
 
           <iframe src="bot.php" frameborder="0" id="Olaf" width="100%" height="100%"></iframe>
-
         </div>
       </div>
     </div>
