@@ -1,6 +1,7 @@
 <?php
 require 'dbtable_creation.php';
 session_start();
+$_SESSION["querychoice"] = "";
 
 //Account Verification
 if (isset($_POST['submit'])) {
