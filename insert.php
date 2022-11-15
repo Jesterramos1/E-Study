@@ -95,6 +95,9 @@ $compareTime = date('h:i');
             body{
                 background-image: url("images/bgf.jpg");
                 background-repeat: no-repeat;
+                background-position: top;
+                background-position: center;
+                background-attachment: fixed;
                 background-size: cover;
             }
             .btn-label {
