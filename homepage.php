@@ -108,6 +108,8 @@ if (isset($_POST['submit'])) {
   body {
     background-image: url('images/homepagebg.png');
     background-repeat: no-repeat;
+    background-position: center;
+    background-position: top;
     background-attachment: fixed;
   }
 
@@ -117,6 +119,7 @@ if (isset($_POST['submit'])) {
     bottom: 0;
     width: 100%;
   }
+
 
 
   /*****************************CSS PARA KAY OLAF AT SA BUTTON NA (NEED HELP?)********************************/
@@ -322,12 +325,10 @@ if (isset($_POST['submit'])) {
             <div class="container p-4">
               <div class="row">
                 <div class="col-lg-5 col-md-12 mb-4">
-                  <h5 class="mb-3" style="letter-spacing: 2px; color: white;">
-                    <!---add title here---->
-                  </h5>
-                  <h6 style="color: white;">
-                    <!------------add content here-------------->
-                  </h6>
+                  <div class="counter">
+                  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-66a1464d-0242-4875-ab00-37b6b62799f0"></div>
+                  </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                   <h5 class="mb-3" style="letter-spacing: 2px; color: white;">Contact Us</h5>
