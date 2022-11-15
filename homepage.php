@@ -95,9 +95,7 @@ if (isset($_POST['submit'])) {
     #viewbtn {
       font-size: 12px;
     }
-
-    #chatbotbtn{
-
+    #chatbotbtn {
       display: none;
 
     }
@@ -119,9 +117,6 @@ if (isset($_POST['submit'])) {
     bottom: 0;
     width: 100%;
   }
-
-
-
   /*****************************CSS PARA KAY OLAF AT SA BUTTON NA (NEED HELP?)********************************/
 
   #chatbotbtn {
@@ -137,11 +132,9 @@ if (isset($_POST['submit'])) {
     right: 76%;
     width: 280px;
     font-weight: bold;
-    
   }
 
-  #chatbutton:hover{
-
+  #chatbutton:hover {
     opacity: 0.1;
 
   }
@@ -325,10 +318,8 @@ if (isset($_POST['submit'])) {
             <div class="container p-4">
               <div class="row">
                 <div class="col-lg-5 col-md-12 mb-4">
-                  <div class="counter">
                   <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-66a1464d-0242-4875-ab00-37b6b62799f0"></div>
-                  </div>
+                  <div class="elfsight-app-f91114ad-13af-4b86-97f3-71245f74613b"></div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                   <h5 class="mb-3" style="letter-spacing: 2px; color: white;">Contact Us</h5>
@@ -392,8 +383,7 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="modal-body" id="modal-body">
 
-          <iframe src="bot.php" frameborder="0" id="Olaf"  width="100%" height="100%"></iframe>
-
+          <iframe src="bot.php" frameborder="0" id="Olaf" width="100%" height="100%"></iframe>
         </div>
       </div>
     </div>
