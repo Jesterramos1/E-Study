@@ -202,7 +202,7 @@ session_start();
   .card-text {
     font-size: 12px;
     font-weight: bold;
-    color:#1C5090;
+    color:#192841;
   }
 
   .card-header {
