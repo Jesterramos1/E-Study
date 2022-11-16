@@ -27,7 +27,7 @@ session_start();
       minDate: 0
     });
 
-    $('#fname, #lname, #studNum, #email, #contact').keyup(function() {
+    $('#fname, #lname, #studNum, #email, #contact, #yes, #no').on("keyup change",function() {
 
       var fname = $('#fname').val().trim();
       var lname = $('#lname').val().trim();
@@ -100,6 +100,21 @@ session_start();
                 $('#studNumError').text('Student number is valid.').css('color', 'green');
 
 
+              } else if ($('#yes').is(':checked')) {
+                
+                counterNum = 1;
+                $('#studNum').attr("disabled", false);
+                $('#studNum').attr("required", true);
+                
+
+              } else if ($('#no').is(':checked')) {
+               
+                counterNum = 0;
+                $('#studNum').attr("disabled", true);
+                $('#studNum').attr("required", false);
+                
+                
+
               } else {
 
                 $('#studNumError').text('');
@@ -162,6 +177,8 @@ session_start();
 
                       }
 
+
+
                       if (counterName == 0 && counterNum == 0 && counteremail == 0 && counterContact == 0) {
 
                         $('#schedSubmit').removeAttr('disabled');
@@ -202,7 +219,7 @@ session_start();
   .card-text {
     font-size: 12px;
     font-weight: bold;
-    color:#1C5090;
+    color: #1C5090;
   }
 
   .card-header {

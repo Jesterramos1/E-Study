@@ -12,7 +12,17 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$studNum = mysqli_real_escape_string($link, $_REQUEST['studNum']);
+if(isset($_REQUEST['studNum'])){
+
+    $studNum = mysqli_real_escape_string($link, $_REQUEST['studNum']);
+    
+
+}else{
+
+    $studNum = 'N/A';
+
+}
+
 $fName = ucwords(mysqli_real_escape_string($link, $_REQUEST['fname']));
 $lName = ucwords(mysqli_real_escape_string($link, $_REQUEST['lname']));
 $studCourse = mysqli_real_escape_string($link, $_REQUEST['course']);
