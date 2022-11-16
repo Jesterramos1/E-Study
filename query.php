@@ -46,10 +46,15 @@ if (!empty($_POST['text'])) {
 
         echo "Sorry can't be able to understand you!";
     }
+    if(str_contains($getMesg, 'Appointment')){
+
+        echo " Or <a href='scheduling.php'>Click ME!</a>";
+
+    }
 }
 
 
-if (!empty($_POST["keyword"])) {
+/*if (!empty($_POST["keyword"])) {
     $sql = $conn->prepare("SELECT * FROM chatbot WHERE messages LIKE  ? ORDER BY messages LIMIT 0,6");
     $search = "{$_POST['keyword']}%";
     $sql->bind_param("s", $search);
@@ -70,7 +75,29 @@ if (!empty($_POST["keyword"])) {
         </ul>
 <?php
     } // end if not empty
+}*/
+
+if(isset($_GET['term'])){
+
+    $searchTerm = $_GET['term']; 
+ 
+// Fetch matched data from the database 
+$query = $conn->query("SELECT * FROM chatbot WHERE messages LIKE '%".$searchTerm."%'"); 
+ 
+// Generate array with skills data 
+$question = array(); 
+if($query->num_rows > 0){ 
+    while($row = $query->fetch_assoc()){ 
+        $data['value'] = $row['messages']; 
+        array_push($question, $data); 
+    } 
+} 
+ 
+// Return results as json encoded array 
+echo json_encode($question);
+
 }
+
 
 
 ?>

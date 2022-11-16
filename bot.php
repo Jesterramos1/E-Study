@@ -8,7 +8,32 @@
   <title>Chatbot with PHP, MySQL and JS fetch</title>
   <link rel="stylesheet" href="bot.css">
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+
+      $(function() {
+        $("#data").autocomplete({
+          source: 'query.php',
+          select: function( event, ui ) {
+            event.preventDefault();
+            $("#data").val(ui.item.value);
+        },
+
+        position: {
+                        my: "left top",
+                        at: "left bottom",
+                        collision: "fit flip"
+                    }
+        });
+      });
+
+
+    });
+  </script>
 </head>
 
 <body>
@@ -82,10 +107,9 @@
         </div>
       </div>
     </div>
-    <div id="suggesstion-box"></div>
     <div class="typing-field">
       <div class="input-data">
-        <input id="data" type="text" autocomplete = "off" placeholder="Type something here.." required>
+        <input id="data" type="text" placeholder="Type something here.." required>
         <button id="send-btn">Send</button>
       </div>
     </div>
@@ -115,28 +139,27 @@
       });
 
       // AJAX call for autocomplete 
-      $(document).ready(function() {
-        $("#data").keyup(function() {
-          $.ajax({
-            type: "POST",
-            url: "query.php",
-            data: 'keyword=' + $(this).val().trim(),
-            success: function(data) {
-              $("#suggesstion-box").show();
-              $("#suggesstion-box").html(data);
-              $("#search-box").css("background", "#FFF");
-            }
+      /*    $(document).ready(function() {
+            $("#data").keyup(function() {
+              $.ajax({
+                type: "POST",
+                url: "query.php",
+                data: 'keyword=' + $(this).val().trim(),
+                success: function(data) {
+                  $("#suggesstion-box").show();
+                  $("#suggesstion-box").html(data);
+                  $("#search-box").css("background", "#FFF");
+                }
+              });
+            });
           });
-        });
-      });
-      //To select a country name
-      function selectCountry(val) {
-        $("#search-box").val(val);
-        $("#suggesstion-box").hide();
-      }
+          //To select a country name
+          function selectCountry(val) {
+            $("#search-box").val(val);
+            $("#suggesstion-box").hide();
+          }*/
 
-
-
+      
 
     });
   </script>
