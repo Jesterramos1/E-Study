@@ -13,21 +13,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
   <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
       $(function() {
         $("#data").autocomplete({
           source: 'query.php',
-          select: function( event, ui ) {
+          select: function(event, ui) {
             event.preventDefault();
             $("#data").val(ui.item.value);
-        },
+          },
 
-        position: {
-                        my: "left top",
-                        at: "left bottom",
-                        collision: "fit flip"
-                    }
+          position: {
+            my: "left top",
+            at: "left bottom",
+            collision: "fit flip"
+          }
         });
       });
 
@@ -37,64 +37,7 @@
 </head>
 
 <body>
-  <!------<div id="bot">
-  <div id="container">
-    <div id="header">
-        Online Chatbot App
-    </div>
-
-    <div id="body" class="chat-body">
-        <div class="userSection">
-          <div class="messages user-message">
-
-          </div>
-          <div class="seperator"></div>
-        </div>
-        <div class="botSection">
-          <div class="messages bot-reply">
-
-          </div>
-          <div class="seperator"></div>
-        </div>        
-    </div>
-
-    <div id="inputArea" class="chat-body">
-      <input type="text" name="messages" id="userInput" autocomplete="off" placeholder="Please enter your message here" required>
-      <input type="submit" id="send" value="Send">
-    </div>
-  </div>
-  </div>
-
-  <script type="text/javascript">
-      
-      document.querySelector("#send").addEventListener("click", async () => {
-        let xhr = new XMLHttpRequest();
-        var userMessage = document.querySelector("#userInput").value;
-        let userHtml = '<div class="userSection">'+'<div class="messages user-message">'+userMessage+'</div>'+
-        '<div class="seperator"></div>'+'</div>'
-        if(userMessage.search(/Book/i) > -1 ){
-          setTimeout(function() { 
-            location.href = 'scheduling.php';
-          }, 2000);
-          
-
-        }
-        document.querySelector('#body').innerHTML+= userHtml;
-
-        xhr.open("POST", "query.php");
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send(`messageValue=${userMessage}`);
-
-        xhr.onload = function () {
-            let botHtml = '<div class="botSection">'+'<div class="messages bot-reply">'+this.responseText+'</div>'+
-            '<div class="seperator"></div>'+'</div>'
-            
-            document.querySelector('#body').innerHTML+= botHtml;
-        }
-
-      })
-      
-  </script>----->
+  
   <div class="wrapper">
     <div class="title">OLAF Assistance</div>
     <div class="form">
@@ -138,28 +81,9 @@
         });
       });
 
-      // AJAX call for autocomplete 
-      /*    $(document).ready(function() {
-            $("#data").keyup(function() {
-              $.ajax({
-                type: "POST",
-                url: "query.php",
-                data: 'keyword=' + $(this).val().trim(),
-                success: function(data) {
-                  $("#suggesstion-box").show();
-                  $("#suggesstion-box").html(data);
-                  $("#search-box").css("background", "#FFF");
-                }
-              });
-            });
-          });
-          //To select a country name
-          function selectCountry(val) {
-            $("#search-box").val(val);
-            $("#suggesstion-box").hide();
-          }*/
+     
 
-      
+
 
     });
   </script>
