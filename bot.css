@@ -126,9 +126,7 @@ html,
 body {
   display: grid;
   height: 100%;
-  place-items: center;
   float: right;
-  margin-right: 20px;
 }
 
 ::selection {
@@ -167,7 +165,7 @@ body {
   color: #fff;
   font-size: 20px;
   font-weight: 500;
-  line-height: 60px;
+  line-height: 40px;
   text-align: center;
   border-bottom: 1px solid #006fe6;
   border-radius: 5px 5px 0 0;
@@ -175,8 +173,8 @@ body {
 
 .wrapper .form {
   padding: 20px 15px;
-  min-height: 400px;
-  max-height: 400px;
+  min-height: 375px;
+  max-height: 375px;
   overflow-y: auto;
 }
 
@@ -223,7 +221,7 @@ body {
 
 .wrapper .typing-field {
   display: flex;
-  height: 60px;
+  height: 40px;
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
@@ -233,7 +231,7 @@ body {
 }
 
 .wrapper .typing-field .input-data {
-  height: 40px;
+  height: 30px;
   width: 335px;
   position: relative;
 }

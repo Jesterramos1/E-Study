@@ -54,29 +54,6 @@ if (!empty($_POST['text'])) {
 }
 
 
-/*if (!empty($_POST["keyword"])) {
-    $sql = $conn->prepare("SELECT * FROM chatbot WHERE messages LIKE  ? ORDER BY messages LIMIT 0,6");
-    $search = "{$_POST['keyword']}%";
-    $sql->bind_param("s", $search);
-    $sql->execute();
-    $result = $sql->get_result();
-    if (!empty($result)) {
-?>
-        <ul id="country-list">
-            <?php
-            foreach ($result as $country) {
-            ?>
-                <li id="suggest" onClick="selectCountry('<?php echo $country["messages"]; ?>');">
-                    <?php echo $country["messages"]; ?>
-                </li>
-            <?php
-            } // end for
-            ?>
-        </ul>
-<?php
-    } // end if not empty
-}*/
-
 if(isset($_GET['term'])){
 
     $searchTerm = $_GET['term']; 
