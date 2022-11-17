@@ -193,6 +193,15 @@ if (isset($_POST['submit'])) {
   }
 
   /************************CSS FOR OLAF**********************************/
+
+  .btn:hover{
+    color: #f1f1f1;   
+  }
+
+  #myForm{
+    border:none;
+  }
+ 
 </style>
 
 

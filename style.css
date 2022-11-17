@@ -78,9 +78,6 @@ body{
   background-color: #a50000;
 }
 
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
 
 #login{
   color:#194f90;
