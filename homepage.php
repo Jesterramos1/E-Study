@@ -160,6 +160,9 @@ if (isset($_POST['submit'])) {
   .eye:visited {
     background-color: #194F90;
   }
+  .mainContainer{
+    position: fixed;
+  }
 
   /*****************************CSS FOR OLAF AND NEED HELP? BUTTON********************************/
   #chatbotbtn {
@@ -413,12 +416,12 @@ if (isset($_POST['submit'])) {
   <!---------------------------------------------MODAL FOR OLAF-------------------------------->
 
   <!--Chatbot-->
-  <button type="button" class="btn btn-primary" id="chatbotbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-primary fadeshow" id="chatbotbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
     NEED HELP?
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade modalhome" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" style="height: 100%;">
       <div class="modal-content" style="height: 100%;">
         <div class="modal-header" id="olafHead">
@@ -461,7 +464,7 @@ if (isset($_POST['submit'])) {
     </form>
   </div>
   <!-- Modal Reset Password -->
-  <div class="modal fade" id="forgotPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+  <div class="modal fade modalhome" id="forgotPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
