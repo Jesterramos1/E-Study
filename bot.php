@@ -11,33 +11,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-
-  <script>
-    $(document).ready(function() {
-
-      $(function() {
-        $("#data").autocomplete({
-          source: 'query.php',
-          select: function(event, ui) {
-            event.preventDefault();
-            $("#data").val(ui.item.value);
-          },
-
-          position: {
-            my: "left top",
-            at: "left bottom",
-            collision: "fit flip"
-          }
-        });
-      });
-
-
-    });
-  </script>
 </head>
 
 <body>
-  
+
   <div class="wrapper">
     <div class="title">OLAF Assistance</div>
     <div class="form">
@@ -57,7 +34,6 @@
       </div>
     </div>
   </div>
-
   <script>
     $(document).ready(function() {
       $("#send-btn").on("click", function() {
@@ -65,7 +41,6 @@
         $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>' + $value + '</p></div></div>';
         $(".form").append($msg);
         $("#data").val('');
-        $("#suggesstion-box").hide();
 
         // start ajax code
         $.ajax({
@@ -81,10 +56,21 @@
         });
       });
 
-     
+      $(function() {
+        $("#data").autocomplete({
+          source: 'query.php',
+          select: function(event, ui) {
+            event.preventDefault();
+            $("#data").val(ui.item.value);
+          },
 
-
-
+          position: {
+            my: "left top",
+            at: "left bottom",
+            collision: "fit flip"
+          }
+        });
+      });
     });
   </script>
 
