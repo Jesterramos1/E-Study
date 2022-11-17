@@ -89,7 +89,7 @@ if(mysqli_num_rows($result) > 0)
     <td id="tdata">'.$row["department"].'</td>
     <td id="hidetable">'.$row["date_publish"].'</td>
     <td id="tdata">
-    <button data-id = '.$row["id"].' class="studyinfo btn btn-outline-success" id="viewbtn">View</button>
+    <button type="button" data-id = '.$row["id"].' class="studyinfo btn btn-outline-success" id="viewbtn" data-bs-toggle="modal" data-bs-target="empModal">View</button>
     </td>
     </tr>';
 
@@ -125,7 +125,7 @@ echo $output;
         });
     </script>
 
-     <div class="modal fade" id="empModal" role="dialog">
+     <div class="modal fade" id="empModal" tabindex="-1" aria-labelledby="empModal" aria-hidden="true">
         <div class="modal-dialog modal-xl   ">
             <div class="modal-content">
                 <div class="modal-header">

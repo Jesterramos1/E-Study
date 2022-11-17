@@ -157,6 +157,9 @@ if (isset($_POST['submit'])) {
   .eye:visited {
     background-color: #194F90;
   }
+  .mainContainer{
+    position: fixed;
+  }
 
   /*****************************CSS FOR OLAF AND NEED HELP? BUTTON********************************/
   #chatbotbtn {
@@ -410,12 +413,12 @@ if (isset($_POST['submit'])) {
   <!---------------------------------------------MODAL FOR OLAF-------------------------------->
 
   <!--Chatbot-->
-  <button type="button" class="btn btn-primary" id="chatbotbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-primary fadeshow" id="chatbotbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
     NEED HELP?
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade modalhome" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" style="height: 100%;">
       <div class="modal-content" style="height: 100%;">
         <div class="modal-header" id="olafHead">
@@ -434,53 +437,53 @@ if (isset($_POST['submit'])) {
   <!--------------------------------------------END OF OLAF MODAL-------------------------->
 
   <!--Login Form-->
-<button class="open-button fadeshow" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
+  <button class="open-button fadeshow" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
 
-<div class="form-popup fadeshow" id="myForm">
+  <div class="form-popup fadeshow" id="myForm">
 
-  <form method="POST" id="adminForm" class="form-container">
-    <hr>
-    <h2 id="login">ADMIN LOGIN</h2>
-    <hr>
-    <span id="message" class='h6 text-danger text-center mt-3'>Username or password is incorrect</span>
-    <br>
-    <label for="email"><b>USERNAME:</b></label>
-    <input type="text" placeholder="RTU Admin" name="email" id="User" autocomplete="off" required>
+    <form method="POST" id="adminForm" class="form-container">
+      <hr>
+      <h2 id="login">ADMIN LOGIN</h2>
+      <hr>
+      <span id="message" class='h6 text-danger text-center mt-3'>Username or password is incorrect</span>
+      <br>
+      <label for="email"><b>USERNAME:</b></label>
+      <input type="text" placeholder="RTU Admin" name="email" id="User" autocomplete="off" required>
 
-    <label for="psw"><b>PASSWORD:</b></label>
-    <input type="password" placeholder="Password" name="pass" id="Pass" required>
-    <!-- trigger forgot password modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#forgotPassModal" id="forgotPassModalbtn">
-      <b>Forgot Password?</b>
-    </button>
-    <button type="submit" class="btn" name="submit"> LOGIN</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
-  </form>
-</div>
-<!-- Modal Reset Password -->
-<div class="modal fade" id="forgotPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Reset your password</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="code.php" method="POST">
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-            <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">New Password:</span>
-            <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword" name="newUserPassword" required>
-            <button class="btn btn-primary eye" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id="newUserPassIcon"></i></button>
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Confirm New Password:</span>
-            <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
-            <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
-          </div>
+      <label for="psw"><b>PASSWORD:</b></label>
+      <input type="password" placeholder="Password" name="pass" id="Pass" required>
+      <!-- trigger forgot password modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#forgotPassModal" id="forgotPassModalbtn">
+        <b>Forgot Password?</b>
+      </button>
+      <button type="submit" class="btn" name="submit"> LOGIN</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+    </form>
+  </div>
+  <!-- Modal Reset Password -->
+  <div class="modal fade modalhome" id="forgotPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Reset your password</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="code.php" method="POST">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
+              <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">New Password:</span>
+              <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword" name="newUserPassword" required>
+              <button class="btn btn-primary eye" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id="newUserPassIcon"></i></button>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Confirm New Password:</span>
+              <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
+              <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
+            </div>
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
