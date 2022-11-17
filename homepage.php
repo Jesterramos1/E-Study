@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="homepageScript.js"></script>
+
 
 </head>
 
@@ -109,6 +109,7 @@ if (isset($_POST['submit'])) {
     bottom: 0;
     width: 100%;
   }
+
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -120,18 +121,20 @@ if (isset($_POST['submit'])) {
     text-decoration: underline;
     text-decoration-color: inherit;
   }
+
   .input-group-text {
     background-color: #1C5090;
     color: white;
     font-weight: bold;
   }
+
   .eye,
   .eye:hover,
   .eye:active,
   .eye:visited {
     background-color: #194F90;
   }
-  
+
 
   #forgotPassModalbtn {
     background: none;
@@ -224,7 +227,7 @@ if (isset($_POST['submit'])) {
       <div class="col col-lg-6">
         <div class="input-group">
           <input type="text" class="form-control rounded" id="Search_bar" placeholder="What are you looking for" aria-label="Search" aria-describedby="search-addon" style=" background-color: transparent; border-style: solid; border-width: 2px; border-color: #1c5090" />
-          <button type="button" class="btn btn-outline-primary" style="border-style: solid;border-width: 2px;border-color: #1c5090">
+          <button type="button" class="btn btn-outline-primary" id="Search_btn" style="border-style: solid;border-width: 2px;border-color: #1c5090">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
@@ -485,22 +488,73 @@ if (isset($_POST['submit'])) {
               <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
             </div>
 
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
-            <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
-            <button class="btn btn-primary eye" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id="masterkeyIcon"></i></button>
-          </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
+              <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
+              <button class="btn btn-primary eye" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id="masterkeyIcon"></i></button>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-success" name="createAdminbtn" id="createAdminbtn">Reset Password</button>
+        </div>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button class="btn btn-success" name="createAdminbtn" id="createAdminbtn">Reset Password</button>
-      </div>
-      </form>
     </div>
   </div>
-</div>
-            
-  
+  <script>
+    function openForm() {
+      $('#myForm').show();
+    }
+
+    function closeForm() {
+      $('#myForm').hide();
+    }
+
+    function openmail() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    $(document).ready(function() {
+      $('#Search_btn').click(function() {
+        var txt = $('#Search_bar').val().trim();
+        if (txt != '') {
+          $.ajax({
+            url: "fetch.php",
+            method: "GET",
+            data: {
+              search: txt
+            },
+            dataType: "text",
+
+            success: function(data) {
+              $('#result').html(data);
+            }
+
+          });
+
+          $('#mainContainer, #Openbtn, #chatbotbtn').hide();
+
+
+        }
+
+      });
+
+      $('#Search_bar').keyup(function() {
+        var txt = $('#Search_bar').val().trim();
+        if (txt == '') {
+
+          $('#result').html('');
+          $('#mainContainer, #Openbtn, #chatbotbtn').show();
+
+        }
+
+      });
+
+
+    });
+  </script>
+
   <?php
   //Account Verification
   if (isset($_POST['submit'])) {

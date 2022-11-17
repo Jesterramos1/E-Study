@@ -46,7 +46,7 @@ $masterkey = "CREATE TABLE IF NOT EXISTS masterkey (id int(11) NOT NULL,
 	             PRIMARY KEY(id))";
 $db->query($masterkey);   //the above lines create table and its columns if not available in the server
 
-$chatTable = "CREATE TABLE IF NOT EXISTS chatbot (id int(50) NOT NULL AUTO_INCREMENT, 
+$chatTable = "CREATE TABLE IF NOT EXISTS chatbot (id int(50), 
 				 messages varchar(500) NOT NULL, response varchar(500)NOT NULL,
 				 PRIMARY KEY(id))";
 $db->query($chatTable);

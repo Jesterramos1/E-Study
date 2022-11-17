@@ -62,7 +62,7 @@
 <?php 
 
 include "dbcon.php";
-$input = $_POST['search'];
+$input = $_GET['search'];
 $output = '';
 $sql = "SELECT * FROM storage WHERE title LIKE '%{$input}%' OR department LIKE '%{$input}%' OR date_publish LIKE '%{$input}%' OR 
 researchers LIKE '%{$input}%' OR  res_file LIKE '%{$input}%' LIMIT 9";
