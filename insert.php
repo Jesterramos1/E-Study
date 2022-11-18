@@ -28,7 +28,7 @@ $lName = ucwords(mysqli_real_escape_string($link, $_REQUEST['lname']));
 $studCourse = mysqli_real_escape_string($link, $_REQUEST['course']);
 $studEmail = mysqli_real_escape_string($link, $_REQUEST['email']);
 $studContact = mysqli_real_escape_string($link, $_REQUEST['contact']);
-$location = $_SESSION['selected-location'];
+$department = $_SESSION['selected-department'];
 $date_filed = date ("Y-m-d");
 $studSched = mysqli_real_escape_string($link, $_REQUEST['calendar']);
 $studTime = mysqli_real_escape_string($link, $_REQUEST['time']);
@@ -41,7 +41,7 @@ $compareTime = date('h:i');
  
 // Attempt insert query execution 
   if (isset($_POST['submit'])) {
-    $sql = "INSERT INTO `booked_schedule`(`id`, `date_filed`, `studNum`, `fName`, `lName`, `studCourse`, `studEmail`, `studContact`, `location`, `studSched`, `studTime`) VALUES ('', '$date_filed','$studNum', '$fName', '$lName', '$studCourse', '$studEmail', '$studContact', '$location', '$studSched','$studTime')";
+    $sql = "INSERT INTO `booked_schedule`(`id`, `date_filed`, `studNum`, `fName`, `lName`, `studCourse`, `studEmail`, `studContact`, `department`, `studSched`, `studTime`) VALUES ('', '$date_filed','$studNum', '$fName', '$lName', '$studCourse', '$studEmail', '$studContact', '$department', '$studSched','$studTime')";
             if(mysqli_query($link, $sql)){
                 echo '<div class="card">';
                 echo '<h5 class="card-header">Your visitation is confirmed!</h5>';
@@ -55,7 +55,7 @@ $compareTime = date('h:i');
                       <th scope="col">Time:</th>
                       </tr>';
                 echo '<tr>';
-                echo '<td class="loc">' . $location . '</td>';
+                echo '<td class="loc">' . $department . '</td>';
                 echo '<td>' . $studSched . '</td>';
                 echo '<td>' . $studTime . '</td>';
                 echo '</tr>';
