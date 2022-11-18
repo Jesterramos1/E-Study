@@ -354,21 +354,22 @@ if ($_SESSION['querychoice'] == "") {
                 <hr id="oy">
                 <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
                 <hr id="oy">
-
-                <input type="text" class="form-control" id="floatingInputValue">
-                <label for="floatingInputValue"><i class="bi bi-calendar2-week"></i>Year</label>
-        </form>
-    </div>
-
-    <div class="card text-center">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img src="images/rtulib.jpg" style="margin-top: 12px; margin-left:8px;" class="img-fluid rounded-start" alt="RTU ULRC">
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h6 class="card-title">Rizal Technologival University Learning Resource Center</h6>
-                    <button class="btn btn-primary aal"><i class="bi bi-messenger"></i> Ask a Librarian</button>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="sortByYear" placeholder="2022" value="2022">
+                <label for="sortByYear"><i class="bi bi-calendar2-week"></i> Year</label>
+            </div>
+        </form>
+        <div class="card text-center">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/rtulib.jpg" style="margin-top: 12px; margin-left:8px;" class="img-fluid rounded-start" alt="RTU ULRC">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h6 class="card-title">Rizal Technologival University Learning Resource Center</h6>
+                        <button class="btn btn-primary aal"><i class="bi bi-messenger"></i> Ask a Librarian</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,14 +417,14 @@ if ($_SESSION['querychoice'] == "") {
                                     } else {
                                         $_SESSION["query"] = "SELECT * FROM storage WHERE title LIKE '%{$searchdata}%' OR researchers LIKE '%{$searchdata}%'";
                                     }
-                                    $query = $_SESSION["query"] . $_SESSION["sortby"];
+                                    $query = $_SESSION["query"];
                                     $result = mysqli_query($con, $query);
                                     ?>
                                     <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr style="text-align: center;">
                                                 <th style="width: 10%" id="bookImage"></th>
-                                                <th style="width: 70%">Research Title <?php echo $query; ?></th>
+                                                <th style="width: 70%">Research Title</th>
                                                 <th style="width: 10%">Year of Publication</th>
                                                 <th style="width: 10%">Action</th>
                                             </tr>
