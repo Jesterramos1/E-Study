@@ -99,16 +99,12 @@ if (isset($_POST['submit'])) {
 
   body {
     background-image: url('images/homepagebg.png');
+    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
 
-  #footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -120,18 +116,19 @@ if (isset($_POST['submit'])) {
     text-decoration: underline;
     text-decoration-color: inherit;
   }
+
   .input-group-text {
     background-color: #1C5090;
     color: white;
     font-weight: bold;
   }
+
   .eye,
   .eye:hover,
   .eye:active,
   .eye:visited {
     background-color: #194F90;
   }
-  
 
   #forgotPassModalbtn {
     background: none;
@@ -194,14 +191,43 @@ if (isset($_POST['submit'])) {
 
   /************************CSS FOR OLAF**********************************/
 
-  .btn:hover{
-    color: #f1f1f1;   
+  .btn:hover {
+    color: #f1f1f1;
   }
 
-  #myForm{
-    border:none;
+  #myForm {
+    border: none;
   }
- 
+
+  a {
+    text-decoration: none;
+  }
+
+  .bi-facebook {
+    font-size: 16px;
+    display: inline-block;
+    background: #fff;
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin: 0 3px;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    color: #1361ab;
+  }
+
+  .bi-google {
+    font-size: 16px;
+    display: inline-block;
+    background: #fff;
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin: 0 3px;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    color: #ff2a13;
+  }
 </style>
 
 
@@ -344,67 +370,94 @@ if (isset($_POST['submit'])) {
       </div>
     </div>
     <!------------------------------FOOTER------------------------------>
+    <footer class="text-lg-start text-white pb-5" style="background-color: #0053aa;">
 
-    <div id="page-container">
-      <div id="content-wrap">
-        <!-- all other page content -->
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold"><i class="bi bi-person-fill"></i> Live Visitor Counter</h6>
+              <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 120px; background-color:#f1f1f1; height:2px;" />
+              <h5><span class="badge bg-danger">Total Visits:</span></h5>
+              <h1 id="count" style="font-size:80px; margin-top:-5%;"></h1>
 
-        <div class="row-12">
-          <footer style="background-color: #0053aa;">
-            <div class="container p-4">
-              <div class="row">
-                <div class="col-lg-5 col-md-12 mb-4">
-                  <h5 class="mb-3" style="letter-spacing: 2px; color: white;">
-                    <!---add title here---->
-                  </h5>
-                  <h6 style="color: white;">
-                    <!------------add content here-------------->
-                  </h6>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                  <h5 class="mb-3" style="letter-spacing: 2px; color: white;">Contact Us</h5>
-                  <ul class="list-unstyled mb-0">
-                    <li class="mb-1">
-                      <a href="mailto:libraryservices@rtu.edu.ph" style="color: white;"><i class="bi bi-envelope-heart-fill"></i> libraryservices@rtu.edu.ph</a>
-                    </li>
-                    <li class="mb-1">
-                      <a href="https://web.facebook.com/rtulrc" style="color: white;"><i class="bi bi-facebook"></i> RTU Learning Resource Center 2020</a>
-                    </li>
-                    <li class="mb-1">
-                      <a href="https://sites.google.com/rtu.edu.ph/rtu-ulrc" style="color: white;"><i class="bi bi-browser-chrome"></i> OTHER WEBSITE</a>
-                    </li>
-                    <li style="color: white;">
-                      <i class="bi bi-telephone-fill"></i> 285348267</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                  <h5 class="mb-1" style="letter-spacing: 2px; color: white;">Library Hours</h5>
-                  <table class="table" style="color: white; border-color: #666;">
-                    <tbody>
-                      <tr>
-                        <td>Mon - Fri:</td>
-                        <td>8:00 A.M. -<br> 5:00 P.M.</td>
-                      </tr>
-                      <tr>
-                        <td>Lunch Break:</td>
-                        <td>12:00 P.M. -<br> 1:00 P.M</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <script>
+                const count = document.getElementById('count');
+
+                updateVisitCount();
+
+                function updateVisitCount() {
+                  fetch('https://api.countapi.xyz/update/danielazocardev/codepen/?amount=1')
+                    .then(res => res.json())
+                    .then(res => {
+                      count.innerHTML = res.value
+                    });
+                }
+              </script>
             </div>
-            <div class="text-center p-3" style="background-color: #194f90;">
-              © 2022 Variable Set. All Rights Reserved.
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold"><i class="bi bi-clock-fill"></i> Library Hours:</h6>
+              <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 75px; background-color:#f1f1f1; height:2px; " />
+              <h6>Monday - Friday</h6>
+              <h6>8:00AM - 5:00PM</h6>
+              <hr class="mb-4 mt-3 d-inline-block mx-auto" style="width: 150px; background-color:#f1f1f1; height:2px; " />
+              <h6 class="text-uppercase fw-bold"><i class="bi bi-clock-history"></i> Lunch Break:</h6>
+              <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 75px; background-color:#f1f1f1; height:2px; " />
+              <h6>12:00PM - 1:00PM</h6>
             </div>
-            <!-- Copyright -->
-          </footer>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold"><i class="bi bi-telephone-fill"></i> Contact Us:</h6>
+              <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;"/>
+              <h6><b>Telephone:</b> +(02)85348267</h6>
+              <h6><b> Email:</b> libraryservices@rtu.edu.ph</h6>
+              
+              <h6 class="text-uppercase fw-bold mt-5"><i class="bi bi-globe"></i> Other Sites:</h6>
+              <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;"/>
+              <h6><a href="https://www.facebook.com/rtulrc/"><i class="bi bi-facebook"></i></a><a href="https://sites.google.com/rtu.edu.ph/rtu-ulrc/home"><i class="bi bi-google"></i></a></h6>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-5 col-xl-4 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold"><i class="bi bi-patch-question-fill"></i> For College Concerns Links:</h6>
+              <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 170px; background-color:#f1f1f1; height:2px; " />
+              <h6><a href="mailto:graduateschool@rtu.edu.ph" class="text-white"> Graduate School</a></h6>
+              <h6><a href="mailto:ced@rtu.edu.ph" class="text-white"> College of Education</a></h6>
+              <h6><a href="mailto:cas@rtu.edu.ph" class="text-white" >College of Arts and Sciences</a></h6>
+              <h6><a href="mailto:ipe@rtu.edu.ph" class="text-white"> Institute of Physical Education</a></h6>
+              <h6><a href="mailto:cbet@rtu.edu.ph" class="text-white"> College of Business and Entreprenuerial Technology</a></h6>
+              <h6><a href="mailto:ceat@rtu.edu.ph" class="text-white"> College of Engineering, Architecture, and Technology </a></h6>
+            </div>
+            <!-- Grid column -->
+
+
+          </div>
+          <!-- Grid row -->
         </div>
-      </div>
-      <footer id="footer"></footer>
-    </div>
+      </section>
+      <!-- Section: Links  -->
+    </footer>
     <!------------------------------END OF FOOTER------------------------------>
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: #194f90; color:#f1f1f1; position:absolute; bottom:0;"> © 2022 Variable Set. All Rights Reserved. </div>
+      <!-- Copyright -->
+   
+
   </div>
 
   <!---------------------------------------------MODAL FOR OLAF-------------------------------->
@@ -420,10 +473,10 @@ if (isset($_POST['submit'])) {
       <div class="modal-content" style="height: 100%;">
         <div class="modal-header" id="olafHead">
           <h5 class="modal-title" id="olafTitle">Olaf Assistance</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="modal-body">
-
+          <img src="images/olaf.png" class="rounded float-start position-absolute bottom-0 start-0" style="width:450px; height:450px;" alt="olaf">
           <iframe src="bot.php" frameborder="0" height="95%" width="59%" id="Olaf"></iframe>
 
         </div>
@@ -434,70 +487,70 @@ if (isset($_POST['submit'])) {
   <!--------------------------------------------END OF OLAF MODAL-------------------------->
 
   <!--Login Form-->
-<button class="open-button fadeshow" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
+  <button class="open-button fadeshow" id="Openbtn" onclick="openForm()">ADMIN LOGIN</button>
 
-<div class="form-popup fadeshow" id="myForm">
+  <div class="form-popup fadeshow" id="myForm">
 
-  <form method="POST" id="adminForm" class="form-container">
-    <hr>
-    <h2 id="login">ADMIN LOGIN</h2>
-    <hr>
-    <span id="message" class='h6 text-danger text-center mt-3'>Username or password is incorrect</span>
-    <br>
-    <label for="email"><b>USERNAME:</b></label>
-    <input type="text" placeholder="RTU Admin" name="email" id="User" autocomplete="off" required>
+    <form method="POST" id="adminForm" class="form-container">
+      <hr>
+      <h2 id="login">ADMIN LOGIN</h2>
+      <hr>
+      <span id="message" class='h6 text-danger text-center mt-3'>Username or password is incorrect</span>
+      <br>
+      <label for="email"><b>USERNAME:</b></label>
+      <input type="text" placeholder="RTU Admin" name="email" id="User" autocomplete="off" required>
 
-    <label for="psw"><b>PASSWORD:</b></label>
-    <input type="password" placeholder="Password" name="pass" id="Pass" required>
-    <!-- trigger forgot password modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#forgotPassModal" id="forgotPassModalbtn">
-      <b>Forgot Password?</b>
-    </button>
-    <button type="submit" class="btn" name="submit"> LOGIN</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
-  </form>
-</div>
-<!-- Modal Reset Password -->
-<div class="modal fade" id="forgotPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Reset your password</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <label for="psw"><b>PASSWORD:</b></label>
+      <input type="password" placeholder="Password" name="pass" id="Pass" required>
+      <!-- trigger forgot password modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#forgotPassModal" id="forgotPassModalbtn">
+        <b>Forgot Password?</b>
+      </button>
+      <button type="submit" class="btn" name="submit"> LOGIN</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+    </form>
+  </div>
+  <!-- Modal Reset Password -->
+  <div class="modal fade" id="forgotPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Reset your password</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="code.php" method="POST">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
+              <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">New Password:</span>
+              <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword" name="newUserPassword" required>
+              <button class="btn btn-primary eye" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id="newUserPassIcon"></i></button>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Confirm New Password:</span>
+              <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
+              <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
+              <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
+              <button class="btn btn-primary eye" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id="masterkeyIcon"></i></button>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-success" name="createAdminbtn" id="createAdminbtn">Reset Password</button>
+        </div>
+        </form>
       </div>
-      <div class="modal-body">
-        <form action="code.php" method="POST">
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-            <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">New Password:</span>
-            <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword" name="newUserPassword" required>
-            <button class="btn btn-primary eye" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id="newUserPassIcon"></i></button>
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Confirm New Password:</span>
-            <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
-            <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
-          </div>
-
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
-            <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
-            <button class="btn btn-primary eye" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id="masterkeyIcon"></i></button>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button class="btn btn-success" name="createAdminbtn" id="createAdminbtn">Reset Password</button>
-      </div>
-      </form>
     </div>
   </div>
-</div>
-            
-  
+
+
   <?php
   //Account Verification
   if (isset($_POST['submit'])) {
