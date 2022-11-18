@@ -378,7 +378,7 @@ if (isset($_POST['submit'])) {
           <!-- Grid row -->
           <div class="row mt-3">
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <div class="d-md-none col-lg-4 col-xl-3 mx-auto mb-4">
               <!-- Content -->
               <h6 class="text-uppercase fw-bold"><i class="bi bi-person-fill"></i> Live Visitor Counter</h6>
               <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 120px; background-color:#f1f1f1; height:2px;" />
@@ -416,7 +416,7 @@ if (isset($_POST['submit'])) {
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold"><i class="bi bi-telephone-fill"></i> Contact Us:</h6>
               <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;"/>
@@ -431,7 +431,7 @@ if (isset($_POST['submit'])) {
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-5 col-lg-5 col-xl-4 mx-auto mb-4">
+            <div class="col-md-4 col-lg-5 col-xl-4 mx-auto mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold"><i class="bi bi-patch-question-fill"></i> For College Concerns Links:</h6>
               <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 170px; background-color:#f1f1f1; height:2px; " />
