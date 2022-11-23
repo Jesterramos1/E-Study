@@ -3,15 +3,18 @@ require 'dbtable_creation.php';
 session_start();
 $_SESSION["querychoice"] = "";
 
+
 //Account Verification
+
+include "dbcon.php";
 if (isset($_POST['submit'])) {
 
   $user = $_REQUEST['email'];
   $pass = $_REQUEST['pass'];
-  if ($conn->connect_error) {
-    die("Failed to connect: " . $conn->connect_error);
+  if ($con->connect_error) {
+    die("Failed to connect: " . $con->connect_error);
   } else {
-    $stmt = $conn->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
+    $stmt = $con->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
     $stmt->bind_param("s", $user);
     $stmt->execute();
     $stmt_result = $stmt->get_result();
@@ -21,8 +24,8 @@ if (isset($_POST['submit'])) {
         setcookie("email", $user, time() + 60 * 60 * 24 * 365);
         setcookie("pass", $pass, time() + 60 * 60 * 24 * 365);
         $_SESSION['user'] = $user;
-        $_SESSION['whoactive'] = "0";
-        echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
+        header("location:adminpanelfinal.php#adminpanelcon");
+        die();
       } else {
         echo '<script>openmail()</script>';
         echo '<script>openForm()</script>';
@@ -33,8 +36,8 @@ if (isset($_POST['submit'])) {
     }
   }
 } elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-  echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
-  $_SESSION['user'] = $user;
+  header("location: adminpanelfinal.php#adminpanelcon");
+  die();
 }
 
 
@@ -105,11 +108,9 @@ if (isset($_POST['submit'])) {
     background-attachment: fixed;
     overflow-x: hidden;
   }
-
   body::-webkit-scrollbar {
     display: none;
   }
-
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -611,40 +612,6 @@ if (isset($_POST['submit'])) {
 
     });
   </script>
-  <?php
-  //Account Verification
-  if (isset($_POST['submit'])) {
-
-    $user = $_REQUEST['email'];
-    $pass = $_REQUEST['pass'];
-    if ($conn->connect_error) {
-      die("Failed to connect: " . $conn->connect_error);
-    } else {
-      $stmt = $conn->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
-      $stmt->bind_param("s", $user);
-      $stmt->execute();
-      $stmt_result = $stmt->get_result();
-      if ($stmt_result->num_rows > 0) {
-        $data = $stmt_result->fetch_assoc();
-        if ($data['admin_pass']  === $pass) {
-          setcookie("email", $user, time() + 60 * 60 * 24 * 365);
-          setcookie("pass", $pass, time() + 60 * 60 * 24 * 365);
-          echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
-        } else {
-          echo '<script>openmail()</script>';
-          echo '<script>openForm()</script>';
-        }
-      } else {
-        echo '<script>openmail()</script>';
-        echo '<script>openForm()</script>';
-      }
-    }
-  } elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-    echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
-  }
-
-
-  ?>
 </body>
 
 </html>
