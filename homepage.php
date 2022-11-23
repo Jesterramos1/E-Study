@@ -106,8 +106,11 @@ if (isset($_POST['submit'])) {
     background-position: top;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-x: hidden;
   }
-
+  body::-webkit-scrollbar {
+    display: none;
+  }
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -480,7 +483,7 @@ if (isset($_POST['submit'])) {
       <div class="modal-content" style="height: 100%;">
         <div class="modal-header" id="olafHead">
           <h5 class="modal-title" id="olafTitle">Olaf Assistance</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" id="closeBot" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="modal-body">
           <img src="images/olaf.png" class="rounded float-start position-absolute bottom-0 start-0" style="width:450px; height:450px;" alt="olaf">
@@ -604,6 +607,7 @@ if (isset($_POST['submit'])) {
         }
 
       });
+
 
 
     });

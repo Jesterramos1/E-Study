@@ -7,5 +7,8 @@
 </head>
 <body>
 		<a href="homepage.php" title=""><img src="images/header.png" class="img-fluid"></a>	
+		<?php
+		$tabchecker = null;
+		?>
 </body>
 </html>
