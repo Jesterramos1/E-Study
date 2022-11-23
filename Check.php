@@ -1,6 +1,6 @@
 <?php 
 
-$con = mysqli_connect("localhost", "root", "", "estudy_db");
+$con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
 
 
 

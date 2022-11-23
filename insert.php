@@ -1,10 +1,7 @@
 <?php
 require 'dbtable_creation.php';
 session_start();
-
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "estudy_db");
+$link = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
  
 // Check connection
 if($link === false){

@@ -1,12 +1,12 @@
 <?php
-$db = new mysqli("localhost", "root", "");
+$db = new mysqli("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl");
 if ($db->connect_errno > 0) {
 	die('Unable to connect to database [' . $db->connect_error . ']');
 } //this line and above lines connect to the server
 
-$db->query("CREATE DATABASE IF NOT EXISTS `estudy_db` ");  // this line checks if the database has been created if not it create a database
+$db->query("CREATE DATABASE IF NOT EXISTS `girzqhip_Estudy` ");  // this line checks if the database has been created if not it create a database
 
-mysqli_select_db($db, "estudy_db"); //this line select the created database
+mysqli_select_db($db, "girzqhip_Estudy"); //this line select the created database
 
 //Creation Table for Scheduling
 $stable = "CREATE TABLE IF NOT EXISTS booked_schedule (id int(11) NOT NULL auto_increment, 
@@ -19,7 +19,7 @@ $stable = "CREATE TABLE IF NOT EXISTS booked_schedule (id int(11) NOT NULL auto_
 	             PRIMARY KEY(id) )";
 $db->query($stable);   //the above lines create table and its columns if not available in the server
 
-mysqli_select_db($db, "estudy_db");
+mysqli_select_db($db, "girzqhip_Estudy");
 
 //Creation Table for Admin
 $admin = "CREATE TABLE IF NOT EXISTS rtu_admin (admin_id int(11) NOT NULL auto_increment, 
@@ -53,7 +53,7 @@ $db->query($chatTable);
 
 
 // Create connection
-$conn = mysqli_connect("localhost", "root", "", "estudy_db");
+$conn = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
 // Check connection
 if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());

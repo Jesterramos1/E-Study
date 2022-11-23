@@ -415,6 +415,7 @@ if ($_SESSION['querychoice'] == "") {
                                     if ($_SESSION["querychoice"] == '') {
                                         $_SESSION["query"] = "SELECT * FROM storage";
                                     } else {
+                                        
                                         $_SESSION["query"] = "SELECT * FROM storage WHERE title LIKE '%{$searchdata}%' OR researchers LIKE '%{$searchdata}%'";
                                     }
                                     $query = $_SESSION["query"];
