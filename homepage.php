@@ -3,15 +3,18 @@ require 'dbtable_creation.php';
 session_start();
 $_SESSION["querychoice"] = "";
 
+
 //Account Verification
+
+include "dbcon.php";
 if (isset($_POST['submit'])) {
 
   $user = $_REQUEST['email'];
   $pass = $_REQUEST['pass'];
-  if ($conn->connect_error) {
-    die("Failed to connect: " . $conn->connect_error);
+  if ($con->connect_error) {
+    die("Failed to connect: " . $con->connect_error);
   } else {
-    $stmt = $conn->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
+    $stmt = $con->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
     $stmt->bind_param("s", $user);
     $stmt->execute();
     $stmt_result = $stmt->get_result();
@@ -21,8 +24,8 @@ if (isset($_POST['submit'])) {
         setcookie("email", $user, time() + 60 * 60 * 24 * 365);
         setcookie("pass", $pass, time() + 60 * 60 * 24 * 365);
         $_SESSION['user'] = $user;
-        $_SESSION['whoactive'] = "0";
-        echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
+        header("location:adminpanelfinal.php#adminpanelcon");
+        die();
       } else {
         echo '<script>openmail()</script>';
         echo '<script>openForm()</script>';
@@ -33,8 +36,8 @@ if (isset($_POST['submit'])) {
     }
   }
 } elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-  echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
-  $_SESSION['user'] = $user;
+  header("location: adminpanelfinal.php#adminpanelcon");
+  die();
 }
 
 
@@ -104,6 +107,7 @@ if (isset($_POST['submit'])) {
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
+
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -128,6 +132,7 @@ if (isset($_POST['submit'])) {
   .eye:visited {
     background-color: #194F90;
   }
+
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -152,7 +157,8 @@ if (isset($_POST['submit'])) {
   .eye:visited {
     background-color: #194F90;
   }
-  .mainContainer{
+
+  .mainContainer {
     position: fixed;
   }
 
@@ -420,12 +426,12 @@ if (isset($_POST['submit'])) {
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold"><i class="bi bi-telephone-fill"></i> Contact Us:</h6>
-              <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;"/>
+              <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;" />
               <h6><b>Telephone:</b> +(02)85348267</h6>
               <h6><b> Email:</b> libraryservices@rtu.edu.ph</h6>
-              
+
               <h6 class="text-uppercase fw-bold mt-5"><i class="bi bi-globe"></i> Other Sites:</h6>
-              <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;"/>
+              <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;" />
               <h6><a href="https://www.facebook.com/rtulrc/"><i class="bi bi-facebook"></i></a><a href="https://sites.google.com/rtu.edu.ph/rtu-ulrc/home"><i class="bi bi-google"></i></a></h6>
 
             </div>
@@ -438,7 +444,7 @@ if (isset($_POST['submit'])) {
               <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 170px; background-color:#f1f1f1; height:2px; " />
               <h6><a href="mailto:graduateschool@rtu.edu.ph" class="text-white"> Graduate School</a></h6>
               <h6><a href="mailto:ced@rtu.edu.ph" class="text-white"> College of Education</a></h6>
-              <h6><a href="mailto:cas@rtu.edu.ph" class="text-white" >College of Arts and Sciences</a></h6>
+              <h6><a href="mailto:cas@rtu.edu.ph" class="text-white">College of Arts and Sciences</a></h6>
               <h6><a href="mailto:ipe@rtu.edu.ph" class="text-white"> Institute of Physical Education</a></h6>
               <h6><a href="mailto:cbet@rtu.edu.ph" class="text-white"> College of Business and Entreprenuerial Technology</a></h6>
               <h6><a href="mailto:ceat@rtu.edu.ph" class="text-white"> College of Engineering, Architecture, and Technology </a></h6>
@@ -454,10 +460,10 @@ if (isset($_POST['submit'])) {
     </footer>
     <!------------------------------END OF FOOTER------------------------------>
 
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: #194f90; color:#f1f1f1; position:absolute; bottom:0;"> © 2022 Variable Set. All Rights Reserved. </div>
-      <!-- Copyright -->
-   
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #194f90; color:#f1f1f1; position:absolute; bottom:0;"> © 2022 Variable Set. All Rights Reserved. </div>
+    <!-- Copyright -->
+
 
   </div>
 
@@ -602,38 +608,6 @@ if (isset($_POST['submit'])) {
 
     });
   </script>
-  <?php
-  //Account Verification
-  if (isset($_POST['submit'])) {
-
-    $user = $_REQUEST['email'];
-    $pass = $_REQUEST['pass'];
-    if ($conn->connect_error) {
-      die("Failed to connect: " . $conn->connect_error);
-    } else {
-      $stmt = $conn->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
-      $stmt->bind_param("s", $user);
-      $stmt->execute();
-      $stmt_result = $stmt->get_result();
-      if ($stmt_result->num_rows > 0) {
-        $data = $stmt_result->fetch_assoc();
-        if ($data['admin_pass']  === $pass) {
-          setcookie("email", $user, time() + 60 * 60 * 24 * 365);
-          setcookie("pass", $pass, time() + 60 * 60 * 24 * 365);
-          echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
-        } else {
-          echo '<script>openmail()</script>';
-          echo '<script>openForm()</script>';
-        }
-      } else {
-        echo '<script>openmail()</script>';
-        echo '<script>openForm()</script>';
-      }
-    }
-  } elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-    echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
-  }
-  ?>
 </body>
 
 </html>
