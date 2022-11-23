@@ -190,6 +190,7 @@ if (isset($_POST['searchbtn'])) {
     if ($search != "") {
         $_SESSION["querychoice"] = "1";
         $_SESSION["searchdata"] = $search;
+        $tabChecker = "0";
         header("Location: student-view.php");
         exit(0);
     } else {

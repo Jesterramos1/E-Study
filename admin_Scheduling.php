@@ -58,7 +58,7 @@
                 <th scope="col">Course</th>
                 <th scope="col">Email</th>
                 <th scope="col">Contact Number</th>
-                
+
                 <th scope="col">Date Scheduled</th>
                 <th scope="col">Time</th>
               </tr>
@@ -119,7 +119,7 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Course</th>
                 <th scope="col">Email</th>
-                <th scope="col">Contact Number</th>                
+                <th scope="col">Contact Number</th>
                 <th scope="col">Date Scheduled</th>
                 <th scope="col">Time</th>
               </tr>
@@ -181,7 +181,7 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Course</th>
                 <th scope="col">Email</th>
-                <th scope="col">Contact Number</th>                
+                <th scope="col">Contact Number</th>
                 <th scope="col">Date Scheduled</th>
                 <th scope="col">Time</th>
               </tr>
@@ -243,7 +243,7 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Course</th>
                 <th scope="col">Email</th>
-                <th scope="col">Contact Number</th>                
+                <th scope="col">Contact Number</th>
                 <th scope="col">Date Scheduled</th>
                 <th scope="col">Time</th>
               </tr>
@@ -304,7 +304,7 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Course</th>
                 <th scope="col">Email</th>
-                <th scope="col">Contact Number</th>                
+                <th scope="col">Contact Number</th>
                 <th scope="col">Date Scheduled</th>
                 <th scope="col">Time</th>
               </tr>
@@ -366,7 +366,7 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Course</th>
                 <th scope="col">Email</th>
-                <th scope="col">Contact Number</th>                
+                <th scope="col">Contact Number</th>
                 <th scope="col">Date Scheduled</th>
                 <th scope="col">Time</th>
               </tr>

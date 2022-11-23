@@ -58,7 +58,6 @@ if ($_SESSION['querychoice'] == "") {
             font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
             overflow-x: hidden;
         }
-
         #imgicon {
             height: 50px;
             width: 50px;
@@ -284,7 +283,6 @@ if ($_SESSION['querychoice'] == "") {
     <div class="sticky-sm-top">
         <?php
         require 'header.php';
-        $tabChecker = NULL;
         if (isset($_POST['Explore'])) {
             $tabChecker = $_REQUEST['tabvalue'];
         } ?>
@@ -385,7 +383,7 @@ if ($_SESSION['querychoice'] == "") {
                 <button class="btn btn-primary d-sm-block d-md-block d-lg-none" id="burgerMenu" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                     <i class="bi bi-list"></i>
                 </button>
-                <button class="nav-link text-uppercase rounded-0 " id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
+                <button class="nav-link text-uppercase rounded-0 "<?php if ($tabChecker == "0") echo 'active'; ?> id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "1") echo 'active'; ?>" id="nav-ceat-tab" data-bs-toggle="tab" data-bs-target="#nav-ceat" type="button" role="tab" aria-controls="nav-ceat" aria-selected="false">CEAT</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "2") echo 'active'; ?>" id="nav-cbet-tab" data-bs-toggle="tab" data-bs-target="#nav-cbet" type="button" role="tab" aria-controls="nav-cbet" aria-selected="false">CBET</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "3") echo 'active'; ?>" id="nav-cas-tab" data-bs-toggle="tab" data-bs-target="#nav-cas" type="button" role="tab" aria-controls="nav-cas" aria-selected="false">CAS</button>

@@ -103,7 +103,13 @@ if (isset($_POST['submit'])) {
     background-position: top;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-x: hidden;
   }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -128,6 +134,7 @@ if (isset($_POST['submit'])) {
   .eye:visited {
     background-color: #194F90;
   }
+
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -152,7 +159,8 @@ if (isset($_POST['submit'])) {
   .eye:visited {
     background-color: #194F90;
   }
-  .mainContainer{
+
+  .mainContainer {
     position: fixed;
   }
 
@@ -420,12 +428,12 @@ if (isset($_POST['submit'])) {
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <!-- Links -->
               <h6 class="text-uppercase fw-bold"><i class="bi bi-telephone-fill"></i> Contact Us:</h6>
-              <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;"/>
+              <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;" />
               <h6><b>Telephone:</b> +(02)85348267</h6>
               <h6><b> Email:</b> libraryservices@rtu.edu.ph</h6>
-              
+
               <h6 class="text-uppercase fw-bold mt-5"><i class="bi bi-globe"></i> Other Sites:</h6>
-              <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;"/>
+              <hr class="mb-2 mt-0 d-inline-block mx-auto" style="width: 85px; background-color:#f1f1f1; height:2px;" />
               <h6><a href="https://www.facebook.com/rtulrc/"><i class="bi bi-facebook"></i></a><a href="https://sites.google.com/rtu.edu.ph/rtu-ulrc/home"><i class="bi bi-google"></i></a></h6>
 
             </div>
@@ -438,7 +446,7 @@ if (isset($_POST['submit'])) {
               <hr class="mb-3 mt-0 d-inline-block mx-auto" style="width: 170px; background-color:#f1f1f1; height:2px; " />
               <h6><a href="mailto:graduateschool@rtu.edu.ph" class="text-white"> Graduate School</a></h6>
               <h6><a href="mailto:ced@rtu.edu.ph" class="text-white"> College of Education</a></h6>
-              <h6><a href="mailto:cas@rtu.edu.ph" class="text-white" >College of Arts and Sciences</a></h6>
+              <h6><a href="mailto:cas@rtu.edu.ph" class="text-white">College of Arts and Sciences</a></h6>
               <h6><a href="mailto:ipe@rtu.edu.ph" class="text-white"> Institute of Physical Education</a></h6>
               <h6><a href="mailto:cbet@rtu.edu.ph" class="text-white"> College of Business and Entreprenuerial Technology</a></h6>
               <h6><a href="mailto:ceat@rtu.edu.ph" class="text-white"> College of Engineering, Architecture, and Technology </a></h6>
@@ -454,10 +462,10 @@ if (isset($_POST['submit'])) {
     </footer>
     <!------------------------------END OF FOOTER------------------------------>
 
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: #194f90; color:#f1f1f1; position:absolute; bottom:0;"> © 2022 Variable Set. All Rights Reserved. </div>
-      <!-- Copyright -->
-   
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #194f90; color:#f1f1f1; position:absolute; bottom:0;"> © 2022 Variable Set. All Rights Reserved. </div>
+    <!-- Copyright -->
+
 
   </div>
 
@@ -474,7 +482,7 @@ if (isset($_POST['submit'])) {
       <div class="modal-content" style="height: 100%;">
         <div class="modal-header" id="olafHead">
           <h5 class="modal-title" id="olafTitle">Olaf Assistance</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" id="closeBot" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="modal-body">
           <img src="images/olaf.png" class="rounded float-start position-absolute bottom-0 start-0" style="width:450px; height:450px;" alt="olaf">
@@ -600,6 +608,7 @@ if (isset($_POST['submit'])) {
       });
 
 
+
     });
   </script>
   <?php
@@ -633,6 +642,8 @@ if (isset($_POST['submit'])) {
   } elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
     echo "<script> window.location.replace('adminpanelfinal.php#adminpanelcon'); </script>";
   }
+
+
   ?>
 </body>
 
