@@ -1,28 +1,6 @@
 <?php
-/*$conn = mysqli_connect("localhost","root","","estudy_db");
-
-
-if($conn)
-{
-    $user_messages = mysqli_real_escape_string($conn, $_POST['messageValue']);
-
-    $query = "SELECT * FROM chatbot WHERE messages LIKE '%{$user_messages}%'";
-    $makeQuery = mysqli_query($conn, $query);
-
-    if(mysqli_num_rows($makeQuery) > 0) 
-    {
-        $result = mysqli_fetch_assoc($makeQuery);
-
-        echo $result['response'];
-    }else{
-        echo "Sorry, I can't understand you.";
-    }
-}else {
-    echo "Connection failed" . mysqli_connect_errno();
-}*/
-
 // connecting to database
-$conn = mysqli_connect("localhost", "root", "", "estudy_db") or die("Database Error");
+$conn = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy") or die("Database Error");
 
 // getting user message through ajax
 if (!empty($_POST['text'])) {

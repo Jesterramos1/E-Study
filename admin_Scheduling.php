@@ -64,7 +64,7 @@
               </tr>
             </thead>
             <?php
-            $con = mysqli_connect("localhost", "root", "", "estudy_db");
+            $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
             $query = "SELECT * FROM booked_schedule WHERE department = 'ceat' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
@@ -125,7 +125,7 @@
               </tr>
             </thead>
             <?php
-            $con = mysqli_connect("localhost", "root", "", "estudy_db");
+            $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
             $query = "SELECT * FROM booked_schedule WHERE department = 'cbet' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
@@ -187,7 +187,7 @@
               </tr>
             </thead>
             <?php
-            $con = mysqli_connect("localhost", "root", "", "estudy_db");
+            $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
             $query = "SELECT * FROM booked_schedule WHERE department = 'cas' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
@@ -249,7 +249,7 @@
               </tr>
             </thead>
             <?php
-            $con = mysqli_connect("localhost", "root", "", "estudy_db");
+            $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
             $query = "SELECT * FROM booked_schedule WHERE department = 'ced' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
@@ -310,7 +310,7 @@
               </tr>
             </thead>
             <?php
-            $con = mysqli_connect("localhost", "root", "", "estudy_db");
+            $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
             $query = "SELECT * FROM booked_schedule WHERE department = 'ipe' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
@@ -372,7 +372,7 @@
               </tr>
             </thead>
             <?php
-            $con = mysqli_connect("localhost", "root", "", "estudy_db");
+            $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
             $query = "SELECT * FROM booked_schedule WHERE department = 'gs' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
