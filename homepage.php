@@ -3,7 +3,6 @@ require 'dbtable_creation.php';
 session_start();
 $_SESSION["querychoice"] = "";
 
-
 //Account Verification
 
 include "dbcon.php";
@@ -24,6 +23,7 @@ if (isset($_POST['submit'])) {
         setcookie("email", $user, time() + 60 * 60 * 24 * 365);
         setcookie("pass", $pass, time() + 60 * 60 * 24 * 365);
         $_SESSION['user'] = $user;
+        $_SESSION['whoactive'] = "0";
         header("location:adminpanelfinal.php#adminpanelcon");
         die();
       } else {
