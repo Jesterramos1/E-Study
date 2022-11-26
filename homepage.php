@@ -2,7 +2,6 @@
 require 'dbtable_creation.php';
 session_start();
 $_SESSION["querychoice"] = "";
-
 if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
   header('location: adminpanelfinal.php#adminpanelcon');
   exit();

@@ -13,7 +13,7 @@ $stable = "CREATE TABLE IF NOT EXISTS booked_schedule (id int(11) NOT NULL auto_
 	         	  date_filed varchar(20) NOT NULL,
 	         	  studNum varchar(15)NOT NULL, fName varchar(50)NOT NULL, lName varchar(50)NOT NULL,
 	              studCourse varchar(50)NOT NULL, studEmail varchar(50)NOT NULL,
-	              studContact varchar(50)NOT NULL, department varchar(50)NOT NULL,
+	              studContact varchar(50)NOT NULL, location varchar(50)NOT NULL,
 	              studSched varchar(50)NOT NULL, studTime varchar(50)NOT NULL, 
 
 	             PRIMARY KEY(id) )";
