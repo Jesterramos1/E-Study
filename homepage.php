@@ -257,7 +257,15 @@ if (isset($_POST['submit'])) {
     border-radius: 30px;
     width: 320px;
     height: 320px;
-    
+
+  }
+
+  h4 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
   }
 </style>
 
@@ -505,7 +513,7 @@ if (isset($_POST['submit'])) {
           <h5 class="modal-title fw-bold" id="olafTitle">OLAF Assistance</h5>
           <button type="button" class="btn-close btn-close-white" id="closeBot" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" id="modal-body">
+        <div class="modal-body" id="modal-body" style="background:url('images/bg.png'); background-repeat:no-repeat; background-size: cover;">
           <img src="images/olaf.png" class="rounded float-start position-absolute bottom-0 start-0" style="width:450px; height:450px;" alt="olaf">
           <iframe src="bot.php" frameborder="0" height="95%" width="59%" id="Olaf"></iframe>
 
@@ -552,36 +560,39 @@ if (isset($_POST['submit'])) {
           <div class="text-center mt-4 mb-5">
             <img src="images/lock.png" class="rounded" alt="lock" style="width:200px; height:200px;">
           </div>
-          <form action="code.php" method="POST">
-            
 
-          
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
-              <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">New Password:</span>
-              <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword" name="newUserPassword" required>
-              <button class="btn btn-primary eye" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id="newUserPassIcon"></i></button>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Confirm New Password:</span>
-              <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
-              <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
-            </div>
+          <div class="card mb-5" style="width:90%;">
+            <div class="card-body" >
+              <form action="code.php" method="POST">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Username:</span>
+                  <input type="text" class="form-control" placeholder="Enter new admin username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUser" name="newUser" required>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">New Password:</span>
+                  <input type="password" class="form-control" placeholder="Enter password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPassword" name="newUserPassword" required>
+                  <button class="btn btn-primary eye" type="button" id="newUserPasswordbtn"><i class="bi bi-eye-slash" id="newUserPassIcon"></i></button>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Confirm New Password:</span>
+                  <input type="password" class="form-control" placeholder="Retype password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="newUserPasswordConfirm" name="newUserPasswordConfirm" required>
+                  <button class="btn btn-primary eye" type="button" id="newUserPasswordConfirmbtn"><i class="bi bi-eye-slash" id="newUserPassConfirmIcon"></i></button>
+                </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
-              <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
-              <button class="btn btn-primary eye" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id="masterkeyIcon"></i></button>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-key-fill" style="margin-right: 10px;"></i>Master Key Code:</span>
+                  <input type="password" class="form-control" placeholder="Enter master key code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="masterkeyInput" name="masterkeyInput" required>
+                  <button class="btn btn-primary eye" type="button" id="masterkeyInputbtn"><i class="bi bi-eye-slash" id="masterkeyIcon"></i></button>
+                </div>
             </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-success" name="createAdminbtn" id="createAdminbtn">Reset Password</button>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button class="btn btn-success" name="createAdminbtn" id="createAdminbtn">Reset Password</button>
-        </div>
-        </form>
+
       </div>
     </div>
   </div>
@@ -647,6 +658,6 @@ if (isset($_POST['submit'])) {
 
     });
   </script>
-  </body>
+</body>
 
 </html>
