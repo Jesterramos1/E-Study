@@ -245,7 +245,7 @@ if ($_SESSION['querychoice'] == "") {
 
         .lined .nav-link:hover {
             border: none;
-            border-bottom: 3 px solid transparent;
+            border-bottom: 3px solid #194F90;
         }
 
         .lined .nav-link.active {
@@ -273,6 +273,8 @@ if ($_SESSION['querychoice'] == "") {
         .aal {
             font-size: 14px;
         }
+
+        
     </style>
 
     <title>Explore Research</title>
@@ -337,8 +339,8 @@ if ($_SESSION['querychoice'] == "") {
             </iframe>
         </div>
         <form action="code.php" method="post" enctype="multipart/form-data" class="needs-validation">
-            <div class="input-group mb-2" id="searchInput">
-                <input type="text" class="form-control" placeholder="SearchS" name="searchInput" id="searchInput">
+            <div class="input-group mb-2" id="searchInput" style="margin-top:-7%; margin-left: 1%;">
+                <input type="text" class="form-control" placeholder="Search" name="searchInput" id="searchInput">
                 <button class="btn btn-primary me-md-2" id="searchbtn" name="searchbtn"><i class="bi bi-search"></i></button>
             </div>
 
@@ -353,7 +355,7 @@ if ($_SESSION['querychoice'] == "") {
                 <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
                 <hr id="oy">
             </div>
-            <div class="form-floating">
+            <div class="form-floating" style="width:100%;">
                 <input type="text" class="form-control" id="sortByYear" placeholder="2022" value="2022">
                 <label for="sortByYear"><i class="bi bi-calendar2-week"></i> Year</label>
             </div>
@@ -366,7 +368,7 @@ if ($_SESSION['querychoice'] == "") {
                 <div class="col-md-8">
                     <div class="card-body">
                         <h6 class="card-title">Rizal Technologival University Learning Resource Center</h6>
-                        <button class="btn btn-primary aal"><i class="bi bi-messenger"></i> Ask a Librarian</button>
+                        <button class="btn btn-primary aal"><i class="bi bi-messenger"></i><a href="http://www.google.com/url?q=http%3A%2F%2Fm.me%2Frtulrc&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw3oTJ9n5GG2OsM6sTkRqGgZ" target="_blank" aria-label="Ask a Librarian" style="text-decoration:none; color:#ffffff;"> Ask a Librarian</a></button>
                     </div>
                 </div>
             </div>
@@ -763,7 +765,7 @@ if ($_SESSION['querychoice'] == "") {
             </div>
         </div>
         <nav>
-            <ul class="pagination">
+            <ul class="pagination mt-4 position-absolute top-50 start-50 translate-middle-y">
                 <?php if (!empty($tot_pages)) : for ($i = 1; $i <= $tot_pages; $i++) :
                         if ($i == 1) : ?>
                             <li class='active' id="<?php echo $i; ?>"><a href='logic.php?page=<?php echo $i; ?>'><?php echo $i; ?></a></li>

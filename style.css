@@ -101,17 +101,6 @@ body{
   display: flex;
 }
 
-.searchTerm {
-  width: 90%;
-  border: 3px solid #194f90;
-  border-right: none;
-  padding: 5px;
-  height: 52px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
-}
-
 .searchTerm:focus{
   color: black;
 }
@@ -148,9 +137,8 @@ body{
 }
 .card{
   background-color: #5e1990;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 1.8%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #sub{
@@ -159,16 +147,6 @@ body{
   
 }
 
-.ceat-row{
-  margin-left: 10%;
-}
-h4{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -80%);
-}
 #dept{
   margin-top: 180px;
   margin: 0;
@@ -210,8 +188,8 @@ h4{
 
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   perspective: 1000px; 
 }
 
@@ -239,6 +217,8 @@ h4{
 
 .flip-card-front {
   color: black;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .flip-card-back {
@@ -246,4 +226,6 @@ h4{
   color: white;
   transform: rotateY(180deg);
   border-radius: 30px;
+  width: 320px;
+  height:320px;
 }
