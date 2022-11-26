@@ -8,8 +8,6 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
 }
 
 
-
-
 ?>
 <html>
 
@@ -83,6 +81,12 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
   body::-webkit-scrollbar {
     display: none;
   }
+
+  body.swal2-shown > [aria-hidden="true"] {
+  transition: 0.1s filter;
+  filter: blur(10px);
+}
+  
 
   #forgotPassModalbtn {
     background: none;
@@ -240,6 +244,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
 
 
 <body>
+
 
 
   <!--Header-->
@@ -627,6 +632,28 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
 
     });
   </script>
+
+
+<?php 
+
+if(isset($_SESSION['pass_log'])){
+
+  echo "
+      <script>
+      Swal.fire({
+        
+        position: 'center',
+        icon: 'error',
+        title: 'Username or password is incorrect',
+      });
+      openForm();
+      </script>";
+      unset($_SESSION['pass_log']);
+
+}
+
+
+?>
 </body>
 
 </html>
