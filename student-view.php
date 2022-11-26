@@ -34,7 +34,7 @@ if ($_SESSION['querychoice'] == "") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="simplePagination.css" />
+    <link rel="stylesheet" href="paginationStyle.css" />
     <script src="jquery.simplePagination.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -58,6 +58,7 @@ if ($_SESSION['querychoice'] == "") {
             font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
             overflow-x: hidden;
         }
+
         #imgicon {
             height: 50px;
             width: 50px;
@@ -273,8 +274,6 @@ if ($_SESSION['querychoice'] == "") {
         .aal {
             font-size: 14px;
         }
-
-        
     </style>
 
     <title>Explore Research</title>
@@ -309,24 +308,23 @@ if ($_SESSION['querychoice'] == "") {
                 <input type="text" class="form-control" placeholder="Search">
                 <button class="btn btn-primary me-md-2" type="button" id="sideB"><i class="bi bi-search"></i></button>
             </div>
+            <div style="background-color:#194F90;">
+                <div id="browse" style="background-color:#194F90;">
+                    <h5 style="color:white;"><i class="bi bi-sliders" style="color: white; margin-right:5%; margin-left:2%;"></i>BROWSE BY:</h5>
+                    <hr style="color:white;">
+                </div>
 
-
-            <div id="browse" style="background-color:#194F90;">
-                <h5 style="color:white;"><i class="bi bi-sliders" style="color: white; margin-right:5%; margin-left:2%;"></i>BROWSE BY:</h5>
-                <hr style="color:white;">
+                <div class="pt-4 pb-2" style=" background-color:white;">
+                    <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
+                    <hr id="oy">
+                    <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
+                    <hr id="oy">
+                    <form class="form-floating">
+                        <input type="text" class="form-control" id="floatingInputValue" placeholder="2022" value="2022">
+                        <label for="floatingInputValue"><i class="bi bi-calendar2-week"></i> Year</label>
+                    </form>
+                </div>
             </div>
-
-            <div class="pt-4 pb-2" style=" background-color:white;">
-                <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
-                <hr id="oy">
-                <button id="author"><i class="bi bi-bookmarks-fill" style="margin-right:4%;"></i>Recently Added</button>
-                <hr id="oy">
-                <form class="form-floating">
-                    <input type="text" class="form-control" id="floatingInputValue" placeholder="2022" value="2022">
-                    <label for="floatingInputValue"><i class="bi bi-calendar2-week"></i> Year</label>
-                </form>
-            </div>
-
         </div>
     </div>
 
@@ -385,7 +383,7 @@ if ($_SESSION['querychoice'] == "") {
                 <button class="btn btn-primary d-sm-block d-md-block d-lg-none" id="burgerMenu" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                     <i class="bi bi-list"></i>
                 </button>
-                <button class="nav-link text-uppercase rounded-0 "<?php if ($tabChecker == "0") echo 'active'; ?> id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
+                <button class="nav-link text-uppercase rounded-0 " <?php if ($tabChecker == "0") echo 'active'; ?> id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "1") echo 'active'; ?>" id="nav-ceat-tab" data-bs-toggle="tab" data-bs-target="#nav-ceat" type="button" role="tab" aria-controls="nav-ceat" aria-selected="false">CEAT</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "2") echo 'active'; ?>" id="nav-cbet-tab" data-bs-toggle="tab" data-bs-target="#nav-cbet" type="button" role="tab" aria-controls="nav-cbet" aria-selected="false">CBET</button>
                 <button class="nav-link text-uppercase rounded-0  <?php if ($tabChecker == "3") echo 'active'; ?>" id="nav-cas-tab" data-bs-toggle="tab" data-bs-target="#nav-cas" type="button" role="tab" aria-controls="nav-cas" aria-selected="false">CAS</button>
@@ -415,7 +413,7 @@ if ($_SESSION['querychoice'] == "") {
                                     if ($_SESSION["querychoice"] == '') {
                                         $_SESSION["query"] = "SELECT * FROM storage";
                                     } else {
-                                        
+
                                         $_SESSION["query"] = "SELECT * FROM storage WHERE title LIKE '%{$searchdata}%' OR researchers LIKE '%{$searchdata}%'";
                                     }
                                     $query = $_SESSION["query"];
@@ -764,8 +762,8 @@ if ($_SESSION['querychoice'] == "") {
                 </div>
             </div>
         </div>
-        <nav>
-            <ul class="pagination mt-4 position-absolute top-50 start-50 translate-middle-y">
+        <nav class="position-relative">
+            <ul class="pagination mt-4 position-absolute top-100 start-50 translate-middle">
                 <?php if (!empty($tot_pages)) : for ($i = 1; $i <= $tot_pages; $i++) :
                         if ($i == 1) : ?>
                             <li class='active' id="<?php echo $i; ?>"><a href='logic.php?page=<?php echo $i; ?>'><?php echo $i; ?></a></li>
