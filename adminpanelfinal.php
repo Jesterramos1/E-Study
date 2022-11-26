@@ -8,6 +8,7 @@
         setcookie('pass','',time()-3600);
         session_destroy();
         header("location: homepage.php");
+        exit();
     }  
 ?>
 <html lang="en" dir="ltr">

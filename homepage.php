@@ -3,42 +3,11 @@ require 'dbtable_creation.php';
 session_start();
 $_SESSION["querychoice"] = "";
 
-
-//Account Verification
-
-include "dbcon.php";
-if (isset($_POST['submit'])) {
-
-  $user = $_REQUEST['email'];
-  $pass = $_REQUEST['pass'];
-  if ($con->connect_error) {
-    die("Failed to connect: " . $con->connect_error);
-  } else {
-    $stmt = $con->prepare("SELECT * FROM rtu_admin WHERE admin_user = ?");
-    $stmt->bind_param("s", $user);
-    $stmt->execute();
-    $stmt_result = $stmt->get_result();
-    if ($stmt_result->num_rows > 0) {
-      $data = $stmt_result->fetch_assoc();
-      if ($data['admin_pass']  === $pass) {
-        setcookie("email", $user, time() + 60 * 60 * 24 * 365);
-        setcookie("pass", $pass, time() + 60 * 60 * 24 * 365);
-        $_SESSION['user'] = $user;
-        header("location:adminpanelfinal.php#adminpanelcon");
-        die();
-      } else {
-        echo '<script>openmail()</script>';
-        echo '<script>openForm()</script>';
-      }
-    } else {
-      echo '<script>openmail()</script>';
-      echo '<script>openForm()</script>';
-    }
-  }
-} elseif (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-  header("location: adminpanelfinal.php#adminpanelcon");
-  die();
+if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
+  header('location: adminpanelfinal.php#adminpanelcon');
+  exit();
 }
+
 
 
 
@@ -59,7 +28,9 @@ if (isset($_POST['submit'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+  <script src="sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -108,9 +79,11 @@ if (isset($_POST['submit'])) {
     background-attachment: fixed;
     overflow-x: hidden;
   }
+
   body::-webkit-scrollbar {
     display: none;
   }
+
   #forgotPassModalbtn {
     background: none;
     color: red;
@@ -249,7 +222,7 @@ if (isset($_POST['submit'])) {
     <?php
     require 'header.php'; ?>
   </div>
-
+  
 
   <!--Search bar-->
   <div style="padding-top: 3%;" class="container">
@@ -501,7 +474,7 @@ if (isset($_POST['submit'])) {
 
   <div class="form-popup fadeshow" id="myForm">
 
-    <form method="POST" id="adminForm" class="form-container">
+    <form method="POST" id="adminForm" action="admin_login.php" class="form-container">
       <hr>
       <h2 id="login">ADMIN LOGIN</h2>
       <hr>
@@ -569,10 +542,10 @@ if (isset($_POST['submit'])) {
     }
 
     function openmail() {
-      document.getElementById("message").style.display = "block";
+      $('#message').show();
     }
-
     $(document).ready(function() {
+
       $('#Search_btn').click(function() {
         var txt = $('#Search_bar').val().trim();
         if (txt != '') {
