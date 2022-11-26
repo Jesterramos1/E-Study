@@ -65,7 +65,7 @@
             </thead>
             <?php
             $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
-            $query = "SELECT * FROM booked_schedule WHERE department = 'ceat' ORDER BY id DESC";
+            $query = "SELECT * FROM booked_schedule WHERE location = 'ceat' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
               echo "<tbody>";
@@ -126,7 +126,7 @@
             </thead>
             <?php
             $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
-            $query = "SELECT * FROM booked_schedule WHERE department = 'cbet' ORDER BY id DESC";
+            $query = "SELECT * FROM booked_schedule WHERE location = 'CBET Library - SNAGAH Building / Second (2nd) Floor' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
               echo "<tbody>";
@@ -188,7 +188,7 @@
             </thead>
             <?php
             $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
-            $query = "SELECT * FROM booked_schedule WHERE department = 'cas' ORDER BY id DESC";
+            $query = "SELECT * FROM booked_schedule WHERE location = 'CAS Library - MAB Building / Second (2nd) Floor' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
               echo "<tbody>";
@@ -250,7 +250,7 @@
             </thead>
             <?php
             $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
-            $query = "SELECT * FROM booked_schedule WHERE department = 'ced' ORDER BY id DESC";
+            $query = "SELECT * FROM booked_schedule WHERE location = 'CED Library - SNAGAH Building / Second (2nd) Floor' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
               echo "<tbody>";
@@ -311,7 +311,7 @@
             </thead>
             <?php
             $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
-            $query = "SELECT * FROM booked_schedule WHERE department = 'ipe' ORDER BY id DESC";
+            $query = "SELECT * FROM booked_schedule WHERE location = 'IPE Library - MAB Building / Fifth (5th) Floor' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
               echo "<tbody>";
@@ -373,7 +373,7 @@
             </thead>
             <?php
             $con = mysqli_connect("localhost", "girzqhip_variableSet", "2iT7)iLbZaBl", "girzqhip_Estudy");
-            $query = "SELECT * FROM booked_schedule WHERE department = 'gs' ORDER BY id DESC";
+            $query = "SELECT * FROM booked_schedule WHERE location = 'GS Library - RND Building / Third (3rd) Floor' ORDER BY id DESC";
 
             if ($result = mysqli_query($con, $query)) {
               echo "<tbody>";
