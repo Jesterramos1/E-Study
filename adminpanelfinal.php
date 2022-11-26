@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <?php
-session_start();
-require 'dbcon.php';
-
-if (isset($_POST['logout'])) {
-  setcookie('email', '', time() - 3600);
-  setcookie('pass', '', time() - 3600);
-  session_destroy();
-  header("location: homepage.php");
-}
+    session_start();
+    require 'dbcon.php';
+    
+    if (isset($_POST['logout'])) {
+        setcookie('email','',time()-3600);
+        setcookie('pass','',time()-3600);
+        session_destroy();
+        header("location: homepage.php");
+        exit();
+    }  
 ?>
 <html lang="en" dir="ltr">
 
