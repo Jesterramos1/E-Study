@@ -9,7 +9,12 @@
         session_destroy();
         header("location: homepage.php");
         exit();
-    }  
+    }
+
+    if (!isset($_COOKIE['email']) && !isset($_COOKIE['pass'])) {
+      header('location: homepage.php');
+      exit();
+    }
 ?>
 <html lang="en" dir="ltr">
 
