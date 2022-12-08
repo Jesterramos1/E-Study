@@ -346,7 +346,6 @@ if ($_SESSION['querychoice'] == "") {
                 <h5 style="color:white;"><i class="bi bi-sliders" style="color: white; margin-right:5%; margin-left:2%;"></i>BROWSE BY:</h5>
                 <hr style="color:white;">
             </div>
-
             <div class="pt-4 pb-2" style=" background-color:white;">
                 <button id="alpha"><i class="bi bi-sort-alpha-down" style="margin-right:4%;"></i>Alphabetical</button>
                 <hr id="oy">
