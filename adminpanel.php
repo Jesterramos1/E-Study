@@ -1,115 +1,118 @@
+<!DOCTYPE html>
 <?php
-include('dbcon.php');
-session_start();
-
-$countSql = "SELECT COUNT(id) FROM storage";  
-$result = mysqli_query($con, $countSql);   
-$row = mysqli_fetch_row($result);  
-$total_records = $row[0];  
-$tot_pages = ceil($total_records / $limit);
-if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };  
-$start_from = ($page-1) * $limit;  
-$p = "SELECT * FROM storage ORDER BY id DESC LIMIT $start_from, $limit";  
-$rs_result = mysqli_query($con, $p); 
-?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Manual CSS -->
-    <style type="text/css">
-        #imgicon{
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-        }
-        #admincardheader{
-            background-color: #1C5090;
-            font-weight: bold;
-            font-size: 20px;
-            color: white;
-            text-align: center;
-            text-transform: uppercase;
-        }
-    </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="simplePagination.css" />
-    <script src="jquery.simplePagination.js"></script>
+    session_start();
+    require 'dbcon.php';
     
-    <title>RTU Admin View</title>
-    <script type="text/javascript">
-    $(document).ready(function(){
-    $('.pagination').pagination({
-        items: <?php echo $total_records;?>,
-        itemsOnPage: <?php echo $limit;?>,
-        cssStyle: 'dark-theme',
-        currentPage : 1,
-        onPageClick : function(pageNumber) {
-            jQuery("#target-content").html('loading......');
-            jQuery("#target-content").load("logic.php?page=" + pageNumber);
-        }
-    });
-    });
-    </script>
-</head>
+    if (isset($_POST['logout'])) {
+        setcookie('email','',time()-3600);
+        setcookie('pass','',time()-3600);
+        session_destroy();
+        header("location: homepage.php");
+    }  
+?>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> RTU E-STUDY  | Admin </title>
+    <link rel="stylesheet" href="admin_style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+
+   <!--Icons-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
+   <!--CSS-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+   </head>
+   
 <body>
-        <div class="card" id="admincard">
-        <div class="sticky-sm-top">
-            <div class="card-header" id="admincardheader">
-                Thesis Records
-            </div>
-        </div>    
-            <div class="card-body">                
-                    <h4>Recently Added</h4>
-                    <center>
-                        <nav><ul class="pagination">
-                        <?php include('message.php'); ?>   
-                        <?php if(!empty($tot_pages)):for($i=1; $i<=$tot_pages; $i++):  
-                                    if($i == 1):?>
-                                    <li class='active'  id="<?php echo $i;?>"><a href='logic.php?page=<?php echo $i;?>'><?php echo $i;?></a></li> 
-                                    <?php else:?>
-                                    <li id="<?php echo $i;?>"><a href='logic.php?page=<?php echo $i;?>'><?php echo $i;?></a></li>
-                                <?php endif;?>          
-                        <?php endfor;endif;?>
-                        </ul></nav>
-                    </center>
-                <table class="table table-bordered table-striped">                      
-                    <thead>                        
-                        <tr>
-                            <th style="width: 10%"></th>
-                            <th style="width: 50%">Research Title</th>
-                            <th style="width: 10%">Year of Publication</th>
-                            <th style="width: 10%">Department</th>
-                            <th style="width: 20%">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="target-content">
-                    <?php  
-                    while ($row = mysqli_fetch_assoc($rs_result)) {
-                    ?>  
-                                <tr>
-                                <td><img id="imgicon"src="images/bookicon.png" alt="Book Icon" id="bookIcon"></td>      
-                                <td><?php echo $row["title"]; ?></td>  
-                                <td><?php echo $row["date_publish"]; ?></td>  
-                                <td><?php echo $row["department"]; ?></td>  
-                                <td>
-                                    <a href="research-edit.php?id=<?= $row['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                    <form action="code.php" method="POST" class="d-inline">
-                                        <button type="submit" name="delete_study" value="<?=$row['id'];?>" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
-                                </td>  
-                                </tr>  
-                    <?php  
-                    };  
-                    ?>                        
-                    </tbody>
-                </table>
-            </div>                     
+  <?php
+  if($_SESSION['user'] == ""){
+    $_SESSION['user'] = "No user Found";
+  }
+  ?>
+
+  <div class="sidebar">
+    <div class="logo-details">
+        <div class="logo_name">|E-STUDY</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+          <a href="#adminpanelcon">
+          <i class='bx bxs-folder-plus'></i>
+          <span class="links_name">Recently Added</span>
+          </a>
+         <span class="tooltip">Recently Added</span>
+      </li>
+      <li>
+       <a href="#research-addcon">
+         <i class='bx bx-add-to-queue' ></i>
+         <span class="links_name">Add Research</span>
+       </a>
+       <span class="tooltip">Add Research</span>
+     </li>
+     <li>
+       <a href="#schedulingcon">
+         <i class='bx bxs-time' ></i>
+         <span class="links_name">Booked Schedule</span>
+       </a>
+       <span class="tooltip">Booked Schedule</span>
+     </li>
+     <li>
+       <a href="#settingscon">
+         <i class='bx bxs-cog'></i>
+         <span class="links_name">Settings</span>
+       </a>
+       <span class="tooltip">Settings</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="images/profile.png" alt="profileImg">
+           <div class="name_job">
+               <div class="name">Admin <?php echo $_SESSION['user']; ?></div>
+             <div class="job">E-STUDY ADMIN</div>
+           </div>
+         </div>
+          <form method="POST">
+            <button type="submit" class="btn btn-outline-danger" name="logout"><i class='bx bx-log-out' id="log_out" ></i></button>
+          </form>
+     </li>
+     
+    </ul>
+  </div>
+  <section class="home-section">
+      <div class="sticky-sm-top">
+       <img src="images/adminheader.png" class="img-fluid">
+      </div>
+
+      <div class ="page-container" id="adminpanelcon">
+        <div class = "concon">
+        <iframe src="admin_researchlist.php" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div class ="page-container" id="research-addcon">
+        <div class = "concon">
+        <iframe src="research-add.php" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div class ="page-container" id="schedulingcon">
+        <div class = "concon">
+        <iframe src="admin_scheduling.php" frameborder="0"></iframe>
+        </div>
+       
+      </div>
+      <div class ="page-container" id="settingscon">
+        <div class = "concon" id="sconcon">
+        <iframe src="admin_settings.php" frameborder="0"></iframe>
+        </div>
+      </div>
+  </section>
+
+  <script src="admin_script.js"></script>
 
 </body>
 </html>

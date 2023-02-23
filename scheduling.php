@@ -399,6 +399,7 @@ session_start();
             <div class=" form-floating mb-3">
               <select class="form-select" name="library" id="library" required disabled>
                 <option selected value="<?php echo $_SESSION['selected-location']; ?>"><?php echo $_SESSION['selected-location']; ?></option>
+                <option value="ceat">CEAT Library - Multi-purpose Building / Third (3rd) Floor </option>
                 <option value="cbet">CBET Library - SNAGAH Building / Second (2nd) Floor </option>
                 <option value="cas">CAS Library - MAB Building / Second (2nd) Floor </option>
                 <option value="ced">CED Library - SNAGAH Building / Second (2nd) Floor </option>
